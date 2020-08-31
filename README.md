@@ -72,3 +72,6 @@ Win Dialogue
 
 Lose Dialogue
 ![alt text](img/macon-trouble-lose.jpg "Macon Trouble Monster Encounter")
+
+Pop-up Dialogue
+![alt text](img/macon-trouble-pop-up-dialogue.jpg "Macon Trouble Monster Encounter")

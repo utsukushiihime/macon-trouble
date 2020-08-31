@@ -16,12 +16,12 @@ Turn Based RPG
 * Select your Class - Options (50pt distribution between classes)
   * Warrior - Stats (Attack: 15, Defense: 10,  Accuracy: 10, HP: 15)
   * Healer - Stats(Attack: 10, Defense: 17, Accuracy: 10, HP: 13)
-  * Rogue - Stats(Attack: 10, Defense: 15, Accuracy: 15, HP:10)
-  * Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
+   * Stretch Goal => Rogue - Stats(Attack: 10, Defense: 15, Accuracy: 15, HP:10)
+   * Stretch Goal => Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
   ---
 * After the player selects a class, a sprite is randomly generated based on player class selection
   * Stretch Goal => Player Sprite Choice
-* One companion is assigned to the party - this will be a healer unless the player chooses the healer class. If the player chooses a healer, the user is assigned a random party member (non-healer).
+  * Stretcj Gpa; =>  One companion is assigned to the party - this will be a healer unless the player chooses the healer class. If the player chooses a healer, the user is assigned a random party member (non-healer).
   * Stretch Goal => 3 Companions
   * Stretch Goal => Companion Class Choice
   * Stretch Goal => Companion Sprite Choice
@@ -57,7 +57,7 @@ Turn Based RPG
 * If the player selects the attack button, damage dealt to enemy is displayed in the dialogue box, then the player character’s turn ends.
 * Then the enemy attacks a random party member.
 * A dialogue box pops up with a message displaying the damage dealt and to whom.
-* The player now has the option to attack or heal with the companion character if the companion character is a healer. The character can only attack if non-healer. The information is displayed in the dialogue box.
+ * Stretch Goal =>  The player now has the option to attack or heal with the companion character if the companion character is a healer. The character can only attack if non-healer. The information is displayed in the dialogue box.
 ---
 * The gameplay loop repeats until 3 encounters have been cleared. 
 * After 3 encounters have been cleared, the boss appears.

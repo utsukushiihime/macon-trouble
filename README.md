@@ -17,13 +17,12 @@ Turn Based RPG
 * A dialogue box pops up prompting the player to click a button to select a class
 * Select your Class - Options (50pt distribution between classes)
   * Warrior - Stats (Attack: 15, Defense: 10,  Accuracy: 10, HP: 15)
-  * Healer - Stats(Attack: 10, Defense: 17, Accuracy: 10, HP: 13)
-   * Stretch Goal => Rogue - Stats(Attack: 10, Defense: 15, Accuracy: 15, HP:10)
-   * Stretch Goal => Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
+  * Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
+
+
   ---
 * After the player selects a class, a sprite is randomly generated based on player class selection
-  * Stretch Goal => Player Sprite Choice
-  * Stretch Goal =>  One companion is assigned to the party - this will be a healer unless the player chooses the healer class. If the player chooses a healer, the user is assigned a random party member (non-healer).
+
   * Stretch Goal => 3 Companions
   * Stretch Goal => Companion Class Choice
   * Stretch Goal => Companion Sprite Choice
@@ -49,12 +48,7 @@ Turn Based RPG
 * If the player clicks attack, a dialogue box will open with attack options:
   * Option 1: Click the button to Attack = Base attack
   * Option 2: Click the button to Defend = +5 to Defense (adds to defense on next attack from the enemy)
-    * Stretch Goal => Special Class-Specific Abilities
-      * Fighter => Extra Strong Attack (double damage)
-      * Healer => Heals all party members +5HP
-      * Rogues => Double Attack (attack twice)
-      * Wizard => Eldritch Blast (double damage)
-        * If multiple enemies AOE (area of effect)
+ 
 ---
 * If the player selects the attack button, damage dealt to enemy is displayed in the dialogue box, then the player character’s turn ends.
 * Then the enemy attacks a random party member.
@@ -68,7 +62,23 @@ Turn Based RPG
 * Once the boss is defeated, a dialogue box pops up saying “You have saved the village” with button options to play again or exit. If the player clicks play again, the game resets and starts again. If the player chooses to exit, the credits roll, and the game exits. 
   * Stretch Goal => Keep record number of villages saved.
   * Stretch Goal => Increased encounters before a boss
+---
 
+### - Stretch Goals:
+#### - Select a Class Additonal Options
+  * Rogue - Stats(Attack: 10, Defense: 15, Accuracy: 15, HP:10)
+  * Healer - Stats(Attack: 10, Defense: 17, Accuracy: 10, HP: 13)
+#### - Select a Second Party Member
+#### - Player Sprite Choice
+#### - One companion is assigned to the party - this will be a healer unless the player chooses the healer class. If the player chooses a healer, the user is assigned a random party member (non-healer).
+#### - Battle
+  * Special Class-Specific Abilities
+    * Fighter => Extra Strong Attack (double damage)
+    * Healer => Heals all party members +5HP
+    * Rogues => Double Attack (attack twice)
+    * Wizard => Eldritch Blast (double damage)
+      * If multiple enemies AOE (area of effect)
+---
 ### Design Concepts: 
 
 Monster Encounter

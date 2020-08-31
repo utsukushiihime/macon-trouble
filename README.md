@@ -75,3 +75,9 @@ Lose Dialogue
 
 Pop-up Dialogue
 ![alt text](img/macon-trouble-pop-up-dialogue.jpg "Macon Trouble Monster Encounter")
+
+Menu
+![alt text](img/macon-trouble-menu-options.jpg "Macon Trouble Monster Encounter")
+
+Character Stats
+![alt text](img/macon-trouble-character-stats.jpg "Macon Trouble Monster Encounter")

@@ -6,7 +6,6 @@ Turn Based RPG
 
 ## GamePlay
 
----
 * User clicks start button to begin game
 * A dialogue box pops up prompting the player to click a button to select a class
 * Select your Class - Options (50pt distribution between classes)

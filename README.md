@@ -6,17 +6,6 @@ Turn Based RPG
 
 ## GamePlay
 
-### Design Concepts: 
-
-Monster Encounter
-![alt text](img/macon-trouble-monster-encounter.jpg "Macon Trouble Monster Encounter")
-
-Win Dialogue
-![alt text](img/macon-trouble-win.jpg "Macon Trouble Monster Encounter")
-
-Lose Dialogue
-![alt text](img/macon-trouble-lose.jpg "Macon Trouble Monster Encounter")
-
 ---
 * User clicks start button to begin game
 * A dialogue box pops up prompting the player to click a button to select a class
@@ -73,3 +62,14 @@ Lose Dialogue
 * Once the boss is defeated, a dialogue box pops up saying “You have saved the village” with button options to play again or exit. If the player clicks play again, the game resets and starts again. If the player chooses to exit, the credits roll, and the game exits. 
   * Stretch Goal => If record number of villages saved.
   * Stretch Goal => Increased encounters before a boss
+
+### Design Concepts: 
+
+Monster Encounter
+![alt text](img/macon-trouble-monster-encounter.jpg "Macon Trouble Monster Encounter")
+
+Win Dialogue
+![alt text](img/macon-trouble-win.jpg "Macon Trouble Monster Encounter")
+
+Lose Dialogue
+![alt text](img/macon-trouble-lose.jpg "Macon Trouble Monster Encounter")

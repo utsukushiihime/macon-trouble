@@ -6,6 +6,18 @@ Turn Based RPG
 
 ## GamePlay
 
+### Design Concepts: 
+
+Monster Encounter
+![alt text](img/macon-trouble-monster-encounter.jpg "Macon Trouble Monster Encounter")
+
+Win Dialogue
+![alt text](img/macon-trouble-win.jpg "Macon Trouble Monster Encounter")
+
+Lose Dialogue
+![alt text](img/macon-trouble-lose.jpg "Macon Trouble Monster Encounter")
+
+---
 * User clicks start button to begin game
 * A dialogue box pops up prompting the player to click a button to select a class
 * Select your Class - Options (50pt distribution between classes)

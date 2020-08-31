@@ -23,7 +23,7 @@ Turn Based RPG
   ---
 * After the player selects a class, a sprite is randomly generated based on player class selection
   * Stretch Goal => Player Sprite Choice
-  * Stretcj Goal =>  One companion is assigned to the party - this will be a healer unless the player chooses the healer class. If the player chooses a healer, the user is assigned a random party member (non-healer).
+  * Stretch Goal =>  One companion is assigned to the party - this will be a healer unless the player chooses the healer class. If the player chooses a healer, the user is assigned a random party member (non-healer).
   * Stretch Goal => 3 Companions
   * Stretch Goal => Companion Class Choice
   * Stretch Goal => Companion Sprite Choice

@@ -62,7 +62,9 @@ Turn Based RPG
   * Healer - Stats(Attack: 10, Defense: 17, Accuracy: 10, HP: 13)
 #### - Select a Second Party Member
 #### - Player Sprite Choice
-#### - One companion is assigned to the party - this will be a healer unless the player chooses the healer class. If the player chooses a healer, the user is assigned a random party member (non-healer).
+#### - One companion is assigned to the party 
+* The companion will be a healer unless the player chooses the healer class. 
+* If the player chooses a healer, the user is assigned a random party member (non-healer).
 #### - Battle
   * Special Class-Specific Abilities
     * Fighter => Extra Strong Attack (double damage)

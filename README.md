@@ -1,8 +1,10 @@
 # Macon Trouble
-Turn based rpg
+Turn Based RPG
+
+### Macon must keep the evil from taking over save the village.
 
 
-## Game - User Stories
+## GamePlay
 
 * User clicks start button to begin game
 * A dialogue box pops up prompting the player to click a button to select a class

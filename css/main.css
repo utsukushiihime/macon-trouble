@@ -4,7 +4,7 @@
 }
 
 body {
-    background: #76c4e8 url("../img/backgrounds/bg1.jpg") 0 0 repeat-x;
-    height: 768px;
+    background: #76c4e8 url("../img/backgrounds/bg1.jpg") left bottom repeat-x;
+    height: 100vh;
 
 }

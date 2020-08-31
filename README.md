@@ -67,6 +67,9 @@ Turn Based RPG
 Monster Encounter
 ![alt text](img/macon-trouble-monster-encounter.jpg "Macon Trouble Monster Encounter")
 
+Monster Encounter with Health Bars
+![alt text](img/macon-trouble-health-bars.jpg "Macon Trouble Monster Encounter")
+
 Win Dialogue
 ![alt text](img/macon-trouble-win.jpg "Macon Trouble Monster Encounter")
 

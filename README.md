@@ -20,12 +20,9 @@ Turn Based RPG
   * Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
 
 
-  ---
+---
 * After the player selects a class, a sprite is randomly generated based on player class selection
   
-* Companion sprite randomly generated
-  * Stretch Goal => Generate random class-based sprite for non-healer
----
 * A pop-up dialogue box with party member stats and sprites displayed after companion generated. 
 * Stats are displayed beside the character sprites
 * Dialogue for Pop-up:
@@ -37,7 +34,7 @@ Turn Based RPG
 * The player can select a button from a dialogue box with an attack option when encountering an enemy.
 * Once in battle, you must play till the end of the encounter.
 * The player wins if they beat the boss, there will be 3 enemy encounters before the boss.
-  * Stretch Goal = > Multiple enemies per encounter
+
 ---
 * If the player moves across the screen to the right for 5 seconds, an enemy encounter will be triggered.
 * A dialogue box will pop up when you encounter an enemy with options:
@@ -48,17 +45,15 @@ Turn Based RPG
  
 ---
 * If the player selects the attack button, damage dealt to enemy is displayed in the dialogue box, then the player character’s turn ends.
-* Then the enemy attacks a random party member.
+* Then the enemy attacks a random party member if multiple part members otherwise enemy attacks player.
 * A dialogue box pops up with a message displaying the damage dealt and to whom.
- * Stretch Goal =>  The player now has the option to attack or heal with the companion character if the companion character is a healer. The character can only attack if non-healer. The information is displayed in the dialogue box.
 ---
 * The gameplay loop repeats until 3 encounters have been cleared. 
 * After 3 encounters have been cleared, the boss appears.
 * Boss fight functions the same as the other encounters with higher stats.
-  * Stretch Goal => Give boss special ability.
+ 
 * Once the boss is defeated, a dialogue box pops up saying “You have saved the village” with button options to play again or exit. If the player clicks play again, the game resets and starts again. If the player chooses to exit, the credits roll, and the game exits. 
-  * Stretch Goal => Keep record number of villages saved.
-  * Stretch Goal => Increased encounters before a boss
+
 ---
 
 ### Stretch Goals:
@@ -76,9 +71,24 @@ Turn Based RPG
     * Wizard => Eldritch Blast (double damage)
       * If multiple enemies AOE (area of effect)
 #### - Companion Options
-  * Up to 3 Companions
-  * Player can choose the companion class 
-  * Player can choose the companion sprite
+* Companion sprite randomly generated
+* Generate random class-based sprite
+* Player can choose the companion class 
+* Player can choose the companion sprite
+* Player chooses up to 3 companions
+
+#### - Boss Encounter
+ * Multiple enemies per encounter
+ * Give the boss a special ability.
+
+#### - Attack/Defense Options
+* The player now has the option to attack or heal with the companion character if the companion character is a healer. 
+* The character can only attack if non-healer. 
+
+#### - Continued Gameplay
+  * Keep record number of villages saved.
+  * Increased encounters before a boss
+ 
 ---
 ### Design Concepts: 
 

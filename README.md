@@ -59,7 +59,7 @@ Turn Based RPG
 * Boss fight functions the same as the other encounters with higher stats.
   * Stretch Goal => Give boss special ability.
 * Once the boss is defeated, a dialogue box pops up saying “You have saved the village” with button options to play again or exit. If the player clicks play again, the game resets and starts again. If the player chooses to exit, the credits roll, and the game exits. 
-  * Stretch Goal => If record number of villages saved.
+  * Stretch Goal => Keep record number of villages saved.
   * Stretch Goal => Increased encounters before a boss
 
 ### Design Concepts: 

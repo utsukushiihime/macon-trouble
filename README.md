@@ -22,10 +22,7 @@ Turn Based RPG
 
   ---
 * After the player selects a class, a sprite is randomly generated based on player class selection
-
-  * Stretch Goal => 3 Companions
-  * Stretch Goal => Companion Class Choice
-  * Stretch Goal => Companion Sprite Choice
+  
 * Companion sprite randomly generated
   * Stretch Goal => Generate random class-based sprite for non-healer
 ---
@@ -64,7 +61,7 @@ Turn Based RPG
   * Stretch Goal => Increased encounters before a boss
 ---
 
-### - Stretch Goals:
+### Stretch Goals:
 #### - Select a Class Additonal Options
   * Rogue - Stats(Attack: 10, Defense: 15, Accuracy: 15, HP:10)
   * Healer - Stats(Attack: 10, Defense: 17, Accuracy: 10, HP: 13)
@@ -78,6 +75,10 @@ Turn Based RPG
     * Rogues => Double Attack (attack twice)
     * Wizard => Eldritch Blast (double damage)
       * If multiple enemies AOE (area of effect)
+#### - Companion Options
+  * Up to 3 Companions
+  * Player can choose the companion class 
+  * Player can choose the companion sprite
 ---
 ### Design Concepts: 
 

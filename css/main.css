@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #76c4e8 url("../img/backgrounds/bg1.jpg") center center repeat-x;
+    height: 768px;
+
+}

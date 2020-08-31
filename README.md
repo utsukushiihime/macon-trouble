@@ -1,7 +1,7 @@
 # Macon Trouble
 Turn Based RPG
 
-### Macon must keep the evil from taking over save the village.
+### Macon must prevent the evil from taking over the village.
 
 
 ## GamePlay

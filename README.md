@@ -3,6 +3,11 @@ Turn Based RPG
 
 ### Macon must prevent the evil from taking over the village.
 
+## MVP
+* Will have 1 player
+* Will encounter 3 small enemies
+* Will encounter final boss
+* Keeping track of HP
 
 ## GamePlay
 

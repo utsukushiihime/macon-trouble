@@ -14,6 +14,40 @@ Warrior - Stats (Attack: 15, Defense: 10, Accuracy: 10, HP: 15)
 Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
 After the player selects a class, a sprite is randomly generated based on player class selection */
 
+// Player Macon Trouble for side scrolling turn based RPG
+
+// Goals 09/01/20
+// create player classes and stats
+// build functionality to allow player to select their class
+// Stretch Goal => randomly generate sprite based on class selected
+
+
+class PlayerClasses {
+    constructor(attack, defense, accuracy, HP) {
+        this.attack = attack;
+        this.defense = defense;
+        this.accuracy = accuracy;
+        this.HP = HP;
+    }
+
+    wizard() {
+
+    }
+
+    warrior() {
+
+    }
+
+    healer() {
+
+    }
+    
+    rogue() {
+
+    }
+
+}
+
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.
 

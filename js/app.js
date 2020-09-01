@@ -55,22 +55,31 @@ const playerClasses = [
         health: 10
 }];
 
-// Create plyer class types
-class ClassTypes {
-    constructor( type, attack, defense, accuracy, health) {
-        this.type = type;
-        this.attack = attack;
-        this.defense = defense;
-        this.accuracy = accuracy;
-        this.health = health;
+// hide class options until user chooses to play
+$('#select-class').hide();
+
+// ask player if they want to play the game
+// if answer yes, show button to choose class
+const playGame = () => {
+let play = prompt('Do you want to play?');
+    if (play === 'yes') {
+        $('#select-class').show();
+    } else {
+        alert('See you next time');
     }
-}
-const chooseClass = () => {
-    for(let i = 0;  i < playerClasses.length; i++) {
-        console.log(playerClasses[i].type);
-    }
+
 }
 
+const classOptions = playerClasses;
+// if user wants to play, choose class
+const chooseClass = () => {
+    prompt(`Choose your class. ${playerClasses}`)
+}
+
+
+
+// BUTTONS
+$('#game-start').on('click', playGame);
 // return the class options on click
 $('#select-class').on('click', chooseClass);
 

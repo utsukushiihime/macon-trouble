@@ -57,6 +57,8 @@ const playerClasses = [
 
 // hide class options until user chooses to play
 $('#select-class').hide();
+$('#play-yes').hide();
+$('#play-no').hide();
 
 // ask player if they want to play the game
 // if answer yes, show button to choose class
@@ -70,7 +72,14 @@ let play = prompt('Do you want to play?');
 
 }
 
-const classOptions = playerClasses;
+const classOptions = [];
+
+// copy bond titles from bond film to new array
+for (let i = 0; i < playerClasses.length; i++) {
+    classOptions.push(playerClasses[i].type);
+}
+console.log(classOptions);
+
 // if user wants to play, choose class
 const chooseClass = () => {
     prompt(`Choose your class. ${playerClasses}`)

@@ -55,7 +55,7 @@ const playerClasses = [
         health: 10
 }];
 
-// hide options until user chooses to play
+// BUTTONS Hide on Entering
 $('#select-class').hide();
 $('#play-yes').hide();
 $('#play-no').hide();
@@ -63,9 +63,11 @@ $('#play-no').hide();
 // ask player if they want to play the game
 // if answer yes, show button to choose class
 const playGame = () => {
-    $('#game-start').hide();
+    $('#game-start').hide(); 
     $('#play-yes').show();
     $('#play-no').show();
+
+// if yes, hide yes/no buttons and show select a class button
     $('#play-yes').on('click', function() {
         $('#play-yes').hide();
         $('#play-no').hide();
@@ -73,13 +75,14 @@ const playGame = () => {
     })
 }
 
+// create class options
 const classOptions = [];
 
-// copy bond titles from bond film to new array
+// copy Class type options to 
 for (let i = 0; i < playerClasses.length; i++) {
     classOptions.push(playerClasses[i].type);
 }
-console.log(classOptions);
+// console.log(classOptions);
 
 // if user wants to play, choose class
 const chooseClass = () => {
@@ -89,6 +92,7 @@ const chooseClass = () => {
 
 // BUTTONS
 $('#game-start').on('click', playGame);
+
 // return the class options on click
 $('#select-class').on('click', chooseClass);
 

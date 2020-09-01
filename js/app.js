@@ -55,7 +55,8 @@ const playerClasses = [
         health: 10
 }];
 
-class PlayerClass {
+// Create plyer class types
+class ClassTypes {
     constructor( type, attack, defense, accuracy, health) {
         this.type = type;
         this.attack = attack;
@@ -65,14 +66,22 @@ class PlayerClass {
     }
 }
 
-console.log(playerClasses);
+// console.log(playerClasses);
 
 
-$('#select-class').on('click', function() {
-    // prompt user to select a class
-    console.log(PlayerClass);
-});
+// Create the Player
 
+const playerClassOptions = () => {
+    for(let i = 0; i < playerClasses; i++) {
+        let classType = playerClasses[i].type;
+        return classType;
+    }
+    prompt(`It worked.`);
+}
+
+
+// return the class options on click
+$('#select-class').on('click', playerClassOptions);
 
 
 

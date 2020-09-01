@@ -19,42 +19,60 @@ After the player selects a class, a sprite is randomly generated based on player
 // Player Macon Trouble for side scrolling turn based RPG
 
 // Goals 09/01/20
-// create player classes and stats
-// build functionality to allow player to select their class
+// create player classes and stats - DONE
+// build functionality to allow player to select their class 
 // Stretch Goal => randomly generate sprite based on class selected
 
+
+// Player Classes and Stats
 const playerClasses = [
     {
-        class: 'Warrior',
+        playerClass: 'Warrior',
         attack: 18,
         defense: 10,
         accuracy: 14,
-        HP: 15
+        health: 15
     },
     {
-        class: 'Wizard',
+        playerClass: 'Wizard',
         attack: 18,
         defense: 10, 
         accuracy: 14,
-        HP: 8
+        health: 8
     },
     {
-        class: 'Healer',
+        playerClass: 'Healer',
         attack: 10,
         defense: 17,
         accuracy: 10,
-        HP: 13
+        health: 13
     },
     {
-        class: 'Rogue',
+        playerClass: 'Rogue',
         attack: 10,
         defense: 15,
         accuracy: 15,
-        HP: 10
+        health: 10
 }];
 
+class Player {
+    constructor(playerClass, attack, defense, accuracy, HP) {
+        this.class = playerClass;
+        this.attack = attack;
+        this.defense = defense;
+        this.accuracy = accuracy;
+        this.health = health;
+    }
+
+    selectClass() {
+        return this.class;
+    }
+
+};
 
 console.log(playerClasses[1]);
+
+
 
 
 

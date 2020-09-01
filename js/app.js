@@ -12,6 +12,8 @@ A dialogue box pops up prompting the player to click a button to select a class
 Select your Class - Options (50pt distribution between classes)
 Warrior - Stats (Attack: 15, Defense: 10, Accuracy: 10, HP: 15)
 Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
+Rogue - Stats(Attack: 10, Defense: 15, Accuracy: 15, HP:10)
+Healer - Stats(Attack: 10, Defense: 17, Accuracy: 10, HP: 13)
 After the player selects a class, a sprite is randomly generated based on player class selection */
 
 // Player Macon Trouble for side scrolling turn based RPG
@@ -21,32 +23,40 @@ After the player selects a class, a sprite is randomly generated based on player
 // build functionality to allow player to select their class
 // Stretch Goal => randomly generate sprite based on class selected
 
+const playerClasses = [
+    {
+        class: 'Warrior',
+        attack: 18,
+        defense: 10,
+        accuracy: 14,
+        HP: 15
+    },
+    {
+        class: 'Wizard',
+        attack: 18,
+        defense: 10, 
+        accuracy: 14,
+        HP: 8
+    },
+    {
+        class: 'Healer',
+        attack: 10,
+        defense: 17,
+        accuracy: 10,
+        HP: 13
+    },
+    {
+        class: 'Rogue',
+        attack: 10,
+        defense: 15,
+        accuracy: 15,
+        HP: 10
+}];
 
-class PlayerClasses {
-    constructor(attack, defense, accuracy, HP) {
-        this.attack = attack;
-        this.defense = defense;
-        this.accuracy = accuracy;
-        this.HP = HP;
-    }
 
-    wizard() {
+console.log(playerClasses[1]);
 
-    }
 
-    warrior() {
-
-    }
-
-    healer() {
-
-    }
-    
-    rogue() {
-
-    }
-
-}
 
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.

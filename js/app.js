@@ -65,23 +65,14 @@ class ClassTypes {
         this.health = health;
     }
 }
-
-// console.log(playerClasses);
-
-
-// Create the Player
-
-const playerClassOptions = () => {
-    for(let i = 0; i < playerClasses; i++) {
-        let classType = playerClasses[i].type;
-        return classType;
+const chooseClass = () => {
+    for(let i = 0;  i < playerClasses.length; i++) {
+        console.log(playerClasses[i].type);
     }
-    prompt(`It worked.`);
 }
 
-
 // return the class options on click
-$('#select-class').on('click', playerClassOptions);
+$('#select-class').on('click', chooseClass);
 
 
 

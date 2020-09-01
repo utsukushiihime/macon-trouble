@@ -66,6 +66,11 @@ const playGame = () => {
     $('#game-start').hide();
     $('#play-yes').show();
     $('#play-no').show();
+    $('#play-yes').on('click', function() {
+        $('#play-yes').hide();
+        $('#play-no').hide();
+        $('#select-class').show();
+    })
 }
 
 const classOptions = [];
@@ -78,18 +83,14 @@ console.log(classOptions);
 
 // if user wants to play, choose class
 const chooseClass = () => {
-    prompt(`Choose your class. ${playerClasses}`)
+   let option = prompt(`Choose your class. ${classOptions}`);
+    alert(`You have chosen to play a ${option}`);
 }
 
 // BUTTONS
 $('#game-start').on('click', playGame);
 // return the class options on click
 $('#select-class').on('click', chooseClass);
-
-
-
-// Select a class
-
 
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.

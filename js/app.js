@@ -55,7 +55,7 @@ const playerClasses = [
         health: 10
 }];
 
-// hide class options until user chooses to play
+// hide options until user chooses to play
 $('#select-class').hide();
 $('#play-yes').hide();
 $('#play-no').hide();
@@ -63,13 +63,9 @@ $('#play-no').hide();
 // ask player if they want to play the game
 // if answer yes, show button to choose class
 const playGame = () => {
-let play = prompt('Do you want to play?');
-    if (play === 'yes') {
-        $('#select-class').show();
-    } else {
-        alert('See you next time');
-    }
-
+    $('#game-start').hide();
+    $('#play-yes').show();
+    $('#play-no').show();
 }
 
 const classOptions = [];
@@ -84,8 +80,6 @@ console.log(classOptions);
 const chooseClass = () => {
     prompt(`Choose your class. ${playerClasses}`)
 }
-
-
 
 // BUTTONS
 $('#game-start').on('click', playGame);

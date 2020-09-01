@@ -27,53 +27,56 @@ After the player selects a class, a sprite is randomly generated based on player
 // Player Classes and Stats
 const playerClasses = [
     {
-        playerClass: 'Warrior',
+        type: 'Warrior',
         attack: 18,
         defense: 10,
         accuracy: 14,
         health: 15
     },
     {
-        playerClass: 'Wizard',
+        type: 'Wizard',
         attack: 18,
         defense: 10, 
         accuracy: 14,
         health: 8
     },
     {
-        playerClass: 'Healer',
+        type: 'Healer',
         attack: 10,
         defense: 17,
         accuracy: 10,
         health: 13
     },
     {
-        playerClass: 'Rogue',
+        type: 'Rogue',
         attack: 10,
         defense: 15,
         accuracy: 15,
         health: 10
 }];
 
-class Player {
-    constructor(playerClass, attack, defense, accuracy, HP) {
-        this.class = playerClass;
+class PlayerClass {
+    constructor( type, attack, defense, accuracy, health) {
+        this.type = type;
         this.attack = attack;
         this.defense = defense;
         this.accuracy = accuracy;
         this.health = health;
     }
+}
 
-    selectClass() {
-        return this.class;
-    }
-
-};
-
-console.log(playerClasses[1]);
+console.log(playerClasses);
 
 
+$('#select-class').on('click', function() {
+    // prompt user to select a class
+    console.log(PlayerClass);
+});
 
+
+
+
+// Select a class
 
 
 

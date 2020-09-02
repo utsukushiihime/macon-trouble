@@ -80,6 +80,15 @@ img.character-sprite-2.image-fluid {
     bottom: -260px;
 }
 
+/* Monsters */
+
+img.monster-sprite.image-fluid {
+    height: 375px;
+    right: 100px;
+    position: absolute;
+    bottom: 130px;
+}
+
 
 /* Bootstrap Overrides */
 .btn-primary.focus, .btn-primary:focus {
@@ -94,4 +103,13 @@ img.character-sprite-2.image-fluid {
     color: #fff;
     background-color: #281d17;
     border-color: #281d17;
+}
+
+.modal-content {
+    background: url(../img/elements/parchment-bg.png) left top repeat-y;
+    height: 100%;
+    background-origin: content-box;
+    background-size: cover;
+    border: none;
+
 }

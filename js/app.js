@@ -71,6 +71,8 @@ for (let i = 0; i < playerClasses.length; i++) {
 
 // TODO DRY up this section currently very MVP :)
 // select characters
+
+// Warrior 
 const selectWarrior = () => {
     $('.warrior').append('<p>You selected Warrior</p>');
     $('.healer').hide();
@@ -78,6 +80,7 @@ const selectWarrior = () => {
     $('.wizard').hide();
 }
 
+// Wizard
 const selectWizard = () => {
     $('.wizard').append('<p>You selected Wizard</p>');
     $('.healer').hide();
@@ -85,6 +88,7 @@ const selectWizard = () => {
     $('.warrior').hide();
 }
 
+// Healer
 const selectHealer = () => {
     $('.healer').append('<p>You selected Healer</p>');
     $('.warrior').hide();
@@ -92,6 +96,7 @@ const selectHealer = () => {
     $('.wizard').hide();
 }
 
+// Rogue
 const selectRogue = () => {
     $('.rogue').append('<p>You selected Rogue</p>');
     $('.healer').hide();
@@ -99,6 +104,7 @@ const selectRogue = () => {
     $('.wizard').hide();
 }
 
+// TODO 
 // hide characters options and start game
 const playGame = () => {
     $('.modal-body').append('<p>Prepare for adventure. The game begins.</p>');
@@ -114,6 +120,10 @@ $('#warrior').on('click', selectWarrior);
 $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
+
+
+// TODO Make the movement less janky
+// TODO scroll the screen 
 
 // Character Move Right
 // FIXME character movement need to add bounce animatin and edit timing
@@ -131,13 +141,18 @@ $( "#right" ).click(function() {
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.
 
+// NOTE
 // Goals 09/02/2020 
 // Generate Random Character Sprite
+// Display Selected Character Stats
 // Start Gameplay
 // Stretch Goal = > Generate Random Monster
 
-
-// Possible blockers not accounting for unexpected user interaction
+// NOTE
+// Possible blockers 
+// Not accounting for unexpected user interaction
+// Perfectionism / Need to remember MVP
+// ME: Staying focused on one feature at a time
 
 
 Stats are displayed beside the character sprites

@@ -108,6 +108,7 @@ const playGame = () => {
 $('#start-game').on('click', playGame);
 
 // Player Class BUTTONS
+// TODO Need to make this DRY when I have time
 $('#warrior').on('click', selectWarrior);
 $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
@@ -127,6 +128,10 @@ $( "#right" ).click(function() {
   });
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.
+// Goals 09/02/2020 
+// Generate Sprite
+// Start Game
+// Stretch Goal = > Generate Random Monster
 
 Stats are displayed beside the character sprites
 

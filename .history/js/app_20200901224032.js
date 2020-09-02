@@ -117,15 +117,16 @@ $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 
+
 // FIXME
 // playing with animating the sprite
-$( "#right" ).click(function() {
-    $( ".avatar-block" ).animate({ "left": "+=50px" }, "slow" );
-  });
-   
-  $( "#left" ).click(function(){
-    $( ".avatar-block" ).animate({ "left": "-=50px" }, "slow" );
-  });
+$("#right").click(function() {
+    $(".sprite").animate({ "left": "+=50px" }, "slow");
+});
+
+$("#left").click(function() {
+    $(".sprite").animate({ "left": "-=50px" }, "slow");
+});
 
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.

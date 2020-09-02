@@ -9,12 +9,13 @@
 body {
     background: #76c4e8 url("../img/backgrounds/bg1.jpg") left bottom repeat-x !important;
     height: 100vh;
+    background-origin: content-box;
 }
 
 .h1-title {
     text-transform: uppercase;
     font-family: 'Luckiest Guy', cursive;
-    color: #281d17;
+    color: #362720;
     font-size: 72px;
     padding: 40px;
     margin-bottom: 40px;
@@ -26,15 +27,13 @@ button.btn.btn-primary.play-button {
     height: 65px;
     padding: 10px 60px;
 }
-
-.sprite img{
-    display: block;
-    position: relative;
-    margin-left: 80px;
-    bottom: 55px;
-    z-index: -1;
-}
-
+.avatar-block {
+    position: absolute;
+    left: 50px;
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+  }
 /* Class Avatars */
 
 .small-avatar {

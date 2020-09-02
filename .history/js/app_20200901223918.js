@@ -26,12 +26,13 @@ After the player selects a class, a sprite is randomly generated based on player
 
 
 // Bootstrap Modal
-$('#gameDialogue').on('shown.bs.modal', function() {
+$('#gameDialogue').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
-})
+  })
 
 // Player Classes and Stats
-const playerClasses = [{
+const playerClasses = [
+    {
         type: 'Warrior',
         attack: 18,
         defense: 10,
@@ -41,7 +42,7 @@ const playerClasses = [{
     {
         type: 'Wizard',
         attack: 18,
-        defense: 10,
+        defense: 10, 
         accuracy: 14,
         health: 8
     },
@@ -58,8 +59,7 @@ const playerClasses = [{
         defense: 15,
         accuracy: 15,
         health: 10
-    }
-];
+}];
 
 
 // create class options
@@ -85,14 +85,14 @@ const selectWizard = () => {
     $('.warrior').hide();
 }
 
-const selectHealer = () => {
+const selectHealer= () => {
     $('.healer').append('<p>You selected Healer</p>');
     $('.warrior').hide();
     $('.rogue').hide();
     $('.wizard').hide();
 }
 
-const selectRogue = () => {
+const selectRogue= () => {
     $('.rogue').append('<p>You selected Rogue</p>');
     $('.healer').hide();
     $('.warrior').hide();
@@ -117,14 +117,15 @@ $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 
+
 // FIXME
 // playing with animating the sprite
 $( "#right" ).click(function() {
-    $( ".avatar-block" ).animate({ "left": "+=50px" }, "slow" );
+    $( ".sprite" ).animate({ "left": "+=50px" }, "slow" );
   });
    
-  $( "#left" ).click(function(){
-    $( ".avatar-block" ).animate({ "left": "-=50px" }, "slow" );
+  $( "#left" ).click(function()
+  {$( ".sprite" ).animate({ "left": "-=50px" }, "slow" );
   });
 
 

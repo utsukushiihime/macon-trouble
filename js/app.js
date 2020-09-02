@@ -47,7 +47,7 @@ const playerClasses = [{
         accuracy: 14,
         health: 15,
         image: [
-            '../img/characters/warrior/warrior-1.png', 
+            './img/characters/warrior/warrior-1.png', 
             '../img/characters/warrior/warrior-2.png',
             '../img/characters/warrior/warrior-3.png',
             '../img/characters/warrior/warrior-4.png',
@@ -60,21 +60,44 @@ const playerClasses = [{
         attack: 18,
         defense: 10,
         accuracy: 14,
-        health: 8
+        health: 8,
+        image:
+        [
+            '../img/characters/wizard/wizard-1.png', 
+            '../img/characters/wizard/wizard-2.png',
+            '../img/characters/wizard/wizard-3.png',
+            '../img/characters/wizard/wizard-4.png',
+            '../img/characters/wizard/wizard-5.png'
+
+        ]
     },
     {
         type: 'Healer',
         attack: 10,
         defense: 17,
         accuracy: 10,
-        health: 13
+        health: 13,
+        image: [
+            '../img/characters/healer/healer-1.png', 
+            '../img/characters/healer/healer-2.png',
+            '../img/characters/healer/healer-3.png',
+            '../img/characters/healer/healer-4.png',
+            '../img/characters/healer/healer-5.png'
+        ]
     },
     {
         type: 'Rogue',
         attack: 10,
         defense: 15,
         accuracy: 15,
-        health: 10
+        health: 10,
+        image: [
+            '../img/characters/rogue/rogue-1.png', 
+            '../img/characters/rogue/rogue-2.png',
+            '../img/characters/rogue/rogue-3.png',
+            '../img/characters/rogue/rogue-4.png',
+            '../img/characters/rogue/rogue-5.png'
+        ]
     }
 ];
 
@@ -87,6 +110,17 @@ for (let i = 0; i < playerClasses.length; i++) {
     classOptions.push(playerClasses[i].type);
 }
 
+
+// create class options
+const characterImages = [];
+
+// copy Class type options to 
+for (let i = 0; i < playerClasses.length; i++) {
+    characterImages.push(playerClasses[i].image);
+
+}
+
+
 // TODO DRY up this section currently very MVP :)
 // select characters
 
@@ -95,6 +129,8 @@ const selectWarrior = () => {
     $('.warrior').append('<p>You selected Warrior</p>');
     $('.healer, .rogue, .wizard').hide();
     $('#warrior .btn .btn-secondary').hide();
+    // get random character when 
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[0][0]}">`);
 }
 
 // Wizard
@@ -119,9 +155,8 @@ const selectRogue = () => {
 // hide characters options and start game
 const playGame = () => {
     $('.modal-body').append('<p>Prepare for adventure. The game begins.</p>');
-    $('.classes').hide();
+    $('.player-classes').replaceWith('<h4>Macon, you must hurry. The monsters are coming.</h4>');
 }
-
 
 // If player selects play game display message and hide begin my quest button and after close show character on screen
 
@@ -130,9 +165,6 @@ const startGame = () => {
     // show character on close
     // get selected class
 }
-
-
-
 
 // BUTTONS
 $('#start-game').on('click', playGame);
@@ -144,7 +176,6 @@ $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 $('#start-game').on('click', startGame);
-
 
 /*************************************/
 

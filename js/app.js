@@ -61,29 +61,8 @@ const playerClasses = [
         health: 10
 }];
 
-// BUTTONS Hide on Page Enter
-$('#select-class').hide();
-$('#play-yes').hide();
-$('#play-no').hide();
-$('#warrior').hide();
-$('#wizard').hide();
-$('#healer').hide();
-$('#rogue').hide();
 
-// ask player if they want to play the game
-// if answer yes, show button to choose class
-const playGame = () => {
-    $('#game-start').hide(); 
-    $('#play-yes').show();
-    $('#play-no').show();
 
-// if yes, hide yes/no buttons and show select a class button
-    $('#play-yes').on('click', function() {
-        $('#play-yes').hide();
-        $('#play-no').hide();
-        $('#select-class').show();
-    })
-}
 
 // create class options
 const classOptions = [];
@@ -94,17 +73,21 @@ for (let i = 0; i < playerClasses.length; i++) {
 }
 // console.log(classOptions);
 
-// if user wants to play, choose class
-const chooseClass = () => {
-   let option = prompt(`Choose your class. ${classOptions}`);
-    alert(`You have chosen to play a ${option}`);
+// ask player if they want to play the game
+// if answer yes, show button to choose class
+const playGame = () => {
+    
 }
+
+// if user wants to play, choose class
+$('#wizard').on('click', function () {
+    $('class-option').append(`You chose wizard.`);
+})
 
 // BUTTONS
 $('#game-start').on('click', playGame);
 
 // return the class options on click
-$('#select-class').on('click', chooseClass);
 
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.

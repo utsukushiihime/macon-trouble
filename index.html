@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- JS, Popper.js, and jQuery, jQueryUI -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -22,28 +22,14 @@
 <body>
 <main>
     <!-- This is the game menu -->
-    <section id="game-menu">
-    <div class="col-md-12">
-        <button id="game-start" class="btn btn-dark">Play Game</button>
-    </div>
-    <div class="col-md-6">
-        <button id="play-yes" class="btn btn-dark">Yes</button>
-    </div>
-    <div class="col-md-3">
-        <button id="play-no" class="btn btn-dark">No</button>
-    </div>
-    <div class="col-md-12">
-        <button id="select-class" class="btn btn-dark">Choose your Class</button>
-    </div>
-    </section> 
 
     <!-- Class Selection Buttons -->
     <section id="class-types">
 
         <!-- Dialogue Modal -->
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gameDialogue">
-    Launch static backdrop modal
+    <button type="button" class="btn btn-primary play-button" data-toggle="modal" data-target="#gameDialogue">
+    Play Game
   </button>
   
   <!-- Modal -->
@@ -57,15 +43,27 @@
           </button>
         </div>
         <div class="modal-body">
-            <h5>Player Classes</h5>
-            <p>This <a href="#" id="warrior" role="button" class="warrior btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">Warrior</a> t</p>
+            <h5 class="player-classes">Player Classes</h5>
+
+            <div class ="classes">
+            <p class="warrior">
+                <a href="#" id="warrior" role="button" class="btn btn-secondary" title="Warrior Class">Warrior</a>
+            </p>
+            <p class="wizard">
+                <a href="#" id="wizard" role="button" class="btn btn-secondary" title="Wizard Class">Wizard</a>
+            </p>
+            <p class="healer">
+                <a href="#" id="healer" role="button" class="btn btn-secondary" title="Healer Class">Healer</a>
+            </p>
+            <p>
+                <a href="#" id="rogue" role="button" class="btn btn-secondary" title="Rogue Class">Rogue</a>
+            </p>
+            </div>
             <hr>
-            <h5>Tooltips in a modal</h5>
-            <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> have tooltips on hover.</p>
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          <button type="button" class="btn btn-primary">Begin my Quest</button>
         </div>
       </div>
     </div>

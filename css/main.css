@@ -40,10 +40,6 @@ button.btn.btn-primary.play-button {
 
   }
 
-  .avatar-sprite {
-      height: 150px;
-  }
-
 button#left,
 button#right
 {
@@ -63,8 +59,19 @@ button#right
 
 /* Class Avatars */
 
-.small-avatar {
-    max-width: 125px;
+img.character-sprite.image-fluid {
+    height: 245px;
+    left: 100px;
+    position: absolute;
+    bottom: -260px;
+}
+
+
+img.character-sprite-2.image-fluid {
+    height: 245px;
+    left: -100px;
+    position: absolute;
+    bottom: -260px;
 }
 
 

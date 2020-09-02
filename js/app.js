@@ -123,9 +123,11 @@ $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=100px" }, 500 );
   });
    
+  //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
     $('.character-sprite').addClass('reverse-direction');
+    $('.character-sprite-2').addClass('reverse-direction');
   });
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.

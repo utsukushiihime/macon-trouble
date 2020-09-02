@@ -41,9 +41,7 @@ button.btn.btn-primary.play-button {
   }
 
 .small-avatar {
-    display: block;
     height: 125px;
-    /* padding: 10px;  */
 
 }
 
@@ -91,6 +89,11 @@ img.monster-sprite.image-fluid {
 
 
 /* Bootstrap Overrides */
+.btn {
+    border-radius: 0;
+}
+
+
 .btn-primary.focus, .btn-primary:focus {
     color: #fff;
     background-color: #281d17;
@@ -105,11 +108,27 @@ img.monster-sprite.image-fluid {
     border-color: #281d17;
 }
 
+.modal-header {
+    padding: 3.5rem 2rem 1rem;
+    border-bottom: 2px solid #281d17;
+    margin: 0 35px;
+}
+
+.modal-footer {
+    padding: 3.5rem 2rem;
+    border-top: 2px solid #281d17;
+    margin: 0 35px;
+}
+
 .modal-content {
-    background: url(../img/elements/parchment-bg.png) left top repeat-y;
+    background: url(../img/elements/parchment-bg.png) left top no-repeat;
     height: 100%;
     background-origin: content-box;
     background-size: cover;
     border: none;
-
 }
+
+.modal-body {
+    margin: 35px;
+}
+

@@ -24,6 +24,12 @@ After the player selects a class, a sprite is randomly generated based on player
 // Stretch Goal => randomly generate sprite based on class selected
 
 
+
+// Bootstrap Modal
+$('#gameDialogue').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+
 // Player Classes and Stats
 const playerClasses = [
     {
@@ -55,10 +61,14 @@ const playerClasses = [
         health: 10
 }];
 
-// BUTTONS Hide on Entering
+// BUTTONS Hide on Page Enter
 $('#select-class').hide();
 $('#play-yes').hide();
 $('#play-no').hide();
+$('#warrior').hide();
+$('#wizard').hide();
+$('#healer').hide();
+$('#rogue').hide();
 
 // ask player if they want to play the game
 // if answer yes, show button to choose class

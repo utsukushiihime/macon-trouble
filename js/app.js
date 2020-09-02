@@ -172,24 +172,34 @@ const selectRogue = () => {
 // TODO 
 // hide characters options and start game
 const playGame = () => {
-
+    // WELCOME
     $('.player-classes').replaceWith('<h4>Macon, you must hurry. The monsters are coming.</h4><p>Monsters have been spotted in the countryside. If they make it to the village of Skillet, it will be destroyed.</p><p>All of the village’s warriors are either too old or off fighting in the Pork Wars. Panic sets into Skillet until Macon, a young farmer, volunteers to meet the threat head-on. Equipped with his late father’s weapon, Macon embarks into the wilderness to meet these vile creatures head-on.</p>');
+
+    // RULES
     $('.rules').append('<h4>Rules:</h4><ol><li>Use left and right arrow to move back and forth on the screen.</li> <li>You must defeat 3 enemies and 1 boss to win.</li> <li>If your health falls to zero you lose.</li></ol>')
 }
 
-// If player selects play game display message and hide begin my quest button and after close show character on screen
-
+// If player selects play game display message and hide begin my quest button 
+// TODO after close show character on screen
 const startGame = () => {
     $('#start-game, .play-button, .classes').hide(); // hide button
     // show character on close
     // get selected class
 }
 
+// Trigger Monster
+let count = 0;
+
+$(".trigger-monster").click(function() {
+    count++;
+    $("#counter").html("My current count is: "+count);
+});
+å
+
 // BUTTONS
 $('#start-game').on('click', playGame);
 
 // Player Class BUTTONS
-// TODO Need to make this DRY when I have time
 $('#warrior').on('click', selectWarrior);
 $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
@@ -209,7 +219,6 @@ $( "#right" ).click(function() {
         $('.character-sprite').toggleClass('reverse-direction');
     })
   });
-   
 
   // Need to keep character from moving off of the screen
   // Need to get character moving in the right direction properly
@@ -222,8 +231,6 @@ $( "#right" ).click(function() {
     $('#right').on('click', function (){
         $('.character-sprite').toggleClass('reverse-direction');
     })
-
-    // $('.character-sprite-2').addClass('reverse-direction');
   });
 
 

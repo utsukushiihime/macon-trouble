@@ -22,15 +22,18 @@ body {
 
 button.btn.btn-primary.play-button {
     background-color: #281d17;
-    border-color: #362720;
+    border: 5px solid #5b3a29;
     height: 65px;
     padding: 10px 60px;
 }
 
-/* 
-.player-class-btn {
-
-} */
+.sprite img{
+    display: block;
+    position: relative;
+    margin-left: 80px;
+    bottom: 55px;
+    z-index: -1;
+}
 
 /* Class Avatars */
 
@@ -45,4 +48,11 @@ button.btn.btn-primary.play-button {
     background-color: #281d17;
     border-color: #362720;
     box-shadow: 0 0 0 0.2rem rgba(73, 54, 18, 0.5);
+}
+
+
+.btn-secondary {
+    color: #fff;
+    background-color: #281d17;
+    border-color: #281d17;
 }

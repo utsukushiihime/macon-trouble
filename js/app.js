@@ -29,9 +29,14 @@ $('#gameDialogue').on('shown.bs.modal', function() {
     $('#myInput').trigger('focus')
 });
 
-// TODO
+// TODO -- MOVE THESE TO Appropes spot later
 // Monster starts hidden
 $('.monster-sprite').hide();
+
+// Controls and sprite start hidden
+$('#right, #left').hide(); 
+
+
 
 // Player Classes and Stats
 const playerClasses = [{
@@ -79,34 +84,26 @@ for (let i = 0; i < playerClasses.length; i++) {
 // Warrior 
 const selectWarrior = () => {
     $('.warrior').append('<p>You selected Warrior</p>');
-    $('.healer').hide();
-    $('.rogue').hide();
-    $('.wizard').hide();
+    $('.healer, .rogue, .wizard').hide();
     $('#warrior .btn .btn-secondary').hide();
 }
 
 // Wizard
 const selectWizard = () => {
     $('.wizard').append('<p>You selected Wizard</p>');
-    $('.healer').hide();
-    $('.rogue').hide();
-    $('.warrior').hide();
+    $('.healer, .rogue, .warrior').hide();
 }
 
 // Healer
 const selectHealer = () => {
     $('.healer').append('<p>You selected Healer</p>');
-    $('.warrior').hide();
-    $('.rogue').hide();
-    $('.wizard').hide();
+    $('.warrior, .rogue, .wizard').hide();
 }
 
 // Rogue
 const selectRogue = () => {
     $('.rogue').append('<p>You selected Rogue</p>');
-    $('.healer').hide();
-    $('.warrior').hide();
-    $('.wizard').hide();
+    $('.healer, .warrior, .wizard').hide();
 }
 
 // TODO 
@@ -143,8 +140,11 @@ $( "#right" ).click(function() {
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
     $('.character-sprite').addClass('reverse-direction');
-    $('.character-sprite-2').addClass('reverse-direction');
+    // $('.character-sprite-2').addClass('reverse-direction');
   });
+
+
+  // if 5 clicks 
 
 
 

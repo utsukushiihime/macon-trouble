@@ -11,6 +11,8 @@ Turn Based RPG
 * Be able to attack
 * Be able to defend
 
+### In Development here: http://creativarian.tech
+
 ## GamePlay
 
 * User clicks start button to begin game

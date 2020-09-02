@@ -40,6 +40,13 @@ button.btn.btn-primary.play-button {
 
   }
 
+.small-avatar {
+    display: block;
+    height: 125px;
+    /* padding: 10px;  */
+
+}
+
 button#left,
 button#right
 {

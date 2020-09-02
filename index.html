@@ -26,14 +26,15 @@
     </header>
 	<main>
         
-		<!-- Class Selection Buttons -->
+		<!-- Classes Section -->
 		<section id="class-types">
+			
             <!-- Button trigger modal -->
             <div class="d-flex justify-content-center align-self-center">
                 <button type="button" class="btn btn-primary play-button align-items-center" data-toggle="modal" data-target="#gameDialogue"> Play Game </button>
             </div>
             
-			<!-- Modal -->
+			<!-- Modal Dialogue -->
 			<div class="modal fade" id="gameDialogue" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="gameDialogueLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-scrollable">
 					<div class="modal-content">
@@ -45,22 +46,39 @@
 							<h5 class="player-classes">Select your Player Class</h5>
 							<div class="classes">
 
+								<!-- Warrior Class -->
                                 <div class="d-flex flex-row">
                                     <div class="p-2 warrior">
-                                        <img class="small-avatar" src="img/characters/warrior/warrior-1.png"> <a href="#" id="warrior" role="button" class="btn btn-secondary player-class-btn" title="Warrior Class">Warrior</a> 
+										<img class="small-avatar float-left" src="img/characters/warrior/warrior-1.png"> 
+										<p class="float-right">
+											<ul class="stats">
+												<li>Attack</li>
+												<li>Defense</li>
+												<li>Accuracy</li>
+												<li>Health</li>
+											</ul>
+										</p> 
+										<button href="#" id="warrior" role="button" class="btn btn-secondary player-class-btn" title="Warrior Class">Warrior</button>
                                     </div>
                                     <div class="p-2 wizard">
                                         <img class="small-avatar" src="img/characters/wizard/wizard-1.png"> <a href="#" id="wizard" role="button" class="btn btn-secondary player-class-btn" title="Wizard Class">Wizard</a> 
                                     </div>
-                                </div>
+								</div>
+								<!-- END Warrior Class -->
 
+								<!-- Healer Class-->
                                 <div class="d-flex flex-row">
                                     <div class="p-2 healer">
                                         <img class="small-avatar" src="img/characters/healer/healer-1.png"> <a href="#" id="healer" role="button" class="btn btn-secondary player-class-btn" title="Healer Class">Healer</a>
-                                    </div>
+									</div>
+									<!-- END Healer Class -->
+
+									<!-- Rogue -->
                                     <div class="p-2 rogue">
                                         <img class="small-avatar" src="img/characters/rogue/rogue-1.png"> <a href="#" id="rogue" role="button" class="btn btn-secondary player-class-btn" title="Rogue Class">Rogue</a>
-                                    </div>
+									</div>
+									<!-- END Rogue Class-->
+
                                 </div>
 
 							</div>
@@ -73,7 +91,10 @@
 				</div>
 			</div>
 			<!-- END Dialogue Modal-->
+			
 		</section>
+		<!-- END Classes Section -->
+
     </main>
     <row class="d-flex justify-content-center align-self-end">
 		<button id="left"><i class="fas fa-arrow-left"></i></button>

@@ -69,6 +69,7 @@ for (let i = 0; i < playerClasses.length; i++) {
     classOptions.push(playerClasses[i].type);
 }
 
+// TODO DRY up this section currently very MVP :)
 // select characters
 const selectWarrior = () => {
     $('.warrior').append('<p>You selected Warrior</p>');
@@ -114,24 +115,30 @@ $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 
-// FIXME 
-// character movement need to add bounce animatin and edit timing
+// Character Move Right
+// FIXME character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=100px" }, 500 );
   });
    
+  // Character Move Left
   //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
     $('.character-sprite').addClass('reverse-direction');
-    $('.character-sprite-2').addClass('reverse-direction');
+    // $('.character-sprite-2').addClass('reverse-direction');
   });
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.
+
 // Goals 09/02/2020 
-// Generate Sprite
-// Start Game
+// Generate Random Character Sprite
+// Start Gameplay
 // Stretch Goal = > Generate Random Monster
+
+
+// Possible blockers not accounting for unexpected user interaction
+
 
 Stats are displayed beside the character sprites
 

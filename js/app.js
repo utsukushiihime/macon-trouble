@@ -44,7 +44,15 @@ const playerClasses = [{
         attack: 18,
         defense: 10,
         accuracy: 14,
-        health: 15
+        health: 15,
+        image: [
+            '../img/characters/warrior/warrior-1.png', 
+            '../img/characters/warrior/warrior-2.png',
+            '../img/characters/warrior/warrior-3.png',
+            '../img/characters/warrior/warrior-4.png',
+            '../img/characters/warrior/warrior-5.png'
+
+        ]
     },
     {
         type: 'Wizard',
@@ -261,7 +269,7 @@ Once the boss is defeated, a dialogue box pops up saying “You have saved the v
 
 // NOTE how to manipulate health
 
-let health = maxHealth;  // get he health of the character this is your starting health
+// let health = maxHealth;  // get he health of the character this is your starting health
 
 // if player class = warrior return warrior health
 // return health for each assign as starting health

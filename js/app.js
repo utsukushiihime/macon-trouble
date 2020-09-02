@@ -76,7 +76,7 @@ for (let i = 0; i < playerClasses.length; i++) {
 // ask player if they want to play the game
 // if answer yes, show button to choose class
 const playGame = () => {
-    
+   
 }
 
 // if user wants to play, choose class

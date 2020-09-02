@@ -16,3 +16,14 @@ button.btn.btn-primary.play-button {
     top: 46%;
     left: 46%;
 }
+
+.player-class-btn {
+    float: left;
+}
+
+
+/* Class Avatars */
+
+.small-avatar {
+    max-width: 125px;
+}

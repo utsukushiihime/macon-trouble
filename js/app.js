@@ -35,6 +35,7 @@ $('.monster-sprite').hide();
 
 // Controls and sprite start hidden
 $('#right, #left').hide(); 
+$('.character-sprite').hide();
 
 
 
@@ -121,6 +122,18 @@ const playGame = () => {
     $('.classes').hide();
 }
 
+
+// If player selects play game display message and hide begin my quest button and after close show character on screen
+
+const startGame = () => {
+    $('#start-game').hide(); // hide button
+    // show character on close
+    // get selected class
+}
+
+
+
+
 // BUTTONS
 $('#start-game').on('click', playGame);
 
@@ -130,6 +143,7 @@ $('#warrior').on('click', selectWarrior);
 $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
+$('#start-game').on('click', startGame);
 
 
 /*************************************/

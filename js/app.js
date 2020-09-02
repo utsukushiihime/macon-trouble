@@ -6,28 +6,17 @@
 // Be able to attack
 // Be able to defend
 
-/* GamePlay
-User clicks start button to begin game
-A dialogue box pops up prompting the player to click a button to select a class
-Select your Class - Options (50pt distribution between classes)
-Warrior - Stats (Attack: 15, Defense: 10, Accuracy: 10, HP: 15)
-Wizard - Stats(Attack: 18, Defense: 10, Accuracy: 14, HP: 8)
-Rogue - Stats(Attack: 10, Defense: 15, Accuracy: 15, HP:10)
-Healer - Stats(Attack: 10, Defense: 17, Accuracy: 10, HP: 13)
-After the player selects a class, a sprite is randomly generated based on player class selection */
-
 // Player Macon Trouble for side scrolling turn based RPG
 
-// Goals 09/01/20
-// create player classes and stats - DONE
-// build functionality to allow player to select their class 
-// Stretch Goal => randomly generate sprite based on class selected
-
+// NOTE Need to work on defensive programming.
 
 // Bootstrap Modal for Dialogue
-$('#gameDialogue').on('shown.bs.modal', function() {
-    $('#myInput').trigger('focus')
-});
+
+const play = () => {
+    $('#gameDialogue').on('shown.bs.modal', function() {
+        $('#myInput').trigger('focus')
+    });
+}
 
 // TODO -- MOVE THESE TO Appropes spot later
 // Monster starts hidden
@@ -36,7 +25,6 @@ $('.monster-sprite').hide();
 // Controls and sprite start and other things that need to be hidden
 $('#right, #left').hide(); 
 $('.character-sprite').hide();
-
 
 /* Player Classes and Stats */
 const playerClasses = [{
@@ -102,43 +90,64 @@ const playerClasses = [{
 
 /* MONSTERS */
 const monsters = [
-    './img/monsters/monster-1.png',
-    './img/monsters/monster-2.png',
-    './img/monsters/monster-3.png',
-    './img/monsters/monster-4.png',
-    './img/monsters/monster-5.png',
-    './img/monsters/monster-6.png',
-    './img/monsters/monster-7.png',
-    './img/monsters/monster-8.png',
-    './img/monsters/monster-9.png',
-    './img/monsters/monster-10.png',
-    './img/monsters/monster-11.png',
-    './img/monsters/monster-11.png',
-    './img/monsters/monster-12.png',
-    './img/monsters/monster-13.png',
-    './img/monsters/monster-14.png',
-    './img/monsters/monster-15.png',
-    './img/monsters/monster-16.png',
-    './img/monsters/monster-17.png',
-    './img/monsters/monster-18.png',
-    './img/monsters/monster-19.png',
-    './img/monsters/monster-20.png'
-
+   {
+    isBoss: false,
+    image: './img/monsters/monster-1.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-2.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-3.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-4.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-5.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-6.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-7.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-8.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-9.png'
+   },
+   {
+    isBoss: false,
+    image: './img/monsters/monster-10.png'
+    }
 ];
 
 // Character Class Type
 const classOptions = [];
 
-// copy Class type options to array
+// get class types
 for (let i = 0; i < playerClasses.length; i++) {
     classOptions.push(playerClasses[i].type);
 }
 
+const generateSprite = () => {
+    
+}
 
 // Character Class Images
 const characterImages = [];
 
-// copy character images to array
+// get character images
 for (let i = 0; i < playerClasses.length; i++) {
     characterImages.push(playerClasses[i].image);
 }

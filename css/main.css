@@ -45,16 +45,35 @@ button.btn.btn-primary.play-button {
 
 }
 
+/* BUTTONS */
+
+button#start-game {
+    background-color: #281d17;
+    border-color: #362720;
+    box-shadow: 0 0 0 0.2rem rgba(73, 54, 18, 0.5);
+}
+
 button#left,
 button#right
 {
     color: #fff;
     padding: 10px 15px;
     margin: 0 10px;
-    background: #281d17;
-    border-radius: 50%;
-    border: 2px solid #5b3a29;
+    background: #32591a;
+    border: 2px solid #518a29;
     z-index: 3;
+}
+
+button#left:hover,
+button#right:hover
+{
+    background: #518a29;
+    z-index: 3;
+}
+
+.nav-buttons {
+    position: absolute;
+    bottom: 20px;
 }
 
 .reverse-direction {

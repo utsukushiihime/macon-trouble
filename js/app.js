@@ -62,8 +62,6 @@ const playerClasses = [
 }];
 
 
-
-
 // create class options
 const classOptions = [];
 
@@ -71,23 +69,54 @@ const classOptions = [];
 for (let i = 0; i < playerClasses.length; i++) {
     classOptions.push(playerClasses[i].type);
 }
-// console.log(classOptions);
 
-// ask player if they want to play the game
-// if answer yes, show button to choose class
-const playGame = () => {
-   
+// select characters
+const selectWarrior = () => {
+    $('.warrior').append('<p>You selected Warrior</p>');
+    $('.healer').hide();
+    $('.rogue').hide();
+    $('.wizard').hide();
 }
 
-// if user wants to play, choose class
-$('#wizard').on('click', function () {
-    $('class-option').append(`You chose wizard.`);
-})
+const selectWizard = () => {
+    $('.wizard').append('<p>You selected Wizard</p>');
+    $('.healer').hide();
+    $('.rogue').hide();
+    $('.warrior').hide();
+}
+
+const selectHealer= () => {
+    $('.healer').append('<p>You selected Healer</p>');
+    $('.warrior').hide();
+    $('.rogue').hide();
+    $('.wizard').hide();
+}
+
+const selectRogue= () => {
+    $('.rogue').append('<p>You selected Rogue</p>');
+    $('.healer').hide();
+    $('.warrior').hide();
+    $('.wizard').hide();
+}
+
+
+
+// hide characters options and start game
+const playGame = () => {
+    $('.modal-body').append('<p>Prepare for adventure. The game begins.</p>');
+    $('.classes').hide();
+}
+
 
 // BUTTONS
-$('#game-start').on('click', playGame);
+$('#start-game').on('click', playGame);
 
-// return the class options on click
+// Player Class BUTTONS
+$('#warrior').on('click', selectWarrior);
+$('#wizard').on('click', selectWizard);
+$('#healer').on('click', selectHealer);
+$('#rogue').on('click', selectRogue);
+
 
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.

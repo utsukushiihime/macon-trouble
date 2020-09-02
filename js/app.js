@@ -247,9 +247,7 @@ $('#start-game').on('click', startGame);
 // FIXME character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=100px" }, 500 );
-    $('#left').on('click', function (){
         $('.character-sprite').toggleClass('reverse-direction');
-    })
   });
 
   // Need to keep character from moving off of the screen
@@ -259,10 +257,7 @@ $( "#right" ).click(function() {
   //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
-
-    $('#right').on('click', function (){
-        $('.character-sprite').toggleClass('reverse-direction');
-    })
+    $('.character-sprite').toggleClass('reverse-direction');
   });
 
 

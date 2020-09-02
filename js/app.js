@@ -33,10 +33,9 @@ $('#gameDialogue').on('shown.bs.modal', function() {
 // Monster starts hidden
 $('.monster-sprite').hide();
 
-// Controls and sprite start hidden
+// Controls and sprite start and other things that need to be hidden
 $('#right, #left').hide(); 
 $('.character-sprite').hide();
-
 
 
 // Player Classes and Stats
@@ -101,6 +100,8 @@ const playerClasses = [{
     }
 ];
 
+
+const monsters = [];
 
 // create class options
 const classOptions = [];
@@ -172,13 +173,13 @@ const selectRogue = () => {
 // hide characters options and start game
 const playGame = () => {
     $('.modal-body').append('<p>Prepare for adventure. The game begins.</p>');
-    $('.player-classes').replaceWith('<h4>Macon, you must hurry. The monsters are coming.</h4>');
+    $('.player-classes').replaceWith('<h4>Macon, you must hurry. The monsters are coming.</h4><p>Monsters have been spotted in the countryside. If they make it to the village of Skillet, it will be destroyed. All of the village’s warriors are either too old or off fighting in the Pork Wars. Panic sets into Skillet until Macon, a young farmer, volunteers to meet the threat head-on. Equipped with his late father’s weapon, Macon embarks into the wilderness to meet these vile creatures head-on.</p>');
 }
 
 // If player selects play game display message and hide begin my quest button and after close show character on screen
 
 const startGame = () => {
-    $('#start-game, .play-button').hide(); // hide button
+    $('#start-game, .play-button, .classes').hide(); // hide button
     // show character on close
     // get selected class
 }
@@ -208,6 +209,10 @@ $( "#right" ).click(function() {
     })
   });
    
+
+  // Need to keep character from moving off of the screen
+  // Need to get character moving in the right direction properly
+
   // Character Move Left
   //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){

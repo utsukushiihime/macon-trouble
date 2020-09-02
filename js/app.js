@@ -48,10 +48,10 @@ const playerClasses = [{
         health: 15,
         image: [
             './img/characters/warrior/warrior-1.png', 
-            '../img/characters/warrior/warrior-2.png',
-            '../img/characters/warrior/warrior-3.png',
-            '../img/characters/warrior/warrior-4.png',
-            '../img/characters/warrior/warrior-5.png'
+            './img/characters/warrior/warrior-2.png',
+            './img/characters/warrior/warrior-3.png',
+            './img/characters/warrior/warrior-4.png',
+            './img/characters/warrior/warrior-5.png'
 
         ]
     },
@@ -63,11 +63,11 @@ const playerClasses = [{
         health: 8,
         image:
         [
-            '../img/characters/wizard/wizard-1.png', 
-            '../img/characters/wizard/wizard-2.png',
-            '../img/characters/wizard/wizard-3.png',
-            '../img/characters/wizard/wizard-4.png',
-            '../img/characters/wizard/wizard-5.png'
+            './img/characters/wizard/wizard-1.png', 
+            './img/characters/wizard/wizard-2.png',
+            './img/characters/wizard/wizard-3.png',
+            './img/characters/wizard/wizard-4.png',
+            './img/characters/wizard/wizard-5.png'
 
         ]
     },
@@ -78,11 +78,11 @@ const playerClasses = [{
         accuracy: 10,
         health: 13,
         image: [
-            '../img/characters/healer/healer-1.png', 
-            '../img/characters/healer/healer-2.png',
-            '../img/characters/healer/healer-3.png',
-            '../img/characters/healer/healer-4.png',
-            '../img/characters/healer/healer-5.png'
+            './img/characters/healer/healer-1.png', 
+            './img/characters/healer/healer-2.png',
+            './img/characters/healer/healer-3.png',
+            './img/characters/healer/healer-4.png',
+            './img/characters/healer/healer-5.png'
         ]
     },
     {
@@ -92,11 +92,11 @@ const playerClasses = [{
         accuracy: 15,
         health: 10,
         image: [
-            '../img/characters/rogue/rogue-1.png', 
-            '../img/characters/rogue/rogue-2.png',
-            '../img/characters/rogue/rogue-3.png',
-            '../img/characters/rogue/rogue-4.png',
-            '../img/characters/rogue/rogue-5.png'
+            './img/characters/rogue/rogue-1.png', 
+            './img/characters/rogue/rogue-2.png',
+            './img/characters/rogue/rogue-3.png',
+            './img/characters/rogue/rogue-4.png',
+            './img/characters/rogue/rogue-5.png'
         ]
     }
 ];
@@ -105,7 +105,7 @@ const playerClasses = [{
 // create class options
 const classOptions = [];
 
-// copy Class type options to 
+// copy Class type options to array
 for (let i = 0; i < playerClasses.length; i++) {
     classOptions.push(playerClasses[i].type);
 }
@@ -114,12 +114,11 @@ for (let i = 0; i < playerClasses.length; i++) {
 // create class options
 const characterImages = [];
 
-// copy Class type options to 
+// copy character images to array
 for (let i = 0; i < playerClasses.length; i++) {
     characterImages.push(playerClasses[i].image);
 
 }
-
 
 // TODO DRY up this section currently very MVP :)
 // select characters
@@ -127,28 +126,46 @@ for (let i = 0; i < playerClasses.length; i++) {
 // Warrior 
 const selectWarrior = () => {
     $('.warrior').append('<p>You selected Warrior</p>');
-    $('.healer, .rogue, .wizard').hide();
-    $('#warrior .btn .btn-secondary').hide();
+    $('.healer, .rogue, .wizard, .player-class-btn').hide();
+
     // get random character when 
+    // show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[0][0]}">`);
+    $('#right, #left').show(); 
 }
 
 // Wizard
 const selectWizard = () => {
     $('.wizard').append('<p>You selected Wizard</p>');
-    $('.healer, .rogue, .warrior').hide();
+    $('.healer, .rogue, .warrior, .player-class-btn').hide();
+
+    // get random character when 
+    // show after close
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[1][0]}">`);
+    $('#right, #left').show(); 
 }
 
 // Healer
 const selectHealer = () => {
     $('.healer').append('<p>You selected Healer</p>');
-    $('.warrior, .rogue, .wizard').hide();
+    $('.warrior, .rogue, .wizard, .player-class-btn').hide();
+
+
+    // get random character when 
+    // show after close
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[2][0]}">`);
+    $('#right, #left').show(); 
 }
 
 // Rogue
 const selectRogue = () => {
     $('.rogue').append('<p>You selected Rogue</p>');
-    $('.healer, .warrior, .wizard').hide();
+    $('.healer, .warrior, .wizard, .player-class-btn').hide();
+
+    // get random character when 
+    // show after close
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[3][1]}">`);
+    $('#right, #left').show(); 
 }
 
 // TODO 
@@ -197,125 +214,9 @@ $( "#right" ).click(function() {
   });
 
 
-  // if 5 clicks 
 
 
 
 
-  
-/* A pop-up dialogue box with party member stats and sprites displayed after companion generated.
 
-// NOTE
-// Goals 09/02/2020 
-// Generate Random Character Sprite
-// Display Selected Character Stats
-// Start Gameplay
-// Stretch Goal = > Generate Random Monster
-
-// NOTE
-// Possible blockers 
-// Not accounting for unexpected user interaction
-// Perfectionism / Need to remember MVP
-// ME: Staying focused on one feature at a time
-
-
-Stats are displayed beside the character sprites
-
-Dialogue for Pop-up:
-
-This is your party. Are you ready for adventure? Yes or No?
-If the player clicks yes, start the game. If the player clicks no, exit game.
-
-After the yes button is clicked, display the game rules and interaction in the dialogue box.
-Right arrow to move forward, back arrow to move backward.
-The player can select a button from a dialogue box with an attack option when encountering an enemy. */
-
-
-/* Once in battle, you must play till the end of the encounter.
-The player wins if they beat the boss, there will be 3 enemy encounters before the boss.
-If the player moves across the screen to the right for 5 seconds, an enemy encounter will be triggered.
-A dialogue box will pop up when you encounter an enemy with options:
-Do you want to attack or run away? If the player clicks the attack button, the battle begins. If the player clicks the runaway button, the game ends.
-If the player clicks attack, a dialogue box will open with attack options:
-Option 1: Click the button to Attack = Base attack
-Option 2: Click the button to Defend = +5 to Defense (adds to defense on next attack from the enemy) */
-
-
-/* If the player selects the attack button, damage dealt to enemy is displayed in the dialogue box, then the player character’s turn ends.
-Then the enemy attacks a random party member if multiple part members otherwise enemy attacks player.
-A dialogue box pops up with a message displaying the damage dealt and to whom.
-The gameplay loop repeats until 3 encounters have been cleared.
-
-After 3 encounters have been cleared, the boss appears. */
-
-/* Boss fight functions the same as the other encounters with higher stats.
-
-Once the boss is defeated, a dialogue box pops up saying “You have saved the village” with button options to play again or exit. If the player clicks play again, the game resets and starts again. If the player chooses to exit, the credits roll, and the game exits. */
-
-
-// FIXME
-// FIXME
-// NOTE
-// // start off with a global health variable
-// let health = 20;
-
-
-// create monsters array
-// let monsters = [
-//     {
-
-// }
-// ];
-
-// keep track of monst
-// let currentMonster = 0;
-// Need to create monsters array
-// console.log(monsters[currentMonster]);
-
-// const generateMonster = () => {
-    // empty unnecessary elements with jquery .empty
-
-    // for (let i = 0; i < monsters.length; i++){
-        // cosnole.log(monsters[i]);
-
-        // this allows us to show what monster player is on
-//         if (i === currentMonster) {
-//             $('#monster').append(<div>Monster goes here</div>);
-//         } else {
-//             $('#monster').append(<div>Do this thing</div>);
-//         }
-       
-//     }
-// }
-
-// need to set monster to generate when user moves across the screen
-// for 5 seconds
-// generateMonster();
-
-
-// NOTE 
-
-// start game
-// const start = () => {
-    // show sprite
-    // show buttons
-
-    // generate monster when player moves or 5secs
-//     generateMonster();
-// }
-
-// concept start to fight monster
-// const fightMonster = () => {
-//     const monster = monster[currentMonster];
-//     health = health-monster.damage; 
-    // if monster successfully deals damage
-// }
-
-
-// NOTE how to manipulate health
-
-// let health = maxHealth;  // get he health of the character this is your starting health
-
-// if player class = warrior return warrior health
-// return health for each assign as starting health
 

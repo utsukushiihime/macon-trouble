@@ -24,8 +24,7 @@ After the player selects a class, a sprite is randomly generated based on player
 // Stretch Goal => randomly generate sprite based on class selected
 
 
-
-// Bootstrap Modal
+// Bootstrap Modal for Dialogue
 $('#gameDialogue').on('shown.bs.modal', function() {
     $('#myInput').trigger('focus')
 })
@@ -99,14 +98,11 @@ const selectRogue = () => {
     $('.wizard').hide();
 }
 
-
-
 // hide characters options and start game
 const playGame = () => {
     $('.modal-body').append('<p>Prepare for adventure. The game begins.</p>');
     $('.classes').hide();
 }
-
 
 // BUTTONS
 $('#start-game').on('click', playGame);

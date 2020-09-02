@@ -117,16 +117,16 @@ $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 
-// FIXME
-// playing with animating the sprite
+// FIXME 
+// character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
-    $( ".avatar-block" ).animate({ "left": "+=50px" }, "slow" );
+    $( ".avatar-block" ).animate({ "left": "+=100px" }, 500 );
   });
    
   $( "#left" ).click(function(){
-    $( ".avatar-block" ).animate({ "left": "-=50px" }, "slow" );
+    $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
+    $('.character-sprite').addClass('reverse-direction');
   });
-
 
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.
 

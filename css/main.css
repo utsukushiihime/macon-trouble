@@ -10,6 +10,8 @@ body {
     background: #76c4e8 url("../img/backgrounds/bg1.jpg") left bottom repeat-x !important;
     height: 100vh;
     background-origin: content-box;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .h1-title {
@@ -33,7 +35,32 @@ button.btn.btn-primary.play-button {
     width: 90px;
     height: 90px;
     margin: 5px;
+    bottom: 395px;
+    z-index:-1;
+
   }
+
+  .avatar-sprite {
+      height: 150px;
+  }
+
+button#left,
+button#right
+{
+    color: #fff;
+    padding: 10px 15px;
+    margin: 0 10px;
+    background: #281d17;
+    border-radius: 50%;
+    border: 2px solid #5b3a29;
+    z-index: 3;
+}
+
+.reverse-direction {
+    transform: rotateY(180deg);
+}
+
+
 /* Class Avatars */
 
 .small-avatar {

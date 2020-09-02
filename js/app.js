@@ -178,7 +178,7 @@ const playGame = () => {
 // If player selects play game display message and hide begin my quest button and after close show character on screen
 
 const startGame = () => {
-    $('#start-game').hide(); // hide button
+    $('#start-game, .play-button').hide(); // hide button
     // show character on close
     // get selected class
 }
@@ -203,13 +203,20 @@ $('#start-game').on('click', startGame);
 // FIXME character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=100px" }, 500 );
+    $('#left').on('click', function (){
+        $('.character-sprite').toggleClass('reverse-direction');
+    })
   });
    
   // Character Move Left
   //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
-    $('.character-sprite').addClass('reverse-direction');
+
+    $('#right').on('click', function (){
+        $('.character-sprite').toggleClass('reverse-direction');
+    })
+
     // $('.character-sprite-2').addClass('reverse-direction');
   });
 

@@ -27,7 +27,11 @@ After the player selects a class, a sprite is randomly generated based on player
 // Bootstrap Modal for Dialogue
 $('#gameDialogue').on('shown.bs.modal', function() {
     $('#myInput').trigger('focus')
-})
+});
+
+// TODO
+// Monster starts hidden
+$('.monster-sprite').hide();
 
 // Player Classes and Stats
 const playerClasses = [{
@@ -78,6 +82,7 @@ const selectWarrior = () => {
     $('.healer').hide();
     $('.rogue').hide();
     $('.wizard').hide();
+    $('#warrior .btn .btn-secondary').hide();
 }
 
 // Wizard
@@ -122,6 +127,8 @@ $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 
 
+/*************************************/
+
 // TODO Make the movement less janky
 // TODO scroll the screen 
 
@@ -136,9 +143,13 @@ $( "#right" ).click(function() {
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
     $('.character-sprite').addClass('reverse-direction');
-    // $('.character-sprite-2').addClass('reverse-direction');
+    $('.character-sprite-2').addClass('reverse-direction');
   });
 
+
+
+
+  
 /* A pop-up dialogue box with party member stats and sprites displayed after companion generated.
 
 // NOTE
@@ -187,3 +198,71 @@ After 3 encounters have been cleared, the boss appears. */
 /* Boss fight functions the same as the other encounters with higher stats.
 
 Once the boss is defeated, a dialogue box pops up saying “You have saved the village” with button options to play again or exit. If the player clicks play again, the game resets and starts again. If the player chooses to exit, the credits roll, and the game exits. */
+
+
+// FIXME
+// FIXME
+// NOTE
+// // start off with a global health variable
+// let health = 20;
+
+
+// create monsters array
+// let monsters = [
+//     {
+
+// }
+// ];
+
+// keep track of monst
+// let currentMonster = 0;
+// Need to create monsters array
+// console.log(monsters[currentMonster]);
+
+// const generateMonster = () => {
+    // empty unnecessary elements with jquery .empty
+
+    // for (let i = 0; i < monsters.length; i++){
+        // cosnole.log(monsters[i]);
+
+        // this allows us to show what monster player is on
+//         if (i === currentMonster) {
+//             $('#monster').append(<div>Monster goes here</div>);
+//         } else {
+//             $('#monster').append(<div>Do this thing</div>);
+//         }
+       
+//     }
+// }
+
+// need to set monster to generate when user moves across the screen
+// for 5 seconds
+// generateMonster();
+
+
+// NOTE 
+
+// start game
+// const start = () => {
+    // show sprite
+    // show buttons
+
+    // generate monster when player moves or 5secs
+//     generateMonster();
+// }
+
+// concept start to fight monster
+// const fightMonster = () => {
+//     const monster = monster[currentMonster];
+//     health = health-monster.damage; 
+    // if monster successfully deals damage
+// }
+
+
+// NOTE how to manipulate health
+
+let health = maxHealth;  // get he health of the character this is your starting health
+
+// if player class = warrior return warrior health
+// return health for each assign as starting health
+

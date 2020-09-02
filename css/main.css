@@ -115,16 +115,16 @@ img.monster-sprite.image-fluid {
 }
 
 .modal-footer {
-    padding: 3.5rem 2rem;
+    padding: 1rem 2rem 2rem;
     border-top: 2px solid #281d17;
-    margin: 0 35px;
+    margin: 0 33px;
 }
 
 .modal-content {
     background: url(../img/elements/parchment-bg.png) left top no-repeat;
     height: 100%;
     background-origin: content-box;
-    background-size: cover;
+    background-size: contain;
     border: none;
 }
 

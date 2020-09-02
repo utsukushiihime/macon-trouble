@@ -38,7 +38,7 @@ $('#right, #left').hide();
 $('.character-sprite').hide();
 
 
-// Player Classes and Stats
+/* Player Classes and Stats */
 const playerClasses = [{
         type: 'Warrior',
         attack: 18,
@@ -100,10 +100,33 @@ const playerClasses = [{
     }
 ];
 
+/* MONSTERS */
+const monsters = [
+    './img/monsters/monster-1.png',
+    './img/monsters/monster-2.png',
+    './img/monsters/monster-3.png',
+    './img/monsters/monster-4.png',
+    './img/monsters/monster-5.png',
+    './img/monsters/monster-6.png',
+    './img/monsters/monster-7.png',
+    './img/monsters/monster-8.png',
+    './img/monsters/monster-9.png',
+    './img/monsters/monster-10.png',
+    './img/monsters/monster-11.png',
+    './img/monsters/monster-11.png',
+    './img/monsters/monster-12.png',
+    './img/monsters/monster-13.png',
+    './img/monsters/monster-14.png',
+    './img/monsters/monster-15.png',
+    './img/monsters/monster-16.png',
+    './img/monsters/monster-17.png',
+    './img/monsters/monster-18.png',
+    './img/monsters/monster-19.png',
+    './img/monsters/monster-20.png'
 
-const monsters = [];
+];
 
-// create class options
+// Character Class Type
 const classOptions = [];
 
 // copy Class type options to array
@@ -112,59 +135,68 @@ for (let i = 0; i < playerClasses.length; i++) {
 }
 
 
-// create class options
+// Character Class Images
 const characterImages = [];
 
 // copy character images to array
 for (let i = 0; i < playerClasses.length; i++) {
     characterImages.push(playerClasses[i].image);
+}
 
+
+// Monster Images
+const monsterImages = [];
+
+// get monster images
+for (let i = 0; i < monsters.length; i++) {
+    monsterImages.push(monsters[i].image);
 }
 
 // TODO DRY up this section currently very MVP :)
-// select characters
 
-// Warrior 
+/* select characters */
+
+// Warrior Class
 const selectWarrior = () => {
     $('.warrior').append('<p>You selected Warrior</p>');
     $('.healer, .rogue, .wizard, .player-class-btn').hide();
 
-    // get random character when 
-    // show after close
+    // TODO get random character when 
+    // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[0][0]}">`);
     $('#right, #left').show(); 
 }
 
-// Wizard
+// Wizard Class
 const selectWizard = () => {
     $('.wizard').append('<p>You selected Wizard</p>');
     $('.healer, .rogue, .warrior, .player-class-btn').hide();
 
-    // get random character when 
-    // show after close
+    // TODO get random character when 
+    // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[1][0]}">`);
     $('#right, #left').show(); 
 }
 
-// Healer
+// Healer Class
 const selectHealer = () => {
     $('.healer').append('<p>You selected Healer</p>');
     $('.warrior, .rogue, .wizard, .player-class-btn').hide();
 
 
-    // get random character when 
-    // show after close
+    // TODO get random character when 
+    // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[2][0]}">`);
     $('#right, #left').show(); 
 }
 
-// Rogue
+// Rogue Class
 const selectRogue = () => {
     $('.rogue').append('<p>You selected Rogue</p>');
     $('.healer, .warrior, .wizard, .player-class-btn').hide();
 
-    // get random character when 
-    // show after close
+    // TODO get random character when 
+    // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[3][1]}">`);
     $('#right, #left').show(); 
 }
@@ -194,7 +226,7 @@ $(".trigger-monster").click(function() {
     count++;
     $("#counter").html("My current count is: "+count);
 });
-å
+
 
 // BUTTONS
 $('#start-game').on('click', playGame);

@@ -99,7 +99,7 @@ const monsters = [
     image: './img/monsters/monster-2.png'
    },
    {
-    isBoss: false,
+    isBoss: true,
     image: './img/monsters/monster-3.png'
    },
    {
@@ -245,10 +245,6 @@ const monsters = [
     {
     isBoss: false,
     image: './img/monsters/monster-39.png'
-    },
-    {
-    isBoss: true,
-    image: './img/monsters/dragon-1.png'
     }
 ];
 

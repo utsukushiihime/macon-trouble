@@ -100,7 +100,7 @@
 						<!-- END Modal Body -->
 
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" id="close-dialogue" class="btn btn-secondary" data-dismiss="modal">Close</button>
 							<button id="start-game" type="button" class="btn btn-primary start-game-button">Begin my Quest</button>
 						</div>
 					</div>
@@ -129,20 +129,52 @@
 		</div>
 		<!-- END Character Sprite -->
 
-    <row class="d-flex justify-content-center align-self-end">
-
 		<!-- Navigation Buttons -->
+	<row class="d-flex justify-content-center align-self-end">
 		<div class="nav-buttons">
 		<button id="left"><i class="fas fa-arrow-left"></i></button>
 		<button id="right" class="trigger-monster"><i class="fas fa-arrow-right"></i></button>
 		<div id="counter"></div>
 		</div>
-		<!-- END Navigation Buttons -->
 	</row>
+	<!-- END Navigation Buttons -->
 
 	<!-- Monster -->
 	<div id="monster"></div>
 	<!-- END Monster -->
+
+
+	<!-- Battle Dialogue -->
+<div class=" class="d-flex justify-content-center align-self-center">
+<button type="button" class="btn btn-primary">Retreat</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Fight
+</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">What do you want to do?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        If you choose to defend, +5 is added to your defense. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">Defend</button>
+        <button type="button" class="btn btn-secondary">Attack</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<!-- END Battle Dialogue -->
+
 </body>
 
 </html>

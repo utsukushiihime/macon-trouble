@@ -8,13 +8,15 @@
 
 // Player Macon Trouble for side scrolling turn based RPG
 
-// NOTE Need to work on defensive programming.
+// NOTE Need to work on defensive programming 
+// DEF NEEDS TO BE MORE DRY.
+
 
 // Modal for Dialogue
 
 const play = () => {
     $('#gameDialogue').on('shown.bs.modal', function() {
-        // $('#myInput').trigger('focus');     
+        
     });
 }
 
@@ -22,7 +24,7 @@ const play = () => {
 // Controls and sprite start and other things that need to be hidden
 
 /* ELEMENTS TO HIDE ON ENTER */
-$('#right, #left, .character-sprite, .health-bar, .log, .monster-sprite').hide();
+$('#right, #left, .character-sprite, .health-bar, .log, .monster-sprite, #start-game').hide();
 
 /* PLAYER */
 
@@ -124,11 +126,11 @@ const selectWarrior = () => {
     });  
 
     playMagicSnap.play();
-    $('.healer, .rogue, .wizard, .player-class-btn').hide();
+    $('.healer, .rogue, .wizard, .player-class-btn, #close-dialogue').hide();
 
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`); 
-    $('#right, #left, .health-bar').show(); 
+    $('.avatar-block').append(`<img class="character-sprite image-fluid warrior-selected" src="${generateRandomSprite(characterImages)}">`); 
+    $('#right, #left, .health-bar, #start-game').show(); 
 }
 
 // Wizard Class
@@ -142,10 +144,10 @@ const selectWizard = () => {
     });  
 
     playMagicSnap.play();
-    $('.healer, .rogue, .warrior, .player-class-btn').hide();
+    $('.healer, .rogue, .warrior, .player-class-btn, #close-dialogue').hide();
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar').show(); 
+    $('.avatar-block').append(`<img class="character-sprite image-fluid wizard-selected" src="${generateRandomSprite(characterImages)}">`);
+    $('#right, #left, .health-bar, #start-game').show(); 
 }
 
 // Healer Class
@@ -158,10 +160,10 @@ const selectHealer = () => {
     });  
 
     playMagicSnap.play();
-    $('.warrior, .rogue, .wizard, .player-class-btn').hide();
+    $('.warrior, .rogue, .wizard, .player-class-btn, #close-dialogue').hide();
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar').show(); 
+    $('.avatar-block').append(`<img class="character-sprite image-fluid healer-selected" src="${generateRandomSprite(characterImages)}">`);
+    $('#right, #left, .health-bar, #start-game').show(); 
 }
 
 // Rogue Class
@@ -174,13 +176,11 @@ const selectRogue = () => {
     });  
 
     playMagicSnap.play();
-    $('.healer, .warrior, .wizard, .player-class-btn').hide();
+    $('.healer, .warrior, .wizard, .player-class-btn, #close-dialogue').hide();
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar').show(); 
+    $('.avatar-block').append(`<img class="character-sprite image-fluid rogue-selected" src="${generateRandomSprite(characterImages)}">`);
+    $('#right, #left, .health-bar, #start-game').show(); 
 }
-
-
 
 /* 
 Original Author: Dominik Widomski
@@ -249,17 +249,13 @@ $(document).on(function(){
     }
   };
 
-
-/*************************************/
-
+  // FIXME Need to keep character from moving off of the screen
 // Character Move Right
 $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=80px" }, 500 );
     $('.character-sprite').removeClass('reverse-direction');
     walking.play();
   });
-
-  // Need to keep character from moving off of the screen
 
   // Character Move Left
   $( "#left" ).click(function(){
@@ -474,6 +470,8 @@ const generateRandomGrowl = () => {
     return randomGrowl; // console.log(generateRandomGrowl(monsterGrowl))
 } 
 
+/*************************************/
+
 /** AUDIO */
 
 // Play Magic Ding Button
@@ -487,29 +485,22 @@ const walking = new Audio('./audio/walkin-on-grass.wav');
 
 // Monster Growl
 const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));
-
 // console.log(monsterGrowlAudio);
-
-
-/* GAMEPLAY */
-
-// TODO 
-// hide characters options and start game
-const playGame = () => {
-    // WELCOME
-    $('.player-classes').replaceWith('<h4>Macon, you must hurry. The monsters are coming.</h4><p>Monsters have been spotted in the countryside. If they make it to the village of Skillet, it will be destroyed.</p><p>All of the village’s warriors are either too old or off fighting in the Pork Wars. Panic sets into Skillet until Macon, a young farmer, volunteers to meet the threat head-on. Equipped with his late father’s weapon, Macon embarks into the wilderness to meet these vile creatures head-on.</p>');
-
-    // RULES
-    $('.rules').append('<h4>Rules:</h4><ol><li>Use left and right arrow to move back and forth on the screen.</li> <li>You must defeat 3 enemies and 1 boss to win.</li> <li>If your health falls to zero you lose.</li></ol>')
-}
 
 
 /* GAMEPLAY */
 
 // TODO Load stats on game start
 const startGame = () => {
-    $('#start-game, .play-button, .classes').hide(); // hide button
+    // WELCOME
+    $('.player-classes').replaceWith('<h4>Macon, you must hurry. The monsters are coming.</h4><p>Monsters have been spotted in the countryside. If they make it to the village of Skillet, it will be destroyed.</p><p>All of the village’s warriors are either too old or off fighting in the Pork Wars. Panic sets into Skillet until Macon, a young farmer, volunteers to meet the threat head-on. Equipped with his late father’s weapon, Macon embarks into the wilderness to meet these vile creatures head-on.</p>');
 
+    // RULES
+    $('.rules').append('<h4>Rules:</h4><ol><li>Use left and right arrow to move back and forth on the screen.</li> <li>You must defeat 3 enemies and 1 boss to win.</li> <li>If your health falls to zero you lose.</li></ol>')
+
+    // 
+    $('#start-game, .play-button, .classes').hide(); // hide button
+    
     // load stats for selected character
         // if warrior select load warrior stats
         // if healer selected load healer stats
@@ -529,16 +520,12 @@ $(".trigger-monster").click(function() {
     count++;
 
     // trigger monster after 5 clicks right
-    if (count === 5){
         if (count === 5){
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
             monsterGrowlAudio.play();
             $('#right, #left').hide(); // want to keep the player from moving until round over
-
         }
-    }
 });
-
 
 /* BATTLE */
 
@@ -552,33 +539,8 @@ $(".trigger-monster").click(function() {
 // Reset Character position to zero px on screen when monster defeated
 
 // BUTTONS
-// Start Game
-$('#start-game').on('click', playGame);
-
-// Player Class BUTTONS
 $('#warrior').on('click', selectWarrior);
 $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 $('#start-game').on('click', startGame);
-
-
-  // 09/03/20
-  // Battle 
-    // health bars
-    // monster fights 3 small 1 boss
-    // death - if HP = 0
-    // win - if monster hp = 0
-    // play again = reset
-  // Styling 
-  // Defensive programming 
-
-
-// What are you most proud of with your logic? (Show us one code snippet and explain it)
-    // Monster generator and trigger - it's short and simple but effective
-
-// What as the hardest bug/feature that you had to overcome?
-    // I am sure I will encounter that today. Ask me later. 
-
-// If you could start the project over again what would you do differently?
-    // Better time management

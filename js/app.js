@@ -21,7 +21,12 @@ const play = () => {
 // TODO -- MOVE THESE TO Appropes spot later
 // Monster starts hidden
 // Controls and sprite start and other things that need to be hidden
+
+/* HIDE ON ENTER */
 $('#right, #left, .character-sprite, .health-bar, .monster-sprite').hide();
+
+
+/* PLAYER */
 
 /* Player Classes and Stats */
 const playerClasses = [{
@@ -85,7 +90,79 @@ const playerClasses = [{
     }
 ];
 
-// NOTE
+// Character Class Type
+const classOptions = [];
+
+// get class types
+for (let i = 0; i < playerClasses.length; i++) {
+    classOptions.push(playerClasses[i].type);
+}
+
+// Character Class Images
+const characterImages = [];
+
+// get character images
+for (let i = 0; i < playerClasses.length; i++) {
+    characterImages.push(playerClasses[i].image);
+}
+
+/* RANDOM PLAYER SPRITE GENERATORS */
+// Want to slect random per class if time permits
+const generateRandomSprite = () => {
+    let randomSprite = characterImages[Math.floor(Math.random()*characterImages.length)];
+    return randomSprite.slice(0,1);
+} 
+
+/* select characters */
+
+// Warrior Class
+const selectWarrior = () => {
+
+    $('.warrior').append('<p>You selected Warrior</p>');
+    $('.healer, .rogue, .wizard, .player-class-btn').hide();
+
+    // TODO get random class specific character
+
+    // TODO show after close
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
+    $('#right, #left, .health-bar').show(); 
+}
+
+// Wizard Class
+const selectWizard = () => {
+    $('.wizard').append('<p>You selected Wizard</p>');
+    $('.healer, .rogue, .warrior, .player-class-btn').hide();
+
+    // TODO get random class specific character
+    // TODO show after close
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
+    $('#right, #left, .health-bar').show(); 
+}
+
+// Healer Class
+const selectHealer = () => {
+    $('.healer').append('<p>You selected Healer</p>');
+    $('.warrior, .rogue, .wizard, .player-class-btn').hide();
+
+
+    // TODO get random class specific character
+    // TODO show after close
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
+    $('#right, #left, .health-bar').show(); 
+}
+
+// Rogue Class
+const selectRogue = () => {
+    $('.rogue').append('<p>You selected Rogue</p>');
+    $('.healer, .warrior, .wizard, .player-class-btn').hide();
+
+    // TODO get random class specific character 
+    // TODO show after close
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
+    $('#right, #left, .health-bar').show(); 
+}
+
+
 /* MONSTERS */
 const monsters = [
    {
@@ -246,94 +323,49 @@ const monsters = [
     }
 ];
 
-// Character Class Type
-const classOptions = [];
+/* Monster Sounds */
+monsterGrowls = [
+    '../audio/monster-growl/Monster-01.wav',
+    '../audio/monster-growl/Monster-02.wav',
+    '../audio/monster-growl/Monster-03.wav',
+    '../audio/monster-growl/Monster-04.wav',
+    '../audio/monster-growl/Monster-05.wav',
+    '../audio/monster-growl/Monster-06.wav',
+    '../audio/monster-growl/Monster-will-die-1.wav',
+    '../audio/monster-growl/Monster-will-die-2.wav',
+    '../audio/monster-growl/Monster-will-die-3.wav',
+    '../audio/monster-growl/Monster-will-die-4.wav'
+]
 
-// get class types
-for (let i = 0; i < playerClasses.length; i++) {
-    classOptions.push(playerClasses[i].type);
-}
-
-// Character Class Images
-const characterImages = [];
-
-// get character images
-for (let i = 0; i < playerClasses.length; i++) {
-    characterImages.push(playerClasses[i].image);
-}
-
-// Monster Images
+/* Monster Images */
 const monsterImages = [];
+const monsterGrowl = [];
 
 // get monster images
 for (let i = 0; i < monsters.length; i++) {
     monsterImages.push(monsters[i].image);
-}
-console.log(monsterImages)
+} // console.log(monsterImages)
 
-// TODO DRY up this section currently very MVP :)
+// get monster growls
+for (let i = 0; i < monsterGrowls.length; i++) {
+    monsterGrowl.push(monsterGrowls[i]);
+} console.log(monsterGrowl);
 
-/* IMAGE GENERATORS */
-const generateRandomSprite = () => {
-    let randomSprite = characterImages[Math.floor(Math.random()*characterImages.length)];
-    return randomSprite.slice(0,1);
-} 
 
-// NOTE
-/* MONSTER GENERATORS */
+/* RANDOM MONSTER GENERATOR */
 const generateRandomMonster = () => {
     let randomMonster = monsterImages[Math.floor(Math.random()*monsterImages.length)];
     return randomMonster;
 } 
 
-/* select characters */
-
-// Warrior Class
-const selectWarrior = () => {
-
-    $('.warrior').append('<p>You selected Warrior</p>');
-    $('.healer, .rogue, .wizard, .player-class-btn').hide();
-
-    // TODO get random class specific character
-
-    // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar').show(); 
-}
-
-// Wizard Class
-const selectWizard = () => {
-    $('.wizard').append('<p>You selected Wizard</p>');
-    $('.healer, .rogue, .warrior, .player-class-btn').hide();
-
-    // TODO get random class specific character
-    // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar').show(); 
-}
-
-// Healer Class
-const selectHealer = () => {
-    $('.healer').append('<p>You selected Healer</p>');
-    $('.warrior, .rogue, .wizard, .player-class-btn').hide();
+/* RANDOM GROWL GENERATOR */
+const generateRandomGrowl = () => {
+    let randomGrowl = monsterGrowl[Math.floor(Math.random()*monsterGrowl.length)];
+    return randomGrowl; // console.log(generateRandomGrowl(monsterGrowl))
+} 
 
 
-    // TODO get random class specific character
-    // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar').show(); 
-}
-
-// Rogue Class
-const selectRogue = () => {
-    $('.rogue').append('<p>You selected Rogue</p>');
-    $('.healer, .warrior, .wizard, .player-class-btn').hide();
-
-    // TODO get random class specific character 
-    // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar').show(); 
-}
+/* GAMEPLAY */
 
 // TODO 
 // hide characters options and start game
@@ -356,7 +388,7 @@ const startGame = () => {
 // Trigger Monster
 let count = 0;
 
-// NOTE
+// TODO Add Audio and Monster Dialogue
 // trigger monster on 5 clicks right
 $(".trigger-monster").click(function() {
     count++;
@@ -400,7 +432,6 @@ $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
     $('.character-sprite').toggleClass('reverse-direction');
   });
-
 
 // TODO Adapt healthbar
 // Original Author:

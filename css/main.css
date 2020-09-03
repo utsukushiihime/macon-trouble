@@ -48,6 +48,7 @@ button.btn.btn-primary.play-button {
 
 /* BUTTONS */
 
+
 button#start-game {
     background-color: #281d17;
     border-color: #362720;
@@ -73,7 +74,7 @@ button#right:hover
 }
 
 .nav-buttons {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
 }
 
@@ -164,7 +165,7 @@ img.monster-sprite.image-fluid {
     width: 200px;
     height: 20px;
     padding: 5px;
-    background: #ddd;
+    background: #eff9fb;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;

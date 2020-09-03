@@ -10,7 +10,7 @@
 
 // NOTE Need to work on defensive programming.
 
-// Bootstrap Modal for Dialogue
+// Modal for Dialogue
 
 const play = () => {
     $('#gameDialogue').on('shown.bs.modal', function() {
@@ -122,7 +122,8 @@ const selectWarrior = () => {
     // TODO get random class specific character
 
     // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`); // FIXME want to add fade in
+    // FIXME want to add fade in
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`); 
     $('#right, #left, .health-bar').show(); 
 }
 
@@ -163,6 +164,74 @@ const selectRogue = () => {
     $('#right, #left, .health-bar').show(); 
 }
 
+/* 
+Original Author: Dominik Widomski
+Adapted by: Crystal McNeil 09/02/20
+https://codepen.io/dwidomski/pen/KBzuo?editors=0010 
+*/
+
+$(document).on(function(){
+    let hitBtn = $('button.damage'),
+        reset = $('button.reset'),
+        hBar = $('.health-bar'),
+        bar = hBar.find('.bar'),
+        hit = hBar.find('.hit');
+    
+    hitBtn.on("click", function(){
+      let total = hBar.data('total'),
+          value = hBar.data('value');
+      
+      if (value < 0) {
+              log("you dead, reset");
+        return;
+      }
+      // max damage is essentially quarter of max life
+      let damage = Math.floor(Math.random()*total);
+      // damage = 100;
+      let newValue = value - damage;
+      // calculate the percentage of the total width
+      let barWidth = (newValue / total) * 100;
+      let hitWidth = (damage / value) * 100 + "%";
+      
+      // show hit bar and set the width
+      hit.css('width', hitWidth);
+      hBar.data('value', newValue);
+      
+      setTimeout(function(){
+        hit.css({'width': '0'});
+        bar.css('width', barWidth + "%");
+      }, 500);
+      //bar.css('width', total - value);
+      
+      log(value, damage, hitWidth);
+      
+      if( value < 0){
+        log("DEAD");
+      }
+    });
+    
+    reset.on('click', function(e){
+      hBar.data('value', hBar.data('total'));
+      
+      hit.css({'width': '0'});
+      
+          bar.css('width', '100%');
+          log("resetting health to 1000");
+    });
+  });
+  
+  // TODO Healthbar integration
+  function log(_total, _damage, _hitWidth){
+    let log = $('.log');
+    
+    if(_damage !== undefined && _hitWidth !== undefined) {
+        log.append("<div>H:"+_total+" D:"+_damage+" W:"+_hitWidth+" = " + (_total - _damage) + "</div>");
+    } else {
+      log.append("<div>"+_total+"</div>");
+    }
+  };
+
+
 /*************************************/
 
 // TODO Make the movement less janky
@@ -172,6 +241,7 @@ const selectRogue = () => {
 // FIXME character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=80px" }, 500 );
+    $('.character-sprite').removeClass('reverse-direction');
     walking.play();
   });
 
@@ -182,8 +252,11 @@ $( "#right" ).click(function() {
   //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
-    $('.character-sprite').toggleClass('reverse-direction');
+    $('.character-sprite').addClass('reverse-direction');
     walking.play();
+
+    // if avatar block at zero pixels dont go past zero
+    // same for right 
   });
 
 /*************************************/
@@ -418,15 +491,26 @@ const playGame = () => {
     $('.rules').append('<h4>Rules:</h4><ol><li>Use left and right arrow to move back and forth on the screen.</li> <li>You must defeat 3 enemies and 1 boss to win.</li> <li>If your health falls to zero you lose.</li></ol>')
 }
 
-// If player selects play game display message and hide begin my quest button 
-// TODO after close show character on screen
+
+/* GAMEPLAY */
+
+
+// TODO Load stats on game start
 const startGame = () => {
     $('#start-game, .play-button, .classes').hide(); // hide button
-    // show character on close
-    // get selected class
+
+    // load stats for selected character
+        // if warrior select load warrior stats
+        // if healer selected load healer stats
+        // if wizard selected load wizard stats
+        // if rogue selected load rogue stats
+
+    // load random stats for monster
+        // create random Damage, Accuracy, Defense, and Health for monsters
+ 
 }
 
-// Trigger Monster
+/*  Trigger Monster */
 let count = 0;
 
 // TODO Add Audio and Monster Dialogue
@@ -439,9 +523,22 @@ $(".trigger-monster").click(function() {
         if (count === 5){
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
             monsterGrowlAudio.play();
+
         }
     }
 });
+
+
+/* BATTLE */
+
+// popup with button options to attack or defend
+// if defend add +5 to defense for next round
+// if attack add damage for attack to monster
+    // attack damage calculated by attack accuracy
+    // damage 
+
+
+
 
 // BUTTONS
 // Start Game
@@ -456,72 +553,7 @@ $('#start-game').on('click', startGame);
 
 
 
-// TODO Adapt healthbar
-// Original Author:
-// Dominik Widomski
-// Adapted by: Crystal McNeil 09/02/20
-// https://codepen.io/dwidomski/pen/KBzuo?editors=0010
 
-$(document).on(function(){
-    let hitBtn = $('button.damage'),
-        reset = $('button.reset'),
-        hBar = $('.health-bar'),
-        bar = hBar.find('.bar'),
-        hit = hBar.find('.hit');
-    
-    hitBtn.on("click", function(){
-      let total = hBar.data('total'),
-          value = hBar.data('value');
-      
-      if (value < 0) {
-              log("you dead, reset");
-        return;
-      }
-      // max damage is essentially quarter of max life
-      let damage = Math.floor(Math.random()*total);
-      // damage = 100;
-      let newValue = value - damage;
-      // calculate the percentage of the total width
-      let barWidth = (newValue / total) * 100;
-      let hitWidth = (damage / value) * 100 + "%";
-      
-      // show hit bar and set the width
-      hit.css('width', hitWidth);
-      hBar.data('value', newValue);
-      
-      setTimeout(function(){
-        hit.css({'width': '0'});
-        bar.css('width', barWidth + "%");
-      }, 500);
-      //bar.css('width', total - value);
-      
-      log(value, damage, hitWidth);
-      
-      if( value < 0){
-        log("DEAD");
-      }
-    });
-    
-    reset.on('click', function(e){
-      hBar.data('value', hBar.data('total'));
-      
-      hit.css({'width': '0'});
-      
-          bar.css('width', '100%');
-          log("resetting health to 1000");
-    });
-  });
-  
-  // TODO
-  function log(_total, _damage, _hitWidth){
-    let log = $('.log');
-    
-    if(_damage !== undefined && _hitWidth !== undefined) {
-        log.append("<div>H:"+_total+" D:"+_damage+" W:"+_hitWidth+" = " + (_total - _damage) + "</div>");
-    } else {
-      log.append("<div>"+_total+"</div>");
-    }
-  };
 
 
   // 09/03/20

@@ -22,7 +22,7 @@ const play = () => {
 // Monster starts hidden
 // Controls and sprite start and other things that need to be hidden
 
-/* HIDE ON ENTER */
+/* ELEMENTS TO HIDE ON ENTER */
 $('#right, #left, .character-sprite, .health-bar, .monster-sprite').hide();
 
 
@@ -162,6 +162,28 @@ const selectRogue = () => {
     $('#right, #left, .health-bar').show(); 
 }
 
+/*************************************/
+
+// TODO Make the movement less janky
+// TODO scroll the screen 
+
+// Character Move Right
+// FIXME character movement need to add bounce animatin and edit timing
+$( "#right" ).click(function() {
+    $( ".avatar-block" ).animate({ "left": "+=80px" }, 500 );
+  });
+
+  // Need to keep character from moving off of the screen
+  // Need to get character moving in the right direction properly
+
+  // Character Move Left
+  //FIXME flip back direction look at toggle
+  $( "#left" ).click(function(){
+    $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
+    $('.character-sprite').toggleClass('reverse-direction');
+  });
+
+/*************************************/
 
 /* MONSTERS */
 const monsters = [
@@ -412,26 +434,7 @@ $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 $('#start-game').on('click', startGame);
 
-/*************************************/
 
-// TODO Make the movement less janky
-// TODO scroll the screen 
-
-// Character Move Right
-// FIXME character movement need to add bounce animatin and edit timing
-$( "#right" ).click(function() {
-    $( ".avatar-block" ).animate({ "left": "+=80px" }, 500 );
-  });
-
-  // Need to keep character from moving off of the screen
-  // Need to get character moving in the right direction properly
-
-  // Character Move Left
-  //FIXME flip back direction look at toggle
-  $( "#left" ).click(function(){
-    $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
-    $('.character-sprite').toggleClass('reverse-direction');
-  });
 
 // TODO Adapt healthbar
 // Original Author:

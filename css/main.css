@@ -107,7 +107,7 @@ img.monster-sprite.image-fluid {
     height: 375px;
     right: 100px;
     position: absolute;
-    bottom: 130px;
+    bottom: 120px;
     -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
     filter:         drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
 }
@@ -118,14 +118,12 @@ img.monster-sprite.image-fluid {
     border-radius: 0;
 }
 
-
 .btn-primary.focus, .btn-primary:focus {
     color: #fff;
     background-color: #281d17;
     border-color: #362720;
     box-shadow: 0 0 0 0.2rem rgba(73, 54, 18, 0.5);
 }
-
 
 .btn-secondary {
     color: #fff;
@@ -153,7 +151,7 @@ img.monster-sprite.image-fluid {
 }
 
 .modal-body {
-    margin: 0 15px 10px;
+    margin: 0 30px;
 }
 
 /* HEALTH BAR */
@@ -171,6 +169,7 @@ img.monster-sprite.image-fluid {
     border-radius: 5px;
     position: relative;
   }
+
   .bar {
     background: #c54;
     width: 100%;

@@ -115,12 +115,7 @@ const generateRandomSprite = () => {
 
 // Warrior Class
 const selectWarrior = () => {
-    let attack = playerClasses[0].attack;
-    let defense = playerClasses[0].defense;
-    let accuracy = playerClasses[0].accuracy;
-    let health = playerClasses[0].health;
 
-    // FIXME
     $( '.warrior' ).click(function() {
     let text = $( this ).text();
 
@@ -138,10 +133,6 @@ const selectWarrior = () => {
 
 // Wizard Class
 const selectWizard = () => {
-    let attack = playerClasses[1].attack;
-    let defense = playerClasses[1].defense;
-    let accuracy = playerClasses[1].accuracy;
-    let health = playerClasses[1].health;
 
     $( '.wizard' ).click(function() {
     let text = $( this ).text();
@@ -159,11 +150,6 @@ const selectWizard = () => {
 
 // Healer Class
 const selectHealer = () => {
-    let attack = playerClasses[2].attack;
-    let defense = playerClasses[2].defense;
-    let accuracy = playerClasses[2].accuracy;
-    let health = playerClasses[2].health;
-
     $( '.healer' ).click(function() {
     let text = $( this ).text();
 
@@ -180,11 +166,6 @@ const selectHealer = () => {
 
 // Rogue Class
 const selectRogue = () => {
-    let attack = playerClasses[3].attack;
-    let defense = playerClasses[3].defense;
-    let accuracy = playerClasses[3].accuracy;
-    let health = playerClasses[3].health;
-
     $( '.rogue' ).click(function() {
     let text = $( this ).text();
     $( 'input' ).val( text );

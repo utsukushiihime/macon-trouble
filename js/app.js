@@ -140,10 +140,6 @@ for (let i = 0; i < playerClasses.length; i++) {
     classOptions.push(playerClasses[i].type);
 }
 
-const generateSprite = () => {
-    
-}
-
 // Character Class Images
 const characterImages = [];
 
@@ -151,6 +147,7 @@ const characterImages = [];
 for (let i = 0; i < playerClasses.length; i++) {
     characterImages.push(playerClasses[i].image);
 }
+
 
 
 // Monster Images
@@ -163,16 +160,24 @@ for (let i = 0; i < monsters.length; i++) {
 
 // TODO DRY up this section currently very MVP :)
 
+/* IMAGE GENERATORS */
+const generateRandomSprite = () => {
+    let randomSprite = characterImages[Math.floor(Math.random()*characterImages.length)];
+    return randomSprite.slice(0,1);
+} 
+
 /* select characters */
 
 // Warrior Class
 const selectWarrior = () => {
+
     $('.warrior').append('<p>You selected Warrior</p>');
     $('.healer, .rogue, .wizard, .player-class-btn').hide();
 
-    // TODO get random character when 
+    // TODO get random class specific character
+
     // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[0][0]}">`);
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
     $('#right, #left').show(); 
 }
 
@@ -181,9 +186,9 @@ const selectWizard = () => {
     $('.wizard').append('<p>You selected Wizard</p>');
     $('.healer, .rogue, .warrior, .player-class-btn').hide();
 
-    // TODO get random character when 
+    // TODO get random class specific character
     // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[1][0]}">`);
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
     $('#right, #left').show(); 
 }
 
@@ -193,9 +198,9 @@ const selectHealer = () => {
     $('.warrior, .rogue, .wizard, .player-class-btn').hide();
 
 
-    // TODO get random character when 
+    // TODO get random class specific character
     // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[2][0]}">`);
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
     $('#right, #left').show(); 
 }
 
@@ -204,9 +209,9 @@ const selectRogue = () => {
     $('.rogue').append('<p>You selected Rogue</p>');
     $('.healer, .warrior, .wizard, .player-class-btn').hide();
 
-    // TODO get random character when 
+    // TODO get random class specific character 
     // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${characterImages[3][1]}">`);
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
     $('#right, #left').show(); 
 }
 
@@ -231,11 +236,11 @@ const startGame = () => {
 // Trigger Monster
 let count = 0;
 
+// TODO trigger monster on 5 clicks right
 $(".trigger-monster").click(function() {
     count++;
     $("#counter").html("My current count is: "+count);
 });
-
 
 // BUTTONS
 $('#start-game').on('click', playGame);

@@ -157,6 +157,7 @@ const monsterImages = [];
 for (let i = 0; i < monsters.length; i++) {
     monsterImages.push(monsters[i].image);
 }
+console.log(monsterImages)
 
 // TODO DRY up this section currently very MVP :)
 
@@ -164,6 +165,12 @@ for (let i = 0; i < monsters.length; i++) {
 const generateRandomSprite = () => {
     let randomSprite = characterImages[Math.floor(Math.random()*characterImages.length)];
     return randomSprite.slice(0,1);
+} 
+
+/* MONSTER GENERATORS */
+const generateRandomMonster = () => {
+    let randomMonster = monsterImages[Math.floor(Math.random()*monsterImages.length)];
+    return randomMonster;
 } 
 
 /* select characters */
@@ -240,7 +247,14 @@ let count = 0;
 $(".trigger-monster").click(function() {
     count++;
     $("#counter").html("My current count is: "+count);
+    if ( count === 5){
+        if ( count === 5){
+            $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`);
+        }
+        
+    }
 });
+
 
 // BUTTONS
 $('#start-game').on('click', playGame);

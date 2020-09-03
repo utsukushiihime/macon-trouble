@@ -113,22 +113,19 @@ const generateRandomSprite = () => {
 
 /* select characters */
 
-const playerSelected = () => {
-    $( '.warrior' ).click(function() {
-    let text = $( this ).text();
-    $( 'input' ).val( text );
-    console.log(`${text}`);
-    });   
-}
-
 // Warrior Class
 const selectWarrior = () => {
-    // check if selected
+    let attack = playerClasses[0].attack;
+    let defense = playerClasses[0].defense;
+    let accuracy = playerClasses[0].accuracy;
+    let health = playerClasses[0].health;
+
+    // FIXME
     $( '.warrior' ).click(function() {
-        let text = $( this ).text();
-        $( 'input' ).val( text );
-        console.log(`${text}`);
-    $('.warrior').append(`You selected <b>${text}</b>`);
+    let text = $( this ).text();
+
+    $( 'input' ).val( text );
+    $('.warrior-class-selected').append(`You selected <b>${text}</b>`);
     });  
 
     playMagicSnap.play();
@@ -141,11 +138,16 @@ const selectWarrior = () => {
 
 // Wizard Class
 const selectWizard = () => {
+    let attack = playerClasses[1].attack;
+    let defense = playerClasses[1].defense;
+    let accuracy = playerClasses[1].accuracy;
+    let health = playerClasses[1].health;
+
     $( '.wizard' ).click(function() {
-        let text = $( this ).text();
-        $( 'input' ).val( text );
-        console.log(`${text}`);
-    $('.wizard').append(`You selected <b>${text}</b>`);
+    let text = $( this ).text();
+
+    $( 'input' ).val( text );
+    $('.wizard-class-selected').append(`You selected <b>${text}</b>`);
     });  
 
     playMagicSnap.play();
@@ -157,12 +159,18 @@ const selectWizard = () => {
 
 // Healer Class
 const selectHealer = () => {
+    let attack = playerClasses[2].attack;
+    let defense = playerClasses[2].defense;
+    let accuracy = playerClasses[2].accuracy;
+    let health = playerClasses[2].health;
+
     $( '.healer' ).click(function() {
-        let text = $( this ).text();
-        $( 'input' ).val( text );
-        console.log(`${text}`);
-    $('.healer').append(`You selected <b>${text}</b>`);
+    let text = $( this ).text();
+
+    $( 'input' ).val( text );
+    $('.healer-class-selected').append(`You selected <b>${text}</b>`);
     });  
+
     playMagicSnap.play();
     $('.warrior, .rogue, .wizard, .player-class-btn').hide();
 
@@ -172,10 +180,15 @@ const selectHealer = () => {
 
 // Rogue Class
 const selectRogue = () => {
+    let attack = playerClasses[3].attack;
+    let defense = playerClasses[3].defense;
+    let accuracy = playerClasses[3].accuracy;
+    let health = playerClasses[3].health;
+
     $( '.rogue' ).click(function() {
-        let text = $( this ).text();
-        $( 'input' ).val( text );
-    $('.rogue').append(`You selected <b>${text}</b>`);
+    let text = $( this ).text();
+    $( 'input' ).val( text );
+    $('.rogue-class-selected').append(`You selected <b>${text}</b>`);
 
     });  
 

@@ -20,11 +20,8 @@ const play = () => {
 
 // TODO -- MOVE THESE TO Appropes spot later
 // Monster starts hidden
-$('.monster-sprite').hide();
-
 // Controls and sprite start and other things that need to be hidden
-$('#right, #left').hide(); 
-$('.character-sprite, .health-bar').hide();
+$('#right, #left, .character-sprite, .health-bar, .monster-sprite').hide();
 
 /* Player Classes and Stats */
 const playerClasses = [{
@@ -88,6 +85,7 @@ const playerClasses = [{
     }
 ];
 
+// NOTE
 /* MONSTERS */
 const monsters = [
    {
@@ -281,6 +279,7 @@ const generateRandomSprite = () => {
     return randomSprite.slice(0,1);
 } 
 
+// NOTE
 /* MONSTER GENERATORS */
 const generateRandomMonster = () => {
     let randomMonster = monsterImages[Math.floor(Math.random()*monsterImages.length)];
@@ -357,6 +356,7 @@ const startGame = () => {
 // Trigger Monster
 let count = 0;
 
+// NOTE
 // trigger monster on 5 clicks right
 $(".trigger-monster").click(function() {
     count++;
@@ -473,9 +473,21 @@ $(document).on(function(){
   // 09/03/20
   // Battle 
     // health bars
-    // monster fights
-    // death
-    // win
-    // play again
-  // Styling
-  // Defensive programming
+    // monster fights 3 small 1 boss
+    // death - if HP = 0
+    // win - if monster hp = 0
+    // play again = reset
+  // Styling 
+  // Defensive programming 
+
+
+// What are you most proud of with your logic? (Show us one code snippet and explain it)
+    // Monster generator and trigger - it's short and simple but effective
+
+// What as the hardest bug/feature that you had to overcome?
+    // I am sure I will encounter that today. Ask me later. 
+
+// If you could start the project over again what would you do differently?
+    // Better time management
+
+

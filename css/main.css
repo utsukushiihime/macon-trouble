@@ -105,9 +105,9 @@ img.character-sprite-2.image-fluid {
 
 img.monster-sprite.image-fluid {
     height: 375px;
-    right: 100px;
+    right: 60px;
     position: absolute;
-    bottom: 120px;
+    bottom: 130px;
     -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
     filter:         drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
 }

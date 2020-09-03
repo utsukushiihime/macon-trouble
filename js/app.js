@@ -370,6 +370,7 @@ $(".trigger-monster").click(function() {
 });
 
 // BUTTONS
+// Start Game
 $('#start-game').on('click', playGame);
 
 // Player Class BUTTONS
@@ -467,3 +468,14 @@ $(document).on(function(){
       log.append("<div>"+_total+"</div>");
     }
   };
+
+
+  // 09/03/20
+  // Battle 
+    // health bars
+    // monster fights
+    // death
+    // win
+    // play again
+  // Styling
+  // Defensive programming

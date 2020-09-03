@@ -22,7 +22,7 @@ const play = () => {
 // Controls and sprite start and other things that need to be hidden
 
 /* ELEMENTS TO HIDE ON ENTER */
-$('#right, #left, .character-sprite, .health-bar, .monster-sprite').hide();
+$('#right, #left, .character-sprite, .health-bar, .log, .monster-sprite').hide();
 
 /* PLAYER */
 
@@ -523,6 +523,7 @@ $(".trigger-monster").click(function() {
         if (count === 5){
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
             monsterGrowlAudio.play();
+            $('#right, #left').hide(); // want to keep the player from moving until round over
 
         }
     }
@@ -537,6 +538,8 @@ $(".trigger-monster").click(function() {
     // attack damage calculated by attack accuracy
     // damage 
 
+
+// Reset Character position to zero px on screen when monster defeated
 
 
 

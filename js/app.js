@@ -234,11 +234,7 @@ $(document).on(function(){
 
 /*************************************/
 
-// TODO Make the movement less janky
-// TODO scroll the screen 
-
 // Character Move Right
-// FIXME character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=80px" }, 500 );
     $('.character-sprite').removeClass('reverse-direction');
@@ -246,16 +242,14 @@ $( "#right" ).click(function() {
   });
 
   // Need to keep character from moving off of the screen
-  // Need to get character moving in the right direction properly
 
   // Character Move Left
-  //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
     $('.character-sprite').addClass('reverse-direction');
     walking.play();
 
-    // if avatar block at zero pixels dont go past zero
+    // FIXME if avatar block at zero pixels dont go past zero
     // same for right 
   });
 
@@ -494,7 +488,6 @@ const playGame = () => {
 
 /* GAMEPLAY */
 
-
 // TODO Load stats on game start
 const startGame = () => {
     $('#start-game, .play-button, .classes').hide(); // hide button
@@ -507,7 +500,6 @@ const startGame = () => {
 
     // load random stats for monster
         // create random Damage, Accuracy, Defense, and Health for monsters
- 
 }
 
 /*  Trigger Monster */
@@ -524,7 +516,7 @@ $(".trigger-monster").click(function() {
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
             monsterGrowlAudio.play();
             $('#right, #left').hide(); // want to keep the player from moving until round over
-
+            
         }
     }
 });

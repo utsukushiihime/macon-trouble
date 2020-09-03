@@ -10,8 +10,9 @@ body {
     background: #76c4e8 url("../img/backgrounds/bg1.jpg") left bottom repeat-x !important;
     height: 100vh;
     background-origin: content-box;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-size: cover;
+    z-index: -1;
 }
 
 .h1-title {
@@ -34,7 +35,6 @@ button.btn.btn-primary.play-button {
 .avatar-block {
     position: absolute;
     left: 50px;
-    width: 90px;
     margin: 5px;
     bottom: 395px;
     z-index:-1;
@@ -44,7 +44,6 @@ button.btn.btn-primary.play-button {
 .small-avatar {
     height: 120px;
     margin: 10px;
-
 }
 
 /* BUTTONS */

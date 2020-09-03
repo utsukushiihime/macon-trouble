@@ -14,9 +14,10 @@
 
 const play = () => {
     $('#gameDialogue').on('shown.bs.modal', function() {
-        $('#myInput').trigger('focus')
+        $('#myInput').trigger('focus');     
     });
 }
+
 
 // Monster starts hidden
 // Controls and sprite start and other things that need to be hidden
@@ -116,8 +117,8 @@ const generateRandomSprite = () => {
 
 // Warrior Class
 const selectWarrior = () => {
-
     $('.warrior').append('<p>You selected Warrior</p>');
+    playMagicSnap.play();
     $('.healer, .rogue, .wizard, .player-class-btn').hide();
 
     // TODO get random class specific character
@@ -130,6 +131,7 @@ const selectWarrior = () => {
 // Wizard Class
 const selectWizard = () => {
     $('.wizard').append('<p>You selected Wizard</p>');
+    playMagicSnap.play();
     $('.healer, .rogue, .warrior, .player-class-btn').hide();
 
     // TODO get random class specific character
@@ -141,6 +143,7 @@ const selectWizard = () => {
 // Healer Class
 const selectHealer = () => {
     $('.healer').append('<p>You selected Healer</p>');
+    playMagicSnap.play();
     $('.warrior, .rogue, .wizard, .player-class-btn').hide();
 
 
@@ -153,6 +156,7 @@ const selectHealer = () => {
 // Rogue Class
 const selectRogue = () => {
     $('.rogue').append('<p>You selected Rogue</p>');
+    playMagicSnap.play();
     $('.healer, .warrior, .wizard, .player-class-btn').hide();
 
     // TODO get random class specific character 
@@ -181,7 +185,7 @@ $( "#right" ).click(function() {
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
     $('.character-sprite').toggleClass('reverse-direction');
-    monsterGrowlAudio.play();
+    walking.play();
   });
 
 /*************************************/
@@ -389,14 +393,19 @@ const generateRandomGrowl = () => {
 
 /** AUDIO */
 
+// Play Magic Ding Button
+const playMagicDing = new Audio('./audio/play-magic-ding.wav');
+
+// Play Magic Ding Button
+const playMagicSnap = new Audio('./audio/magic-finger-snap.wav');
+
 // Character Walking
 const walking = new Audio('./audio/walkin-on-grass.wav');
 
 // Monster Growl
 const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));
-// $('elementNeedingSound').click(e => monsterGrowlAudio.play());
 
-console.log(monsterGrowlAudio);
+// console.log(monsterGrowlAudio);
 
 
 /* GAMEPLAY */

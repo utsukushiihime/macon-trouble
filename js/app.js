@@ -18,7 +18,6 @@ const play = () => {
     });
 }
 
-// TODO -- MOVE THESE TO Appropes spot later
 // Monster starts hidden
 // Controls and sprite start and other things that need to be hidden
 
@@ -107,7 +106,7 @@ for (let i = 0; i < playerClasses.length; i++) {
 }
 
 /* RANDOM PLAYER SPRITE GENERATORS */
-// Want to slect random per class if time permits
+// Want to select random sprite per class if time permits
 const generateRandomSprite = () => {
     let randomSprite = characterImages[Math.floor(Math.random()*characterImages.length)];
     return randomSprite.slice(0,1);
@@ -347,16 +346,16 @@ const monsters = [
 
 /* Monster Sounds */
 monsterGrowls = [
-    '../audio/monster-growl/Monster-01.wav',
-    '../audio/monster-growl/Monster-02.wav',
-    '../audio/monster-growl/Monster-03.wav',
-    '../audio/monster-growl/Monster-04.wav',
-    '../audio/monster-growl/Monster-05.wav',
-    '../audio/monster-growl/Monster-06.wav',
-    '../audio/monster-growl/Monster-will-die-1.wav',
-    '../audio/monster-growl/Monster-will-die-2.wav',
-    '../audio/monster-growl/Monster-will-die-3.wav',
-    '../audio/monster-growl/Monster-will-die-4.wav'
+    './audio/monster-growl/Monster-01.wav',
+    './audio/monster-growl/Monster-02.wav',
+    './audio/monster-growl/Monster-03.wav',
+    './audio/monster-growl/Monster-04.wav',
+    './audio/monster-growl/Monster-05.wav',
+    './audio/monster-growl/Monster-06.wav',
+    './audio/monster-growl/Monster-will-die-1.wav',
+    './audio/monster-growl/Monster-will-die-2.wav',
+    './audio/monster-growl/Monster-will-die-3.wav',
+    './audio/monster-growl/Monster-will-die-4.wav'
 ]
 
 /* Monster Images */
@@ -371,7 +370,7 @@ for (let i = 0; i < monsters.length; i++) {
 // get monster growls
 for (let i = 0; i < monsterGrowls.length; i++) {
     monsterGrowl.push(monsterGrowls[i]);
-} console.log(monsterGrowl);
+} // console.log(monsterGrowl);
 
 
 /* RANDOM MONSTER GENERATOR */
@@ -385,6 +384,14 @@ const generateRandomGrowl = () => {
     let randomGrowl = monsterGrowl[Math.floor(Math.random()*monsterGrowl.length)];
     return randomGrowl; // console.log(generateRandomGrowl(monsterGrowl))
 } 
+
+/** AUDIO */
+
+// Monster Growl
+const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));
+// $('elementNeedingSound').click(e => monsterGrowlAudio.play());
+
+console.log(monsterGrowlAudio);
 
 
 /* GAMEPLAY */
@@ -419,6 +426,7 @@ $(".trigger-monster").click(function() {
     if (count === 5){
         if (count === 5){
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
+            monsterGrowlAudio.play();
         }
     }
 });

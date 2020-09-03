@@ -170,6 +170,7 @@ const selectRogue = () => {
 // FIXME character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
     $( ".avatar-block" ).animate({ "left": "+=80px" }, 500 );
+    walking.play();
   });
 
   // Need to keep character from moving off of the screen
@@ -180,6 +181,7 @@ $( "#right" ).click(function() {
   $( "#left" ).click(function(){
     $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
     $('.character-sprite').toggleClass('reverse-direction');
+    monsterGrowlAudio.play();
   });
 
 /*************************************/
@@ -386,6 +388,9 @@ const generateRandomGrowl = () => {
 } 
 
 /** AUDIO */
+
+// Character Walking
+const walking = new Audio('./audio/walkin-on-grass.wav');
 
 // Monster Growl
 const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));

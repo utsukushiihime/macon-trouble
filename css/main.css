@@ -21,6 +21,8 @@ body {
     font-size: 72px;
     padding: 40px;
     margin-bottom: 40px;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+    filter:         drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
 }
 
 button.btn.btn-primary.play-button {
@@ -84,9 +86,11 @@ button#right:hover
 
 img.character-sprite.image-fluid {
     height: 245px;
-    left: 100px;
+    left: 0;
     position: absolute;
     bottom: -260px;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+    filter:         drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
 }
 
 
@@ -104,6 +108,8 @@ img.monster-sprite.image-fluid {
     right: 100px;
     position: absolute;
     bottom: 130px;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+    filter:         drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
 }
 
 

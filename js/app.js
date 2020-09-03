@@ -129,6 +129,126 @@ const monsters = [
    {
     isBoss: false,
     image: './img/monsters/monster-10.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-11.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-12.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-13.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-14.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-15.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-16.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-17.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-18.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-19.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-20.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-21.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-22.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-23.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-24.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-25.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-26.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-27.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-28.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-29.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-30.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-31.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-32.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-33.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-34.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-35.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-36.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-37.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-38.png'
+    },
+    {
+    isBoss: false,
+    image: './img/monsters/monster-39.png'
+    },
+    {
+    isBoss: true,
+    image: './img/monsters/dragon-1.png'
     }
 ];
 
@@ -147,8 +267,6 @@ const characterImages = [];
 for (let i = 0; i < playerClasses.length; i++) {
     characterImages.push(playerClasses[i].image);
 }
-
-
 
 // Monster Images
 const monsterImages = [];
@@ -243,18 +361,17 @@ const startGame = () => {
 // Trigger Monster
 let count = 0;
 
-// TODO trigger monster on 5 clicks right
+// trigger monster on 5 clicks right
 $(".trigger-monster").click(function() {
     count++;
-    $("#counter").html("My current count is: "+count);
+
+    // trigger monster after 5 clicks right
     if ( count === 5){
         if ( count === 5){
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`);
         }
-        
     }
 });
-
 
 // BUTTONS
 $('#start-game').on('click', playGame);
@@ -274,8 +391,7 @@ $('#start-game').on('click', startGame);
 // Character Move Right
 // FIXME character movement need to add bounce animatin and edit timing
 $( "#right" ).click(function() {
-    $( ".avatar-block" ).animate({ "left": "+=100px" }, 500 );
-        $('.character-sprite').toggleClass('reverse-direction');
+    $( ".avatar-block" ).animate({ "left": "+=80px" }, 500 );
   });
 
   // Need to keep character from moving off of the screen
@@ -284,7 +400,7 @@ $( "#right" ).click(function() {
   // Character Move Left
   //FIXME flip back direction look at toggle
   $( "#left" ).click(function(){
-    $( ".avatar-block" ).animate({ "left": "-=100px" }, 500 );
+    $( ".avatar-block" ).animate({ "left": "-=80px" }, 500 );
     $('.character-sprite').toggleClass('reverse-direction');
   });
 

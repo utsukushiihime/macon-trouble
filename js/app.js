@@ -24,7 +24,7 @@ const play = () => {
 // Controls and sprite start and other things that need to be hidden
 
 /* ELEMENTS TO HIDE ON ENTER */
-$('#right, #left, .character-sprite, .health-bar, .log, .monster-sprite, #start-game').hide();
+$('#right, #left, .character-sprite, .health-bar, .log, .monster-sprite, #start-game, .fight, .retreat').hide();
 
 /* PLAYER */
 
@@ -512,18 +512,20 @@ const startGame = () => {
 }
 
 /*  Trigger Monster */
-let count = 0;
+let moveCount = 0;
 
 // TODO Add Audio and Monster Dialogue
 // trigger monster on 5 clicks right
 $(".trigger-monster").click(function() {
-    count++;
+    moveCount++;
 
     // trigger monster after 5 clicks right
-        if (count === 5){
+        if (moveCount === 5){
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
             monsterGrowlAudio.play();
-            $('#right, #left').hide(); // want to keep the player from moving until round over
+            $('#right, #left').hide(); 
+            $('.fight, .retreat').show();
+
         }
 });
 

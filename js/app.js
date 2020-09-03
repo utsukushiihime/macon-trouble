@@ -18,13 +18,11 @@ const play = () => {
     });
 }
 
-
 // Monster starts hidden
 // Controls and sprite start and other things that need to be hidden
 
 /* ELEMENTS TO HIDE ON ENTER */
 $('#right, #left, .character-sprite, .health-bar, .monster-sprite').hide();
-
 
 /* PLAYER */
 
@@ -124,7 +122,7 @@ const selectWarrior = () => {
     // TODO get random class specific character
 
     // TODO show after close
-    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
+    $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`); // FIXME want to add fade in
     $('#right, #left, .health-bar').show(); 
 }
 

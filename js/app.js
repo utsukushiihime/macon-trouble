@@ -24,7 +24,7 @@ $('.monster-sprite').hide();
 
 // Controls and sprite start and other things that need to be hidden
 $('#right, #left').hide(); 
-$('.character-sprite').hide();
+$('.character-sprite, .health-bar').hide();
 
 /* Player Classes and Stats */
 const playerClasses = [{
@@ -299,7 +299,7 @@ const selectWarrior = () => {
 
     // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left').show(); 
+    $('#right, #left, .health-bar').show(); 
 }
 
 // Wizard Class
@@ -310,7 +310,7 @@ const selectWizard = () => {
     // TODO get random class specific character
     // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left').show(); 
+    $('#right, #left, .health-bar').show(); 
 }
 
 // Healer Class
@@ -322,7 +322,7 @@ const selectHealer = () => {
     // TODO get random class specific character
     // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left').show(); 
+    $('#right, #left, .health-bar').show(); 
 }
 
 // Rogue Class
@@ -333,7 +333,7 @@ const selectRogue = () => {
     // TODO get random class specific character 
     // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left').show(); 
+    $('#right, #left, .health-bar').show(); 
 }
 
 // TODO 
@@ -362,9 +362,9 @@ $(".trigger-monster").click(function() {
     count++;
 
     // trigger monster after 5 clicks right
-    if ( count === 5){
-        if ( count === 5){
-            $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`);
+    if (count === 5){
+        if (count === 5){
+            $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
         }
     }
 });
@@ -401,9 +401,69 @@ $( "#right" ).click(function() {
   });
 
 
+// TODO Adapt healthbar
+// Original Author:
+// Dominik Widomski
+// Adapted by: Crystal McNeil 09/02/20
+// https://codepen.io/dwidomski/pen/KBzuo?editors=0010
 
-
-
-
-
-
+$(document).on(function(){
+    let hitBtn = $('button.damage'),
+        reset = $('button.reset'),
+        hBar = $('.health-bar'),
+        bar = hBar.find('.bar'),
+        hit = hBar.find('.hit');
+    
+    hitBtn.on("click", function(){
+      let total = hBar.data('total'),
+          value = hBar.data('value');
+      
+      if (value < 0) {
+              log("you dead, reset");
+        return;
+      }
+      // max damage is essentially quarter of max life
+      let damage = Math.floor(Math.random()*total);
+      // damage = 100;
+      let newValue = value - damage;
+      // calculate the percentage of the total width
+      let barWidth = (newValue / total) * 100;
+      let hitWidth = (damage / value) * 100 + "%";
+      
+      // show hit bar and set the width
+      hit.css('width', hitWidth);
+      hBar.data('value', newValue);
+      
+      setTimeout(function(){
+        hit.css({'width': '0'});
+        bar.css('width', barWidth + "%");
+      }, 500);
+      //bar.css('width', total - value);
+      
+      log(value, damage, hitWidth);
+      
+      if( value < 0){
+        log("DEAD");
+      }
+    });
+    
+    reset.on('click', function(e){
+      hBar.data('value', hBar.data('total'));
+      
+      hit.css({'width': '0'});
+      
+          bar.css('width', '100%');
+          log("resetting health to 1000");
+    });
+  });
+  
+  // TODO
+  function log(_total, _damage, _hitWidth){
+    let log = $('.log');
+    
+    if(_damage !== undefined && _hitWidth !== undefined) {
+        log.append("<div>H:"+_total+" D:"+_damage+" W:"+_hitWidth+" = " + (_total - _damage) + "</div>");
+    } else {
+      log.append("<div>"+_total+"</div>");
+    }
+  };

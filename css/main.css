@@ -10,7 +10,7 @@ body {
     background: #76c4e8 url("../img/backgrounds/bg1.jpg") left bottom repeat-x !important;
     height: 100vh;
     background-origin: content-box;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover;
 }
 
@@ -35,7 +35,6 @@ button.btn.btn-primary.play-button {
     position: absolute;
     left: 50px;
     width: 90px;
-    height: 90px;
     margin: 5px;
     bottom: 395px;
     z-index:-1;
@@ -156,21 +155,39 @@ img.monster-sprite.image-fluid {
     margin: 35px;
 }
 
-/* Animations */
-.monster {
-    animation-duration: 3s;
-    animation-name: slidein;
+/* HEALTH BAR */
+
+.health-bar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    background: #ddd;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+  }
+  .bar {
+    background: #c54;
+    width: 100%;
+    height: 10px;
+    position: relative;
+    
+    transition: width .5s linear;
+  }
+  
+  .hit {
+    background: rgba(255,255,255,0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0px;
+    
+    transition: width .5s linear;
   }
 
-@keyframes slidein {
-    from {
-      margin-left: 100%;
-      width: 300%; 
-    }
-  
-    to {
-      margin-left: 0%;
-      width: 100%;
-    }
-  }
 

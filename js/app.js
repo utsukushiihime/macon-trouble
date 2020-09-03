@@ -95,7 +95,7 @@ const monsters = [
     image: './img/monsters/monster-1.png'
    },
    {
-    isBoss: false,
+    isBoss: true,
     image: './img/monsters/monster-2.png'
    },
    {
@@ -119,7 +119,7 @@ const monsters = [
     image: './img/monsters/monster-7.png'
    },
    {
-    isBoss: false,
+    isBoss: true,
     image: './img/monsters/monster-8.png'
    },
    {
@@ -191,7 +191,7 @@ const monsters = [
     image: './img/monsters/monster-25.png'
     },
     {
-    isBoss: false,
+    isBoss: true,
     image: './img/monsters/monster-26.png'
     },
     {
@@ -199,7 +199,7 @@ const monsters = [
     image: './img/monsters/monster-27.png'
     },
     {
-    isBoss: false,
+    isBoss: true,
     image: './img/monsters/monster-28.png'
     },
     {
@@ -215,7 +215,7 @@ const monsters = [
     image: './img/monsters/monster-31.png'
     },
     {
-    isBoss: false,
+    isBoss: true,
     image: './img/monsters/monster-32.png'
     },
     {
@@ -239,7 +239,7 @@ const monsters = [
     image: './img/monsters/monster-37.png'
     },
     {
-    isBoss: false,
+    isBoss: true,
     image: './img/monsters/monster-38.png'
     },
     {

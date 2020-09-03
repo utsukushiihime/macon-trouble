@@ -14,7 +14,7 @@
 
 const play = () => {
     $('#gameDialogue').on('shown.bs.modal', function() {
-        $('#myInput').trigger('focus');     
+        // $('#myInput').trigger('focus');     
     });
 }
 
@@ -113,56 +113,80 @@ const generateRandomSprite = () => {
 
 /* select characters */
 
+const playerSelected = () => {
+    $( '.warrior' ).click(function() {
+    let text = $( this ).text();
+    $( 'input' ).val( text );
+    console.log(`${text}`);
+    });   
+}
+
 // Warrior Class
 const selectWarrior = () => {
-    $('.warrior').append('<p>You selected Warrior</p>');
+    // check if selected
+    $( '.warrior' ).click(function() {
+        let text = $( this ).text();
+        $( 'input' ).val( text );
+        console.log(`${text}`);
+    $('.warrior').append(`You selected <b>${text}</b>`);
+    });  
+
     playMagicSnap.play();
     $('.healer, .rogue, .wizard, .player-class-btn').hide();
 
-    // TODO get random class specific character
 
-    // TODO show after close
-    // FIXME want to add fade in
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`); 
     $('#right, #left, .health-bar').show(); 
 }
 
 // Wizard Class
 const selectWizard = () => {
-    $('.wizard').append('<p>You selected Wizard</p>');
+    $( '.wizard' ).click(function() {
+        let text = $( this ).text();
+        $( 'input' ).val( text );
+        console.log(`${text}`);
+    $('.wizard').append(`You selected <b>${text}</b>`);
+    });  
+
     playMagicSnap.play();
     $('.healer, .rogue, .warrior, .player-class-btn').hide();
 
-    // TODO get random class specific character
-    // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
     $('#right, #left, .health-bar').show(); 
 }
 
 // Healer Class
 const selectHealer = () => {
-    $('.healer').append('<p>You selected Healer</p>');
+    $( '.healer' ).click(function() {
+        let text = $( this ).text();
+        $( 'input' ).val( text );
+        console.log(`${text}`);
+    $('.healer').append(`You selected <b>${text}</b>`);
+    });  
     playMagicSnap.play();
     $('.warrior, .rogue, .wizard, .player-class-btn').hide();
 
-
-    // TODO get random class specific character
-    // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
     $('#right, #left, .health-bar').show(); 
 }
 
 // Rogue Class
 const selectRogue = () => {
-    $('.rogue').append('<p>You selected Rogue</p>');
+    $( '.rogue' ).click(function() {
+        let text = $( this ).text();
+        $( 'input' ).val( text );
+    $('.rogue').append(`You selected <b>${text}</b>`);
+
+    });  
+
     playMagicSnap.play();
     $('.healer, .warrior, .wizard, .player-class-btn').hide();
 
-    // TODO get random class specific character 
-    // TODO show after close
     $('.avatar-block').append(`<img class="character-sprite image-fluid" src="${generateRandomSprite(characterImages)}">`);
     $('#right, #left, .health-bar').show(); 
 }
+
+
 
 /* 
 Original Author: Dominik Widomski
@@ -516,7 +540,7 @@ $(".trigger-monster").click(function() {
             $('#monster').append(`<img class="monster-sprite image-fluid" src="${generateRandomMonster(monsterImages)}">`)
             monsterGrowlAudio.play();
             $('#right, #left').hide(); // want to keep the player from moving until round over
-            
+
         }
     }
 });
@@ -533,8 +557,6 @@ $(".trigger-monster").click(function() {
 
 // Reset Character position to zero px on screen when monster defeated
 
-
-
 // BUTTONS
 // Start Game
 $('#start-game').on('click', playGame);
@@ -545,10 +567,6 @@ $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);
 $('#start-game').on('click', startGame);
-
-
-
-
 
 
   // 09/03/20
@@ -570,5 +588,3 @@ $('#start-game').on('click', startGame);
 
 // If you could start the project over again what would you do differently?
     // Better time management
-
-

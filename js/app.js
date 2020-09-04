@@ -122,7 +122,7 @@ const generateRandomAccuracy = () => {
     classAccuracy[Math.floor(Math.random() * classAccuracy.length)];
   return Math.round(randomAccuracy);
 };
-console.log(generateRandomAccuracy(classAccuracy));
+// console.log(generateRandomAccuracy(classAccuracy));
 
 /* select characters */
 

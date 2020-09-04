@@ -522,7 +522,9 @@ const attack = () => {
   if (monsterDamage <= 0) {
     $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
   } else if (monsterHealth <= 0) {
-    $(".modal-body").append(`<p>You killed the monster. Huzzah.</p>`);
+    $(".modal-body").append(
+      `<p>You killed the monster. Huzzah.</p><p>With a final swing of your weapon, you bring the monster down. It seems as if this was the last of them. You sit for a moment to catch your breath. You saved Skillet from destruction. Saved its citizens from certain death. A job well done. Now it is time to return to the farm.</p> <p>You stand, intending to walk back to the village and then your farm. But what about the other villages in the area? Who will protect them? You heft your father’s weapon, resting it on your shoulder. Someone has to answer the call to adventure.</p>`
+    );
   } else {
     $(".modal-body").append(
       `<p>You did ${monsterDamage} damage. <br>Monster current health ${monsterUpdatedHealth}</p>`

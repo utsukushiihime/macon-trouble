@@ -17,9 +17,6 @@ const play = () => {
   $("#gameDialogue").on("shown.bs.modal", function () {});
 };
 
-// Monster starts hidden
-// Controls and sprite start and other things that need to be hidden
-
 /* ELEMENTS TO HIDE ON ENTER */
 $(
   "#right, #left, .character-sprite, .health-bar, .log, .monster-sprite, #start-game, .fight, .retreat"
@@ -47,7 +44,7 @@ const playerClasses = [
     type: "Wizard",
     attack: 18,
     defense: 10,
-    accuracy: 14,
+    accuracy: 1.8,
     health: 8,
     image: [
       "./img/characters/wizard/wizard-1.png",
@@ -61,7 +58,7 @@ const playerClasses = [
     type: "Healer",
     attack: 10,
     defense: 17,
-    accuracy: 10,
+    accuracy: 1.1,
     health: 13,
     image: [
       "./img/characters/healer/healer-1.png",
@@ -75,7 +72,7 @@ const playerClasses = [
     type: "Rogue",
     attack: 10,
     defense: 15,
-    accuracy: 15,
+    accuracy: 1.6,
     health: 10,
     image: [
       "./img/characters/rogue/rogue-1.png",
@@ -88,11 +85,20 @@ const playerClasses = [
 ];
 
 // Character Class Type
+
 const classOptions = [];
 
 // get class types
 for (let i = 0; i < playerClasses.length; i++) {
   classOptions.push(playerClasses[i].type);
+}
+
+// Character Class Accuracy
+const classAccuracy = [];
+
+// get accuracy
+for (let i = 0; i < playerClasses.length; i++) {
+  classAccuracy.push(playerClasses[i].accuracy);
 }
 
 // Character Class Images
@@ -110,6 +116,13 @@ const generateRandomSprite = () => {
     characterImages[Math.floor(Math.random() * characterImages.length)];
   return randomSprite.slice(0, 1);
 };
+
+const generateRandomAccuracy = () => {
+  let randomAccuracy =
+    classAccuracy[Math.floor(Math.random() * classAccuracy.length)];
+  return Math.round(randomAccuracy);
+};
+console.log(generateRandomAccuracy(classAccuracy));
 
 /* select characters */
 
@@ -494,7 +507,6 @@ const generateRandomGrowl = () => {
 /*************************************/
 
 /** AUDIO */
-
 // Play Magic Ding Button
 const playMagicDing = new Audio("./audio/play-magic-ding.wav");
 
@@ -558,39 +570,37 @@ $(".trigger-monster").click(function () {
 
 /* BATTLE */
 
-// Random Damage
-function randomDamage(min, max) {
-  return Math.random() * (max - min) + min;
-}
+// TODO need to do for all classes, but will leave to achieve MVP
+const attack = () => {
+  // Random Damage
+  function randomDamage(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
-let monsterHealth = 30;
-
-let warriorAttack = playerClasses[0].attack;
-let warriorHealth = playerClasses[0].health;
-let warriorDefense = playerClasses[0].defense;
-let warriorAccuracy = playerClasses[0].accuracy;
-
-$(".attack").on("click", function () {
-  console.log(monsterHealth);
+  let monsterHealth = 30;
+  let playerAttack = playerClasses[0].attack;
+  let playerAccuracy = generateRandomAccuracy(classAccuracy);
   let monsterDamage =
     monsterHealth -
-    Math.round((warriorAttack / randomDamage(warriorAccuracy, 0)) * 1);
+    Math.round((playerAttack / randomDamage(playerAccuracy, 0)) * 1);
   let monsterUpdatedHealth = monsterHealth - monsterDamage;
-  console.log(monsterDamage);
+  monsterUpdatedHealth--;
+  // calculate damage to monster
   if (monsterDamage <= 0) {
     $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
+  } else if (monsterHealth === 0) {
+    $(".modal-body").append(`<p>You killed the monster. Huzzah.</p>`);
   } else {
     $(".modal-body").append(
       `<p>You did ${monsterDamage} damage. <br>Monster current health ${monsterUpdatedHealth}</p>`
     );
   }
-});
+};
 
-// popup with button options to attack or defend
-// if defend add +5 to defense for next round
-// if attack add damage for attack to monster
-// attack damage calculated by attack accuracy
-// damage
+// if defend add +5 to defense
+// const defend = () => {
+//   let;
+// };
 
 // Reset Character position to zero px on screen when monster defeated
 
@@ -600,3 +610,4 @@ $("#wizard").on("click", selectWizard);
 $("#healer").on("click", selectHealer);
 $("#rogue").on("click", selectRogue);
 $("#start-game").on("click", startGame);
+$(".attack").on("click", attack);

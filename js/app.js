@@ -212,77 +212,6 @@ Adapted by: Crystal McNeil 09/02/20
 https://codepen.io/dwidomski/pen/KBzuo?editors=0010 
 */
 
-$(document).on(function () {
-  let hitBtn = $("button.damage"),
-    reset = $("button.reset"),
-    hBar = $(".health-bar"),
-    bar = hBar.find(".bar"),
-    hit = hBar.find(".hit");
-
-  hitBtn.on("click", function () {
-    let total = hBar.data("total"),
-      value = hBar.data("value");
-
-    if (value < 0) {
-      log("you dead, reset");
-      return;
-    }
-    // max damage is essentially quarter of max life
-    let damage = Math.floor(Math.random() * total);
-    // damage = 100;
-    let newValue = value - damage;
-    // calculate the percentage of the total width
-    let barWidth = (newValue / total) * 100;
-    let hitWidth = (damage / value) * 100 + "%";
-
-    // show hit bar and set the width
-    hit.css("width", hitWidth);
-    hBar.data("value", newValue);
-
-    setTimeout(function () {
-      hit.css({ width: "0" });
-      bar.css("width", barWidth + "%");
-    }, 500);
-    //bar.css('width', total - value);
-
-    log(value, damage, hitWidth);
-
-    if (value < 0) {
-      log("DEAD");
-    }
-  });
-
-  reset.on("click", function (e) {
-    hBar.data("value", hBar.data("total"));
-
-    hit.css({ width: "0" });
-
-    bar.css("width", "100%");
-    log("resetting health to 1000");
-  });
-});
-
-// TODO Healthbar integration
-function log(_total, _damage, _hitWidth) {
-  let log = $(".log");
-
-  if (_damage !== undefined && _hitWidth !== undefined) {
-    log.append(
-      "<div>H:" +
-        _total +
-        " D:" +
-        _damage +
-        " W:" +
-        _hitWidth +
-        " = " +
-        (_total - _damage) +
-        "</div>"
-    );
-  } else {
-    log.append("<div>" + _total + "</div>");
-  }
-}
-
 // FIXME Need to keep character from moving off of the screen
 // Character Move Right
 $("#right").click(function () {
@@ -542,15 +471,6 @@ const startGame = () => {
 
   //
   $("#start-game, .play-button, .classes").hide(); // hide button
-
-  // load stats for selected character
-  // if warrior select load warrior stats
-  // if healer selected load healer stats
-  // if wizard selected load wizard stats
-  // if rogue selected load rogue stats
-
-  // load random stats for monster
-  // create random Damage, Accuracy, Defense, and Health for monsters
 };
 
 /*  Trigger Monster */
@@ -578,7 +498,6 @@ $(".trigger-monster").click(function () {
 // Run on Retreat
 const gameReload = () => {
   setTimeout(function () {
-    alert("Reloading Game");
     location.reload(true);
   }, 2000);
 };
@@ -617,6 +536,7 @@ const attack = () => {
   }, 2000);
 };
 
+// add 5 to defense
 const defend = () => {
   let playerDefense = playerClasses[0].defense + 5;
   console.log(playerDefense);
@@ -633,21 +553,20 @@ const defend = () => {
   }, 2000);
 };
 
-// if defend add +5 to defense
-let monsterAttack;
-
-monsterAttack = () => {
+//Monster Attack
+const monsterAttack = () => {
   function randomDamage(min, max) {
     return Math.random() * (max - min) + min;
   }
 
   let playerHealth = playerClasses[0].health;
   let monsterAttack = Math.round(randomDamage(1, 1));
-  let monsterAccuracy = Math.round(randomDamage(1, 1));
+  let playerDefense = playerClasses[0].defense;
+  let monsterAccuracy = 0.18;
+
   let playerDamage =
     playerHealth - Math.round((monsterAttack / monsterAccuracy) * 1);
   let playerUpdatedHealth = playerHealth - playerDamage;
-  playerUpdatedHealth--;
 
   // calculate damage to monster
   if (playerDamage <= 0) {
@@ -656,9 +575,12 @@ monsterAttack = () => {
     );
   } else if (playerUpdatedHealth <= 0) {
     $(".modal-body").replaceWith(
-      `<p class="game-body">You've been killed by the monster. Oh no no no.</p> <p class="game-body">The monster deals you a savage blow and you fall to the ground. Everything is growing dark, the light fades from your eyes.</p> <p class="game-body">Your thoughts drift to your childhood. Hot summers at the watering hole. Working on the farm. The friends you made. The loves you had. Your last realization is that you have failed. That Skillet is now doomed.</p>`
+      `<img class="game-failed rounded mx-auto d-block" src="./img/elements/failedbadge_lose.png"><p class="game-body">The monster deals you a savage blow and you fall to the ground. Everything is growing dark, the light fades from your eyes.</p> <p class="game-body">Your thoughts drift to your childhood. Hot summers at the watering hole. Working on the farm. The friends you made. The loves you had. Your last realization is that you have failed. That Skillet is now doomed.</p>`
     );
     playerDiedAudio.play();
+    setTimeout(function () {
+      gameReload();
+    }, 5000);
   } else {
     $(".modal-body").replaceWith(
       `<p class="game-body">Monster attacks and you took ${playerDamage} damage. <br>Player current health ${playerUpdatedHealth}</p>`

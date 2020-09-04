@@ -33,7 +33,7 @@ const playerClasses = [
     type: "Warrior",
     attack: 18,
     defense: 10,
-    accuracy: 2,
+    accuracy: 0.9,
     health: 15,
     image: [
       "./img/characters/warrior/warrior-1.png",
@@ -558,13 +558,11 @@ $(".trigger-monster").click(function () {
 
 /* BATTLE */
 
-// Random Damage
 function randomDamage(min, max) {
   return Math.random() * (max - min) + min;
 }
 
 let monsterHealth = 30;
-
 let warriorAttack = playerClasses[0].attack;
 let warriorHealth = playerClasses[0].health;
 let warriorDefense = playerClasses[0].defense;
@@ -574,16 +572,14 @@ $(".attack").on("click", function () {
   console.log(monsterHealth);
   let monsterDamage =
     monsterHealth -
-    Math.round((warriorAttack / randomDamage(warriorAccuracy, 0)) * 1);
-  let monsterUpdatedHealth = monsterHealth - monsterDamage;
+    Math.round(warriorAttack / randomDamage(warriorAccuracy, 1) / 2);
   console.log(monsterDamage);
-  if (monsterDamage <= 0) {
-    $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
-  } else {
-    $(".modal-body").append(
-      `<p>You did ${monsterDamage} damage. <br>Monster current health ${monsterUpdatedHealth}</p>`
-    );
-  }
+
+  let monsterUpdatedHealth = monsterHealth - monsterDamage;
+
+  $(".modal-body").append(
+    `<p>You did ${monsterDamage} damage. <br>Monster current health ${monsterUpdatedHealth}</p>`
+  );
 });
 
 // popup with button options to attack or defend

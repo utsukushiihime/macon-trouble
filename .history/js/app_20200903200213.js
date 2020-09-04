@@ -33,7 +33,7 @@ const playerClasses = [
     type: "Warrior",
     attack: 18,
     defense: 10,
-    accuracy: 2,
+    accuracy: 0.9,
     health: 15,
     image: [
       "./img/characters/warrior/warrior-1.png",
@@ -577,7 +577,7 @@ $(".attack").on("click", function () {
     Math.round((warriorAttack / randomDamage(warriorAccuracy, 0)) * 1);
   let monsterUpdatedHealth = monsterHealth - monsterDamage;
   console.log(monsterDamage);
-  if (monsterDamage <= 0) {
+  if (monsterDamage < 0) {
     $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
   } else {
     $(".modal-body").append(

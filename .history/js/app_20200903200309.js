@@ -33,7 +33,7 @@ const playerClasses = [
     type: "Warrior",
     attack: 18,
     defense: 10,
-    accuracy: 2,
+    accuracy: 0.9,
     health: 15,
     image: [
       "./img/characters/warrior/warrior-1.png",

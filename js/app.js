@@ -538,6 +538,7 @@ const attack = () => {
 
 /************* END OLD ATTACK */
 
+/************* NEW ATTACK */
 // const attack = () => {
 //   $(".modal-body").append("Current Health: <b></b>");
 
@@ -569,6 +570,7 @@ const attack = () => {
 //     $(".defend").hide();
 //   }, 3000);
 // };
+/************* END NEW ATTACK */
 
 // Run on Retreat
 const gameReload = () => {
@@ -594,6 +596,7 @@ const defend = () => {
   }, 2000);
 };
 
+/*************  NEW MONSTER ATTACK */
 // monster attack
 // const monsterAttack = () => {
 //   let monsterDamage = 8 * 0.2;
@@ -612,6 +615,7 @@ const defend = () => {
 //     }
 //   }
 // };
+/************* END NEW MONSTER ATTACK */
 
 /********* OLD Monster Attack */
 

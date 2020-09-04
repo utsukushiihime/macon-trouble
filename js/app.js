@@ -456,7 +456,7 @@ const playerDamageAudio = new Audio("./audio/ouch.wav");
 const playerDiedAudio = new Audio("./audio/died.wav");
 
 // BUtton Press
-const playerButtonAudio = new Audio("./audio/button-press.wav");
+const playerButtonAudio = new Audio("../audio/");
 
 // Button Fight
 const playButtonFight = new Audio("./audio/fight.wav");

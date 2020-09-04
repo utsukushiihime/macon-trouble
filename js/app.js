@@ -598,7 +598,7 @@ const monsterAttack = () => {
     }, 5000);
   } else {
     $(".modal-body").replaceWith(
-      `<p class="game-body">Monster attacks and you took ${playerDamage} damage. <br>Player current health ${playerUpdatedHealth}</p>`
+      `<p class="game-body">Monster attacks and you took ${playerDamage} damage. <br>Player current health ${playerUpdatedHealth}</p><p>What even is this thing? Good thing I’m wearing my brown pants.</p>`
     );
     playerDamageAudio.play();
   }

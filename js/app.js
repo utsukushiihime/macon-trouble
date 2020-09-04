@@ -455,6 +455,9 @@ const playerDamageAudio = new Audio("./audio/ouch.wav");
 // Play Died Audio
 const playerDiedAudio = new Audio("./audio/died.wav");
 
+// BUtton Press
+const playerButtonAudio = new Audio("./audio/button-press.wav");
+
 /* GAMEPLAY */
 
 // TODO Load stats on game start
@@ -619,6 +622,7 @@ const monsterAttack = () => {
 };
 
 // Reset Character position to zero px on screen when monster defeated
+$("button");
 
 // BUTTONS
 $("#warrior").on("click", selectWarrior);

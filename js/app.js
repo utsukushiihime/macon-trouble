@@ -503,6 +503,7 @@ const random = (min, max) => {
 
 /************* OLD ATTACK */
 const attack = () => {
+  // need to set rounds and keep count of health
   // Random Damage
   function randomDamage(min, max) {
     return Math.random() * (max - min) + min;
@@ -620,6 +621,7 @@ const monsterAttack = () => {
     return Math.random() * (max - min) + min;
   }
 
+  // need to set rounds and keep count of health
   let monsterDamage = 8;
   let monsterAccuracy = 1.2;
   let playerHealth = playerClasses[0].health;

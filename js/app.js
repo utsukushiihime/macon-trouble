@@ -574,15 +574,15 @@ const monsterAttack = () => {
 
   // need to set rounds and keep count of health
   let monsterDamage = 8;
-  let monsterAccuracy = 2;
+  let monsterAccuracy = Math.round(randomDamage(2, 1));
   let playerHealth = playerClasses[0].health;
-  let monsterAttack = Math.round(randomDamage(1, 1));
+  let monsterAttack = Math.round(randomDamage(4, 1));
   let playerDefense = playerClasses[0].defense;
 
   // NOTE LINE 585 to change message to show death
   let playerDamage =
     playerHealth -
-    Math.round((monsterAttack / monsterAccuracy) * 1 + playerDefense); // change player defense to minus to get death
+    Math.round(((monsterAttack / monsterAccuracy) * 1 ) - playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster
@@ -608,16 +608,6 @@ const monsterAttack = () => {
   $(".fight, .retreat, .defend").hide();
   $(".attack").attr("disabled", true);
   $(".attack").hide();
-
-  $(".attack").on("click", function () {
-    let damage = monsterDamage * monsterAccuracy;
-    if (damage < playerDefense) {
-      console.log("player takes a hit");
-      console.log(damage);
-      let updatedPlayerHealth = damage - playerHealth;
-      console.log("this is the players new health", updatedPlayerHealth);
-    }
-  });
 };
 
 // Reset Character position to zero px on screen when monster defeated

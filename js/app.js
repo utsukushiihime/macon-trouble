@@ -507,7 +507,7 @@ const generateRandomGrowl = () => {
 
 /*************************************/
 
-/** AUDIO */
+/* AUDIO */
 // Play Magic Ding Button
 const playMagicDing = new Audio("./audio/play-magic-ding.wav");
 
@@ -520,6 +520,9 @@ const walking = new Audio("./audio/walkin-on-grass.wav");
 // Monster Growl
 const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));
 // console.log(monsterGrowlAudio);
+
+// Play Magic Ding Button
+const playerDamageAudio = new Audio("./audio/ouch.wav");
 
 /* GAMEPLAY */
 
@@ -605,9 +608,13 @@ const attack = () => {
 
 // if defend add +5 to defense
 const monsterAttack = () => {
+  let playerDamage = 1;
   $(".modal-body").replaceWith(
     `<h4 class="text-center mt-2">Monster hits back and does 22 damage</h4>`
   );
+  if (playerDamage >= 0) {
+    playerDamageAudio.play();
+  }
 };
 
 // Reset Character position to zero px on screen when monster defeated

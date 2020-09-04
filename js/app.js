@@ -30,7 +30,7 @@ const playerClasses = [
     type: "Warrior",
     attack: 18,
     defense: 10,
-    accuracy: 2,
+    accuracy: 0.8,
     health: 15,
     image: [
       "./img/characters/warrior/warrior-1.png",
@@ -496,23 +496,77 @@ $(".trigger-monster").click(function () {
 /* BATTLE */
 // attack
 
-const attack = () => {
-  let playerDamage = playerClasses[0].attack;
-  let playerAccuracy = playerClasses[0].accuracy;
-  let monsterHealth = 30;
-  let monsterDefense = 15;
+// random generator
+const random = (min, max) => {
+  return Math.random() * (max - min) + min;
+};
 
-  console.log(monsterHealth);
+/************* OLD ATTACK */
+// const attack = () => {
+//   // Random Damage
+//   function randomDamage(min, max) {
+//     return Math.random() * (max - min) + min;
+//   }
+
+//   let monsterHealth = Math.round(randomDamage(25, 50));
+//   let playerAttack = playerClasses[0].attack;
+//   let playerAccuracy = generateRandomAccuracy(classAccuracy);
+//   let monsterDamage =
+//     monsterHealth -
+//     Math.round((playerAttack / randomDamage(playerAccuracy, 1)) * 1);
+//   let monsterUpdatedHealth = monsterHealth - monsterDamage;
+//   monsterUpdatedHealth--;
+
+//   // calculate damage to monster
+//   if (monsterDamage <= 0) {
+//     $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
+//   } else if (monsterHealth <= 0) {
+//     $(".modal-body").append(`<p>You killed the monster. Huzzah.</p>`);
+//   } else {
+//     $(".modal-body").append(
+//       `<p>You did ${monsterDamage} damage. <br>Monster current health ${monsterUpdatedHealth}</p>`
+//     );
+//   }
+//   $(".fight, .retreat, .defend").hide();
+//   $(".attack").attr("disabled", true);
+
+//   setTimeout(function () {
+//     monsterAttack();
+//   }, 2000);
+// };
+
+/************* END OLD ATTACK */
+
+const attack = () => {
+  $(".modal-body").append("Current Health: <b></b>");
 
   $(".attack").on("click", function () {
-    let damage = playerDamage * playerAccuracy;
-    if (damage < monsterDefense) {
-      console.log("monster takes a hit");
-      console.log(damage);
-      let updatedMonsterHealth = damage - monsterHealth;
-      console.log("updated monster health", updatedMonsterHealth);
+    let playerDamage =
+      playerClasses[0].attack * (playerClasses[0].accuracy / 2);
+    let monsterHealth = 30;
+
+    console.log("monster health:", monsterHealth);
+
+    let damage = monsterHealth - playerDamage;
+    let newMonsterHealth = monsterHealth - damage;
+
+    if (newMonsterHealth >= 0) {
+      $(".modal-body").before(`Monster took <b>${damage}</b> damage.<br>`);
+      playerDamageAudio.play();
+      $(".attack").attr("disabled", true);
+    } else if (newMonsterHealth <= 0) {
+      $(".modal-body").append("Monster is in good shape");
+    } else {
+      $(".modal-body").append("Monster died");
     }
   });
+
+  // monster attack
+  setTimeout(function () {
+    $(".modal-body").append("Monster attacking...<br>");
+    monsterAttack();
+    $(".defend").hide();
+  }, 3000);
 };
 
 // Run on Retreat
@@ -531,7 +585,7 @@ const defend = () => {
   $(".retreat, .fight").hide();
 
   $(".modal-body").append(
-    `<p class="game-body">Your current defense is <b>${playerDefense}</b>. </p>`
+    `<p>Your current defense is <b>${playerDefense}</b>. </p>`
   );
   setTimeout(function () {
     monsterAttack();
@@ -541,23 +595,80 @@ const defend = () => {
 
 // monster attack
 const monsterAttack = () => {
-  let monsterDamage = 8;
-  let monsterAccuracy = 1.2;
+  let monsterDamage = 8 * 0.2;
   let playerHealth = playerClasses[0].health;
-  let playerDefense = playerClasses[0].defense;
+  $(".modal-body").append(`Current Health: <b>${playerHealth}</b><br>`);
+  if (playerHealth > 0) {
+    let damage = playerHealth - monsterDamage;
+    let newPlayerHealth = playerHealth - damage;
 
-  console.log(playerHealth);
-
-  $(".attack").on("click", function () {
-    let damage = monsterDamage * monsterAccuracy;
-    if (damage < playerDefense) {
-      console.log("player takes a hit");
-      console.log(damage);
-      let updatedPlayerHealth = damage - playerHealth;
-      console.log("this is the players new health", updatedPlayerHealth);
+    if (newPlayerHealth > 0) {
+      $(".modal-body").append(`Player took <b>${damage}</b> damage.<br>`);
+      playerDamageAudio.play();
+      $(".attack").attr("disabled", true);
+    } else if (newPlayerHealth < 0) {
+      $(".modal-body").append("This blows.");
     }
-  });
+  }
 };
+
+/********* OLD Monster Attack */
+
+// monster attack
+// const monsterAttack = () => {
+//   function randomDamage(min, max) {
+//     return Math.random() * (max - min) + min;
+//   }
+
+//   let monsterDamage = 8;
+//   let monsterAccuracy = 1.2;
+//   let playerHealth = playerClasses[0].health;
+//   let monsterAttack = Math.round(randomDamage(1, 1));
+//   let playerDefense = playerClasses[0].defense;
+
+//   let playerDamage =
+//     playerHealth - Math.round((monsterAttack / monsterAccuracy) * 1);
+//   let playerUpdatedHealth = playerHealth - playerDamage;
+
+//   // calculate damage to monster
+//   if (playerDamage <= 0) {
+//     $(".modal-body").replaceWith(
+//       `<p class="game-body">Monster missed. You dodged the attack.</p>`
+//     );
+//   } else if (playerUpdatedHealth <= 0) {
+//     $(".modal-body").replaceWith(
+//       `<img class="game-failed rounded mx-auto d-block" src="./img/elements/failedbadge_lose.png"><p class="game-body">The monster deals you a savage blow and you fall to the ground. Everything is growing dark, the light fades from your eyes.</p> <p class="game-body">Your thoughts drift to your childhood. Hot summers at the watering hole. Working on the farm. The friends you made. The loves you had. Your last realization is that you have failed. That Skillet is now doomed.</p>`
+//     );
+//     playerDiedAudio.play();
+//     setTimeout(function () {
+//       gameReload();
+//     }, 5000);
+//   } else {
+//     $(".modal-body").replaceWith(
+//       `<p class="game-body">Monster attacks and you took ${playerDamage} damage. <br>Player current health ${playerUpdatedHealth}</p>`
+//     );
+//     playerDamageAudio.play();
+//   }
+
+//   $(".fight, .retreat, .defend").hide();
+//   $(".attack").attr("disabled", true);
+//   $(".attack").hide();
+
+//   console.log(playerHealth);
+//   console.log(playerUpdatedHealth);
+
+//   $(".attack").on("click", function () {
+//     let damage = monsterDamage * monsterAccuracy;
+//     if (damage < playerDefense) {
+//       console.log("player takes a hit");
+//       console.log(damage);
+//       let updatedPlayerHealth = damage - playerHealth;
+//       console.log("this is the players new health", updatedPlayerHealth);
+//     }
+//   });
+// };
+
+/*************** END old Monster Attack */
 
 // Reset Character position to zero px on screen when monster defeated
 

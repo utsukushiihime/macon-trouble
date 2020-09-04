@@ -594,15 +594,15 @@ const monsterAttack = () => {
   // need to set rounds and keep count of health
   let roundsCount = 0;
 
-  let monsterAccuracy = Math.round(randomDamage(2, 1));
+  let monsterAccuracy = Math.round(randomDamage(20, 1));
   let playerHealth = playerClasses[0].health;
-  let monsterAttack = Math.round(randomDamage(10, 1));
+  let monsterAttack = Math.round(randomDamage(20, 1));
   let playerDefense = playerClasses[0].defense;
 
   // NOTE LINE 585 to change message to show death
   let playerDamage =
     playerHealth -
-    Math.round(monsterAttack / (monsterAccuracy * 1) + playerDefense); // change player defense to minus to get death
+    (Math.round((monsterAttack / monsterAccuracy) * 1) + playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster
@@ -611,15 +611,13 @@ const monsterAttack = () => {
       `<p class="game-body">Monster missed. You dodged the attack. Huzzhah, you just might do this.</p>`
     );
     playerHuzzahAudio.play();
-    $(".fight, .retreat, .defend").show();
-    $(".attack").attr("disabled", false);
   } else if (playerUpdatedHealth <= 0) {
     $(".modal-body").replaceWith(
       `<img class="game-failed rounded mx-auto d-block" src="./img/elements/failedbadge_lose.png"><p class="game-body">The monster deals you a savage blow and you fall to the ground. Everything is growing dark, the light fades from your eyes.</p> <p class="game-body">Your thoughts drift to your childhood. Hot summers at the watering hole. Working on the farm. The friends you made. The loves you had. Your last realization is that you have failed. That Skillet is now doomed.</p>`
     );
     playerDiedAudio.play();
     reset();
-  } else {
+  } else if (playerUpdatedHealth > 0) {
     $(".modal-body").replaceWith(
       `<p class="game-body">Monster attacks and you took <b>${playerDamage}</b> damage. <br>Player current health <b>${playerUpdatedHealth}</b></p>`
     );

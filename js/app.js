@@ -461,6 +461,9 @@ const playerButtonAudio = new Audio("./audio/button-press.wav");
 // Button Fight
 const playButtonFight = new Audio("./audio/fight.wav");
 
+// Button Retreat
+const playButtonRetreat = new Audio("./audio/retreat.wav");
+
 /* GAMEPLAY */
 
 // TODO Load stats on game start
@@ -547,7 +550,15 @@ const attack = () => {
 };
 
 // Run on Retreat
-const gameReload = () => {
+const retreat = () => {
+  setTimeout(function () {
+    alert(`Until next time, adventurer. Hope to see you soon.`);
+    location.reload(true);
+  }, 2000);
+  playButtonRetreat.play();
+};
+
+const reset = () => {
   setTimeout(function () {
     alert(`Until next time, adventurer. Hope to see you soon.`);
     location.reload(true);
@@ -608,7 +619,7 @@ const monsterAttack = () => {
     );
     playerDiedAudio.play();
     setTimeout(function () {
-      gameReload();
+      reset();
     }, 5000);
   } else {
     $(".modal-body").replaceWith(
@@ -626,5 +637,6 @@ $("#healer").on("click", selectHealer);
 $("#rogue").on("click", selectRogue);
 $("#start-game").on("click", startGame);
 $(".attack").on("click", attack);
-$(".retreat, .reset").on("click", gameReload);
+$(".reset").on("click", reset);
+$(".retreat").on("click", retreat);
 $(".defend").on("click", defend);

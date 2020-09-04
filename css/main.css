@@ -48,9 +48,9 @@ button.btn.btn-primary.play-button {
 
 button.reset {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 20px;
-  height: 50px;
+  height: 40px;
 }
 
 button#start-game {
@@ -119,7 +119,7 @@ img.monster-sprite.image-fluid {
 
 /* Bootstrap Overrides */
 .btn {
-  border-radius: 0;
+  border-radius: 50px;
 }
 
 .btn-primary.focus,

@@ -530,7 +530,7 @@ const attack = () => {
     );
   } else {
     $(".modal-body").append(
-      `<p>You did ${monsterDamage} damage. <br>Monster current health ${monsterUpdatedHealth}</p>`
+      `<p>You did <b>${monsterDamage}</b> damage. <br>Monster current health <b>${monsterUpdatedHealth}<b></p>`
     );
   }
   $(".fight, .retreat, .defend").hide();
@@ -579,10 +579,10 @@ const monsterAttack = () => {
   let monsterAttack = Math.round(randomDamage(1, 1));
   let playerDefense = playerClasses[0].defense;
 
-  // NOTE
+  // NOTE LINE 585 to change message to show death
   let playerDamage =
     playerHealth -
-    Math.round((monsterAttack / monsterAccuracy) * 1 + playerDefense); // change to minus to get death
+    Math.round((monsterAttack / monsterAccuracy) * 1 + playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster

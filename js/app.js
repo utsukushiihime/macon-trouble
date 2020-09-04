@@ -614,6 +614,17 @@ const attack = () => {
   }, 2000);
 };
 
+const defend = () => {
+  let playerDefense = playerClasses[0].defense + 5;
+  console.log(playerDefense);
+  $(".defend").attr("disabled", true);
+  $(".attack").attr("disabled", true);
+
+  $(".modal-body").append(
+    `<p class="text-center">Your current defense is ${playerDefense}. </p>`
+  );
+};
+
 // if defend add +5 to defense
 const monsterAttack = () => {
   let playerDamage = 1;
@@ -636,4 +647,5 @@ $("#healer").on("click", selectHealer);
 $("#rogue").on("click", selectRogue);
 $("#start-game").on("click", startGame);
 $(".attack").on("click", attack);
-$(".retreat").on("click", gameReload);
+$(".retreat, .reset").on("click", gameReload);
+$(".defend").on("click", defend);

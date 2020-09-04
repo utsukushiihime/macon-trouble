@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/main.css">
+	
+	<!-- JS, Popper.js, and jQuery, Font Awesome -->
+	<script src="https://kit.fontawesome.com/57b9e76acb.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous" defer></script>
+	<script src="./js/app.js" defer></script>
+
+	<title>Macon Trouble - Can you save the village?</title>
+</head>
+
+<!-- YES, I used Bootstrap, hopefully it's somewhat readable -->
+
+<body>
+    <header>
+        <h1 class="text-center h1-title">Macon Trouble</h1>
+    </header>
+	<main>
+        
+		<!-- Classes Section -->
+		<section id="class-types">
+
+            <!-- Button trigger modal -->
+            <div class="d-flex justify-content-center align-self-center">
+                <button type="button" class="btn btn-primary play-button align-items-center" data-toggle="modal" data-target="#gameDialogue"> Play Game </button>
+            </div>
+            
+			<!-- Modal Dialogue -->
+			<div class="modal fade" id="gameDialogue" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="gameDialogueLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-scrollable">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="gameDialogueLabel">Cany you save the village?</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+						</div>
+
+						<!-- Modal Body -->
+						<div class="modal-body">
+							<h5 class="player-classes">Select your Player Class</h5>
+							<div class="classes">
+
+								<!-- Warrior Class -->
+                                <div class="d-flex flex-row">
+                                    <div class="p-6 warrior">
+										<img class="small-avatar" src="img/characters/warrior/warrior-1.png"> 
+										<!-- TODO format and pull in stats dynamically -->
+										<button href="#" id="warrior" role="button" class="btn btn-secondary player-class-btn" title="Warrior Class">Warrior</button>
+										<div class="warrior-class-selected"></div>
+									</div>
+								<!-- End Warrior Class-->
+
+								<!-- Wizard Class -->
+                                    <div class="p-1 wizard">
+										<img class="small-avatar" src="img/characters/wizard/wizard-1.png"> 
+										<button href="#" id="wizard" role="button" class="btn btn-secondary player-class-btn" title="Wizard Class">Wizard</button> 
+										<div class="wizard-class-selected"></div>
+                                    </div>
+								</div>
+								<!-- END Wizard Class -->
+
+								<!-- Healer Class-->
+                                <div class="d-flex flex-row">
+                                    <div class="p-2 healer">
+										<img class="small-avatar" src="img/characters/healer/healer-1.png"> 
+										<button href="#" id="healer" role="button" class="btn btn-secondary player-class-btn" title="Healer Class">Healer</button>
+										<div class="healer-class-selected"></div>
+									</div>
+									<!-- END Healer Class -->
+
+									<!-- Rogue -->
+                                    <div class="p-2 rogue">
+										<img class="small-avatar" src="img/characters/rogue/rogue-1.png"> 
+										<button href="#" id="rogue" role="button" class="btn btn-secondary player-class-btn" title="Rogue Class">Rogue</button>
+										<div class="rogue-class-selected"></div>
+									</div>
+									<!-- END Rogue Class-->
+
+                                </div>
+
+							</div>
+							<div class="quest-info"></div>
+							<div class="rules"></div>
+						</div>
+						<!-- END Modal Body -->
+
+						<div class="modal-footer">
+							<button type="button" id="close-dialogue" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button id="start-game" type="button" class="btn btn-primary start-game-button">Begin my Quest</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END Dialogue Modal-->
+			
+		</section>
+		<!-- END Classes Section -->
+	</main>
+	
+		<!-- Character Sprite -->
+	<div class="avatar-block">
+
+	<div class="health-bar" data-total="1000" data-value="1000">
+		<div class="bar">
+			<div class="hit"></div>
+		</div>
+	</div>
+	
+	<div class="log">
+		<div>Health is 100%</div>
+	</div> 
+
+	</div>
+		<!-- END Character Sprite -->
+
+		<!-- Navigation Buttons -->
+	<row class="d-flex justify-content-center align-self-end">
+		<div class="nav-buttons">
+		<button id="left"><i class="fas fa-arrow-left"></i></button>
+		<button id="right" class="trigger-monster"><i class="fas fa-arrow-right"></i></button>
+		<div id="counter"></div>
+		</div>
+	</row>
+	<!-- END Navigation Buttons -->
+
+	<!-- Monster -->
+	<div id="monster"></div>
+	<!-- END Monster -->
+
+
+	<!-- Battle Dialogue -->
+<div class="d-flex justify-content-center align-self-center">
+<button type="button" class="btn btn-primary retreat">Retreat</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary fight" data-toggle="modal" data-target="#exampleModal">
+  Fight
+</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">What do you want to do?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        If you choose to defend, +5 is added to your defense. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary defend">Defend</button>
+        <button type="button" class="btn btn-secondary attack">Attack</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<!-- END Battle Dialogue -->
+</body>
+
+</html>

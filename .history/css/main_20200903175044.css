@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #76c4e8 url("../img/backgrounds/bg1.jpg") left bottom repeat-x !important;
+    height: 100vh;
+    background-origin: content-box;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -1;
+}
+
+.h1-title {
+    text-transform: uppercase;
+    font-family: 'Luckiest Guy', cursive;
+    color: #362720;
+    font-size: 72px;
+    padding: 40px;
+    margin-bottom: 40px;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+    filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+}
+
+button.btn.btn-primary.play-button {
+    background-color: #281d17;
+    border: 5px solid #5b3a29;
+    height: 65px;
+    padding: 10px 60px;
+}
+.avatar-block {
+    position: absolute;
+    left: 50px;
+    margin: 5px;
+    bottom: 395px;
+    z-index:-1;
+
+  }
+
+.small-avatar {
+    height: 120px;
+    margin: 10px;
+}
+
+/* BUTTONS */
+
+button#start-game {
+    background-color: #281d17;
+    border-color: #362720;
+    box-shadow: 0 0 0 0.2rem rgba(73, 54, 18, 0.5);
+}
+
+button#left,
+button#right
+{
+    color: #fff;
+    padding: 10px 15px;
+    margin: 0 10px;
+    background: #32591a;
+    border: 2px solid #518a29;
+    z-index: 3;
+}
+
+button#left:hover,
+button#right:hover
+{
+    background: #518a29;
+    z-index: 3;
+}
+
+.nav-buttons {
+    position: fixed;
+    bottom: 20px;
+}
+
+.fight, .retreat {
+    width: 125px;
+    margin: 20px;
+    z-index: 4;
+}
+
+
+
+/* Class Avatars */
+
+img.character-sprite.image-fluid {
+    height: 245px;
+    left: 0;
+    position: absolute;
+    bottom: -260px;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+    filter:         drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+}
+
+
+img.character-sprite-2.image-fluid {
+    height: 245px;
+    left: -100px;
+    position: absolute;
+    bottom: -260px;
+}
+
+.reverse-direction {
+    transform: rotateY(180deg);
+}
+
+/* Monsters */
+
+img.monster-sprite.image-fluid {
+    height: 375px;
+    right: 60px;
+    position: absolute;
+    bottom: 130px;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+    filter:         drop-shadow(1px 1px 1px rgba(34, 34, 34, 0.521));
+}
+
+
+/* Bootstrap Overrides */
+.btn {
+    border-radius: 0;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    color: #fff;
+    background-color: #281d17;
+    border-color: #362720;
+    box-shadow: 0 0 0 0.2rem rgba(73, 54, 18, 0.5);
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #281d17;
+    border-color: #281d17;
+}
+
+.modal-header {
+    padding: 3.5rem 2rem 1rem;
+    border-bottom: 2px solid #281d17;
+    margin: 0 35px;
+}
+
+.modal-footer {
+    padding: 2rem 2rem 3rem;
+    border: none;
+}
+
+.modal-content {
+    background: url(../img/elements/parchment-bg.png) center center no-repeat;
+    height: 100%;
+    background-origin: content-box;
+    background-size: cover;
+    border: none;
+}
+
+.modal-body {
+    margin: 0 30px;
+}
+
+/* HEALTH BAR */
+
+.health-bar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    background: #eff9fb;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .bar {
+    background: #c54;
+    width: 100%;
+    height: 10px;
+    position: relative;
+    
+    transition: width .5s linear;
+  }
+  
+  .hit {
+    background: rgba(255,255,255,0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0px;
+    
+    transition: width .5s linear;
+  }
+
+

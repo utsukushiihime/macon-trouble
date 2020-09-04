@@ -574,13 +574,15 @@ const monsterAttack = () => {
 
   // need to set rounds and keep count of health
   let monsterDamage = 8;
-  let monsterAccuracy = 1.2;
+  let monsterAccuracy = 2;
   let playerHealth = playerClasses[0].health;
   let monsterAttack = Math.round(randomDamage(1, 1));
   let playerDefense = playerClasses[0].defense;
 
+  // NOTE
   let playerDamage =
-    playerHealth - Math.round((monsterAttack / monsterAccuracy) * 1);
+    playerHealth -
+    Math.round((monsterAttack / monsterAccuracy) * 1 + playerDefense); // change to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster

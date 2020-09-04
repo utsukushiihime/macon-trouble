@@ -588,7 +588,7 @@ const attack = () => {
   // calculate damage to monster
   if (monsterDamage <= 0) {
     $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
-  } else if (monsterHealth === 0) {
+  } else if (monsterHealth <= 0) {
     $(".modal-body").append(`<p>You killed the monster. Huzzah.</p>`);
   } else {
     $(".modal-body").append(
@@ -597,12 +597,18 @@ const attack = () => {
   }
   $(".fight, .retreat, .defend").hide();
   $(".attack").attr("disabled", true);
+
+  setTimeout(function () {
+    monsterAttack();
+  }, 2000);
 };
 
 // if defend add +5 to defense
-// const defend = () => {
-//   let;
-// };
+const monsterAttack = () => {
+  $(".modal-body").replaceWith(
+    `<h4 class="text-center mt-2">Monster hits back and does 22 damage</h4>`
+  );
+};
 
 // Reset Character position to zero px on screen when monster defeated
 

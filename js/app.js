@@ -501,7 +501,7 @@ const random = (min, max) => {
   return Math.random() * (max - min) + min;
 };
 
-/************* OLD ATTACK */
+// Player Attack
 const attack = () => {
   // need to set rounds and keep count of health
   // Random Damage
@@ -538,42 +538,6 @@ const attack = () => {
   }, 2000);
 };
 
-/************* END OLD ATTACK */
-
-/************* NEW ATTACK */
-// const attack = () => {
-//   $(".modal-body").append("Current Health: <b></b>");
-
-//   $(".attack").on("click", function () {
-//     let playerDamage =
-//       playerClasses[0].attack * (playerClasses[0].accuracy / 2);
-//     let monsterHealth = 30;
-
-//     console.log("monster health:", monsterHealth);
-
-//     let damage = monsterHealth - playerDamage;
-//     let newMonsterHealth = monsterHealth - damage;
-
-//     if (newMonsterHealth >= 0) {
-//       $(".modal-body").before(`Monster took <b>${damage}</b> damage.<br>`);
-//       playerDamageAudio.play();
-//       $(".attack").attr("disabled", true);
-//     } else if (newMonsterHealth <= 0) {
-//       $(".modal-body").append("Monster is in good shape");
-//     } else {
-//       $(".modal-body").append("Monster died");
-//     }
-//   });
-
-//   // monster attack
-//   setTimeout(function () {
-//     $(".modal-body").append("Monster attacking...<br>");
-//     monsterAttack();
-//     $(".defend").hide();
-//   }, 3000);
-// };
-/************* END NEW ATTACK */
-
 // Run on Retreat
 const gameReload = () => {
   setTimeout(function () {
@@ -598,29 +562,6 @@ const defend = () => {
     $(".defend").hide();
   }, 2000);
 };
-
-/*************  NEW MONSTER ATTACK */
-// monster attack
-// const monsterAttack = () => {
-//   let monsterDamage = 8 * 0.2;
-//   let playerHealth = playerClasses[0].health;
-//   $(".modal-body").append(`Current Health: <b>${playerHealth}</b><br>`);
-//   if (playerHealth > 0) {
-//     let damage = playerHealth - monsterDamage;
-//     let newPlayerHealth = playerHealth - damage;
-
-//     if (newPlayerHealth > 0) {
-//       $(".modal-body").append(`Player took <b>${damage}</b> damage.<br>`);
-//       playerDamageAudio.play();
-//       $(".attack").attr("disabled", true);
-//     } else if (newPlayerHealth < 0) {
-//       $(".modal-body").append("This blows.");
-//     }
-//   }
-// };
-/************* END NEW MONSTER ATTACK */
-
-/********* OLD Monster Attack */
 
 // monster attack
 const monsterAttack = () => {
@@ -676,8 +617,6 @@ const monsterAttack = () => {
     }
   });
 };
-
-/*************** END old Monster Attack */
 
 // Reset Character position to zero px on screen when monster defeated
 

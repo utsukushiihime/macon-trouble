@@ -12,7 +12,6 @@
 // DEF NEEDS TO BE MORE DRY.
 
 // Modal for Dialogue
-
 const play = () => {
   $("#gameDialogue").on("shown.bs.modal", function () {});
 };
@@ -85,7 +84,6 @@ const playerClasses = [
 ];
 
 // Character Class Type
-
 const classOptions = [];
 
 // get class types
@@ -561,6 +559,7 @@ const retreat = () => {
   playButtonRetreat.play();
 };
 
+// Reset
 const reset = () => {
   setTimeout(function () {
     alert(`Until next time, adventurer. Hope to see you soon.`);
@@ -602,7 +601,7 @@ const monsterAttack = () => {
   // NOTE LINE 585 to change message to show death
   let playerDamage =
     playerHealth -
-    (Math.round((monsterAttack / monsterAccuracy) * 1) - playerDefense); // change player defense to minus to get death
+    (Math.round((monsterAttack / monsterAccuracy) * 1) + playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster

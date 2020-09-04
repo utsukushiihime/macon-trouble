@@ -584,9 +584,9 @@ const monsterAttack = () => {
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster
-  if (playerDamage <= 0) {
+  if (playerDamage === 0) {
     $(".modal-body").replaceWith(
-      `<p class="game-body">Monster missed. You dodged the attack.</p>`
+      `<p class="game-body">Monster missed. You dodged the attack. Huzzhah, you just might do this.</p>`
     );
   } else if (playerUpdatedHealth <= 0) {
     $(".modal-body").replaceWith(
@@ -607,9 +607,6 @@ const monsterAttack = () => {
   $(".attack").attr("disabled", true);
   $(".attack").hide();
 
-  console.log(playerHealth);
-  console.log(playerUpdatedHealth);
-
   $(".attack").on("click", function () {
     let damage = monsterDamage * monsterAccuracy;
     if (damage < playerDefense) {
@@ -622,8 +619,6 @@ const monsterAttack = () => {
 };
 
 // Reset Character position to zero px on screen when monster defeated
-$("button");
-
 // BUTTONS
 $("#warrior").on("click", selectWarrior);
 $("#wizard").on("click", selectWizard);

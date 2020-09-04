@@ -602,7 +602,7 @@ const monsterAttack = () => {
   // NOTE LINE 585 to change message to show death
   let playerDamage =
     playerHealth -
-    (Math.round((monsterAttack / monsterAccuracy) * 1) - playerDefense); // change player defense to minus to get death
+    (Math.round((monsterAttack % monsterAccuracy) * 1) + playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster

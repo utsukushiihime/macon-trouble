@@ -618,7 +618,7 @@ const monsterAttack = () => {
     playerDiedAudio.play();
     setTimeout(function () {
       location.reload(true);
-    }, 6000);
+    }, 7000);
   } else if (playerUpdatedHealth > 0) {
     $(".modal-body").replaceWith(
       `<p class="game-body">Monster attacks and you took <b>${playerDamage}</b> damage. <br>Player current health <b>${playerUpdatedHealth}</b></p>`

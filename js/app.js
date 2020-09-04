@@ -117,6 +117,7 @@ const generateRandomSprite = () => {
   return randomSprite.slice(0, 1);
 };
 
+// Random accuracy due to time constraints will refine later
 const generateRandomAccuracy = () => {
   let randomAccuracy =
     classAccuracy[Math.floor(Math.random() * classAccuracy.length)];
@@ -550,7 +551,6 @@ const startGame = () => {
 /*  Trigger Monster */
 let moveCount = 0;
 
-// TODO Add Audio and Monster Dialogue
 // trigger monster on 5 clicks right
 $(".trigger-monster").click(function () {
   moveCount++;
@@ -577,12 +577,12 @@ const attack = () => {
     return Math.random() * (max - min) + min;
   }
 
-  let monsterHealth = 30;
+  let monsterHealth = Math.round(randomDamage(25, 50));
   let playerAttack = playerClasses[0].attack;
   let playerAccuracy = generateRandomAccuracy(classAccuracy);
   let monsterDamage =
     monsterHealth -
-    Math.round((playerAttack / randomDamage(playerAccuracy, 0)) * 1);
+    Math.round((playerAttack / randomDamage(playerAccuracy, 1)) * 1);
   let monsterUpdatedHealth = monsterHealth - monsterDamage;
   monsterUpdatedHealth--;
   // calculate damage to monster
@@ -595,6 +595,8 @@ const attack = () => {
       `<p>You did ${monsterDamage} damage. <br>Monster current health ${monsterUpdatedHealth}</p>`
     );
   }
+  $(".fight, .retreat, .defend").hide();
+  $(".attack").attr("disabled", true);
 };
 
 // if defend add +5 to defense

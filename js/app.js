@@ -463,7 +463,7 @@ const monsters = [
   },
 ];
 
-/* Monster Sounds */
+/* Monster Images and Sounds */
 monsterGrowls = [
   "./audio/monster-growl/Monster-01.wav",
   "./audio/monster-growl/Monster-02.wav",
@@ -477,7 +477,6 @@ monsterGrowls = [
   "./audio/monster-growl/Monster-will-die-4.wav",
 ];
 
-/* Monster Images */
 const monsterImages = [];
 const monsterGrowl = [];
 
@@ -521,7 +520,7 @@ const walking = new Audio("./audio/walkin-on-grass.wav");
 const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));
 // console.log(monsterGrowlAudio);
 
-// Play Magic Ding Button
+// Play Ouch on Damage
 const playerDamageAudio = new Audio("./audio/ouch.wav");
 
 /* GAMEPLAY */
@@ -573,6 +572,14 @@ $(".trigger-monster").click(function () {
 
 /* BATTLE */
 
+// Run on Retreat
+const gameReload = () => {
+  setTimeout(function () {
+    alert("Reloading Game");
+    location.reload(true);
+  }, 2000);
+};
+
 // TODO need to do for all classes, but will leave to achieve MVP
 const attack = () => {
   // Random Damage
@@ -588,6 +595,7 @@ const attack = () => {
     Math.round((playerAttack / randomDamage(playerAccuracy, 1)) * 1);
   let monsterUpdatedHealth = monsterHealth - monsterDamage;
   monsterUpdatedHealth--;
+
   // calculate damage to monster
   if (monsterDamage <= 0) {
     $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
@@ -609,8 +617,10 @@ const attack = () => {
 // if defend add +5 to defense
 const monsterAttack = () => {
   let playerDamage = 1;
+
+  $(".attack").hide();
   $(".modal-body").replaceWith(
-    `<h4 class="text-center mt-2">Monster hits back and does 22 damage</h4>`
+    `<h5 class="text-center mt-2">Monster hits back and does 22 damage</h5>`
   );
   if (playerDamage >= 0) {
     playerDamageAudio.play();
@@ -626,3 +636,4 @@ $("#healer").on("click", selectHealer);
 $("#rogue").on("click", selectRogue);
 $("#start-game").on("click", startGame);
 $(".attack").on("click", attack);
+$(".retreat").on("click", gameReload);

@@ -458,6 +458,10 @@ const playerDiedAudio = new Audio("./audio/died.wav");
 // BUtton Press
 const playerButtonAudio = new Audio("./audio/button-press.wav");
 
+// Button Fight
+const playButtonFight = new Audio("./audio/fight.wav");
+
+
 /* GAMEPLAY */
 
 // TODO Load stats on game start
@@ -508,6 +512,8 @@ const random = (min, max) => {
 const attack = () => {
   // need to set rounds and keep count of health
   // Random Damage
+
+  playButtonFight.play();
   function randomDamage(min, max) {
     return Math.random() * (max - min) + min;
   }
@@ -582,7 +588,7 @@ const monsterAttack = () => {
   // NOTE LINE 585 to change message to show death
   let playerDamage =
     playerHealth -
-    Math.round(((monsterAttack / monsterAccuracy) * 1 ) - playerDefense); // change player defense to minus to get death
+    Math.round(((monsterAttack / monsterAccuracy) + 1 ) + playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster

@@ -575,6 +575,7 @@ const attack = () => {
 // Run on Retreat
 const gameReload = () => {
   setTimeout(function () {
+    alert(`Until next time, adventurer. Hope to see you soon.`);
     location.reload(true);
   }, 2000);
 };

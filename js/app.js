@@ -464,6 +464,9 @@ const playButtonFight = new Audio("./audio/fight.wav");
 // Button Retreat
 const playButtonRetreat = new Audio("./audio/retreat.wav");
 
+// Button Huzzah
+const playerHuzzahAudio = new Audio("./audio/huzzah.wav");
+
 /* GAMEPLAY */
 
 // TODO Load stats on game start
@@ -530,7 +533,7 @@ const attack = () => {
   monsterUpdatedHealth--;
 
   // calculate damage to monster
-  if (monsterDamage <= 0) {
+  if (monsterDamage === 0) {
     $(".modal-body").append(`<p>You missed. Monster dodged the attack.</p>`);
   } else if (monsterHealth <= 0) {
     $(".modal-body").append(
@@ -546,7 +549,7 @@ const attack = () => {
 
   setTimeout(function () {
     monsterAttack();
-  }, 2000);
+  }, 3000);
 };
 
 // Run on Retreat
@@ -602,15 +605,12 @@ const monsterAttack = () => {
     Math.round(monsterAttack / monsterAccuracy + 1 + playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
-  $(".fight, .retreat, .defend").hide();
-  $(".attack").attr("disabled", true);
-  $(".attack").hide();
-
   // calculate damage to monster
   if (playerDamage <= 0) {
     $(".modal-body").replaceWith(
       `<p class="game-body">Monster missed. You dodged the attack. Huzzhah, you just might do this.</p>`
     );
+    playerHuzzahAudio.play();
     $(".fight, .retreat, .defend").show();
     $(".attack").attr("disabled", false);
   } else if (playerUpdatedHealth <= 0) {
@@ -627,6 +627,8 @@ const monsterAttack = () => {
     );
     playerDamageAudio.play();
   }
+  $(".fight, .retreat, .defend, .attack").hide();
+  $(".attack").attr("disabled", true);
 };
 
 // Reset Character position to zero px on screen when monster defeated

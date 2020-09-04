@@ -523,6 +523,9 @@ const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));
 // Play Ouch on Damage
 const playerDamageAudio = new Audio("./audio/ouch.wav");
 
+// Play Died Audio
+const playerDiedAudio = new Audio("./audio/died.wav");
+
 /* GAMEPLAY */
 
 // TODO Load stats on game start
@@ -619,23 +622,56 @@ const defend = () => {
   console.log(playerDefense);
   $(".defend").attr("disabled", true);
   $(".attack").attr("disabled", true);
+  $(".retreat, .fight").hide();
 
   $(".modal-body").append(
-    `<p class="text-center">Your current defense is ${playerDefense}. </p>`
+    `<p class="game-body">Your current defense is ${playerDefense}. </p>`
   );
+  setTimeout(function () {
+    monsterAttack();
+    $(".defend").hide();
+  }, 2000);
 };
 
 // if defend add +5 to defense
-const monsterAttack = () => {
-  let playerDamage = 1;
+let monsterAttack;
 
-  $(".attack").hide();
-  $(".modal-body").replaceWith(
-    `<h5 class="text-center mt-2">Monster hits back and does 22 damage</h5>`
-  );
-  if (playerDamage >= 0) {
+monsterAttack = () => {
+  function randomDamage(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  let playerHealth = playerClasses[0].health;
+  let monsterAttack = Math.round(randomDamage(1, 1));
+  let monsterAccuracy = Math.round(randomDamage(1, 1));
+  let playerDamage =
+    playerHealth - Math.round((monsterAttack / monsterAccuracy) * 1);
+  let playerUpdatedHealth = playerHealth - playerDamage;
+  playerUpdatedHealth--;
+
+  // calculate damage to monster
+  if (playerDamage <= 0) {
+    $(".modal-body").replaceWith(
+      `<p class="game-body">Monster missed. You dodged the attack.</p>`
+    );
+  } else if (playerUpdatedHealth <= 0) {
+    $(".modal-body").replaceWith(
+      `<p class="game-body">You've been killed by the monster. Oh no no no.</p> <p class="game-body">The monster deals you a savage blow and you fall to the ground. Everything is growing dark, the light fades from your eyes.</p> <p class="game-body">Your thoughts drift to your childhood. Hot summers at the watering hole. Working on the farm. The friends you made. The loves you had. Your last realization is that you have failed. That Skillet is now doomed.</p>`
+    );
+    playerDiedAudio.play();
+  } else {
+    $(".modal-body").replaceWith(
+      `<p class="game-body">Monster attacks and you took ${playerDamage} damage. <br>Player current health ${playerUpdatedHealth}</p>`
+    );
     playerDamageAudio.play();
   }
+
+  $(".fight, .retreat, .defend").hide();
+  $(".attack").attr("disabled", true);
+  $(".attack").hide();
+
+  console.log(playerHealth);
+  console.log(playerUpdatedHealth);
 };
 
 // Reset Character position to zero px on screen when monster defeated

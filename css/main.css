@@ -106,6 +106,10 @@ img.character-sprite-med.image-fluid {
   transform: rotateY(180deg);
 }
 
+.game-body {
+  margin: 10px 60px 5px;
+}
+
 /* Monsters */
 
 img.monster-sprite.image-fluid {
@@ -118,6 +122,7 @@ img.monster-sprite.image-fluid {
 }
 
 /* Bootstrap Overrides */
+
 .btn {
   border-radius: 50px;
 }

@@ -602,7 +602,7 @@ const monsterAttack = () => {
   // NOTE LINE 585 to change message to show death
   let playerDamage =
     playerHealth -
-    (Math.round((monsterAttack / monsterAccuracy) * 1) + playerDefense); // change player defense to minus to get death
+    (Math.round((monsterAttack / monsterAccuracy) * 1) - playerDefense); // change player defense to minus to get death
   let playerUpdatedHealth = playerHealth - playerDamage;
 
   // calculate damage to monster
@@ -616,7 +616,9 @@ const monsterAttack = () => {
       `<img class="game-failed rounded mx-auto d-block" src="./img/elements/failedbadge_lose.png"><p class="game-body">The monster deals you a savage blow and you fall to the ground. Everything is growing dark, the light fades from your eyes.</p> <p class="game-body">Your thoughts drift to your childhood. Hot summers at the watering hole. Working on the farm. The friends you made. The loves you had. Your last realization is that you have failed. That Skillet is now doomed.</p>`
     );
     playerDiedAudio.play();
-    reset();
+    setTimeout(function () {
+      location.reload(true);
+    }, 6000);
   } else if (playerUpdatedHealth > 0) {
     $(".modal-body").replaceWith(
       `<p class="game-body">Monster attacks and you took <b>${playerDamage}</b> damage. <br>Player current health <b>${playerUpdatedHealth}</b></p>`

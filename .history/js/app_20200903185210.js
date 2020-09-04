@@ -12,14 +12,6 @@
 // DEF NEEDS TO BE MORE DRY.
 
 
-// Modal for Dialogue
-
-const play = () => {
-    $('#gameDialogue').on('shown.bs.modal', function() {
-        
-    });
-}
-
 // Monster starts hidden
 // Controls and sprite start and other things that need to be hidden
 
@@ -33,7 +25,7 @@ const playerClasses = [{
         type: 'Warrior',
         attack: 18,
         defense: 10,
-        accuracy: 10,
+        accuracy: 0.8,
         health: 15,
         image: [
             './img/characters/warrior/warrior-1.png', 
@@ -48,7 +40,7 @@ const playerClasses = [{
         type: 'Wizard',
         attack: 18,
         defense: 10,
-        accuracy: 14,
+        accuracy: 0.7,
         health: 8,
         image:
         [
@@ -64,7 +56,7 @@ const playerClasses = [{
         type: 'Healer',
         attack: 10,
         defense: 17,
-        accuracy: 10,
+        accuracy: 0.6,
         health: 13,
         image: [
             './img/characters/healer/healer-1.png', 
@@ -78,7 +70,7 @@ const playerClasses = [{
         type: 'Rogue',
         attack: 10,
         defense: 15,
-        accuracy: 15,
+        accuracy: 0.8,
         health: 10,
         image: [
             './img/characters/rogue/rogue-1.png', 
@@ -108,79 +100,88 @@ for (let i = 0; i < playerClasses.length; i++) {
 
 /* RANDOM PLAYER SPRITE GENERATORS */
 // Want to select random sprite per class if time permits
-const generateRandomSprite = () => {
-    let randomSprite = characterImages[Math.floor(Math.random()*characterImages.length)];
-    return randomSprite.slice(0,1);
-} 
+const generateRandomSprite = () =>
+{
+    let randomSprite = characterImages[ Math.floor( Math.random() * characterImages.length ) ];
+    return randomSprite.slice( 0, 1 );
+}; 
 
 /* select characters */
 
 // Warrior Class
-const selectWarrior = () => {
+const selectWarrior = () =>
+{
 
-    $( '.warrior' ).click(function() {
-    let text = $( this ).text();
+    $( '.warrior' ).click( function ()
+    {
+        let text = $( this ).text();
 
-    $( 'input' ).val( text );
-    $('.warrior-class-selected').append(`You selected <b>${text}</b>`);
-    });  
+        $( 'input' ).val( text );
+        $( '.warrior-class-selected' ).append( `You selected <b>${ text }</b>` );
+    } );
 
     playMagicSnap.play();
-    $('.healer, .rogue, .wizard, .player-class-btn, #close-dialogue').hide();
+    $( '.healer, .rogue, .wizard, .player-class-btn, #close-dialogue' ).hide();
 
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid warrior-selected" src="${generateRandomSprite(characterImages)}">`); 
-    $('#right, #left, .health-bar, #start-game').show(); 
-}
+    $( '.avatar-block' ).append( `<img class="character-sprite image-fluid warrior-selected" src="${ generateRandomSprite( characterImages ) }">` );
+    $( '#right, #left, .health-bar, #start-game' ).show();
+};
 
 // Wizard Class
-const selectWizard = () => {
+const selectWizard = () =>
+{
 
-    $( '.wizard' ).click(function() {
-    let text = $( this ).text();
+    $( '.wizard' ).click( function ()
+    {
+        let text = $( this ).text();
 
-    $( 'input' ).val( text );
-    $('.wizard-class-selected').append(`You selected <b>${text}</b>`);
-    });  
+        $( 'input' ).val( text );
+        $( '.wizard-class-selected' ).append( `You selected <b>${ text }</b>` );
+    } );
 
     playMagicSnap.play();
-    $('.healer, .rogue, .warrior, .player-class-btn, #close-dialogue').hide();
+    $( '.healer, .rogue, .warrior, .player-class-btn, #close-dialogue' ).hide();
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid wizard-selected" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar, #start-game').show(); 
-}
+    $( '.avatar-block' ).append( `<img class="character-sprite image-fluid wizard-selected" src="${ generateRandomSprite( characterImages ) }">` );
+    $( '#right, #left, .health-bar, #start-game' ).show();
+};
 
 // Healer Class
-const selectHealer = () => {
-    $( '.healer' ).click(function() {
-    let text = $( this ).text();
+const selectHealer = () =>
+{
+    $( '.healer' ).click( function ()
+    {
+        let text = $( this ).text();
 
-    $( 'input' ).val( text );
-    $('.healer-class-selected').append(`You selected <b>${text}</b>`);
-    });  
+        $( 'input' ).val( text );
+        $( '.healer-class-selected' ).append( `You selected <b>${ text }</b>` );
+    } );
 
     playMagicSnap.play();
-    $('.warrior, .rogue, .wizard, .player-class-btn, #close-dialogue').hide();
+    $( '.warrior, .rogue, .wizard, .player-class-btn, #close-dialogue' ).hide();
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid healer-selected" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar, #start-game').show(); 
-}
+    $( '.avatar-block' ).append( `<img class="character-sprite image-fluid healer-selected" src="${ generateRandomSprite( characterImages ) }">` );
+    $( '#right, #left, .health-bar, #start-game' ).show();
+};
 
 // Rogue Class
-const selectRogue = () => {
-    $( '.rogue' ).click(function() {
-    let text = $( this ).text();
-    $( 'input' ).val( text );
-    $('.rogue-class-selected').append(`You selected <b>${text}</b>`);
+const selectRogue = () =>
+{
+    $( '.rogue' ).click( function ()
+    {
+        let text = $( this ).text();
+        $( 'input' ).val( text );
+        $( '.rogue-class-selected' ).append( `You selected <b>${ text }</b>` );
 
-    });  
+    } );
 
     playMagicSnap.play();
-    $('.healer, .warrior, .wizard, .player-class-btn, #close-dialogue').hide();
+    $( '.healer, .warrior, .wizard, .player-class-btn, #close-dialogue' ).hide();
 
-    $('.avatar-block').append(`<img class="character-sprite image-fluid rogue-selected" src="${generateRandomSprite(characterImages)}">`);
-    $('#right, #left, .health-bar, #start-game').show(); 
-}
+    $( '.avatar-block' ).append( `<img class="character-sprite image-fluid rogue-selected" src="${ generateRandomSprite( characterImages ) }">` );
+    $( '#right, #left, .health-bar, #start-game' ).show();
+};
 
 /* 
 Original Author: Dominik Widomski
@@ -247,7 +248,7 @@ $(document).on(function(){
     } else {
       log.append("<div>"+_total+"</div>");
     }
-  };
+  }
 
   // FIXME Need to keep character from moving off of the screen
 // Character Move Right
@@ -459,16 +460,18 @@ for (let i = 0; i < monsterGrowls.length; i++) {
 
 
 /* RANDOM MONSTER GENERATOR */
-const generateRandomMonster = () => {
-    let randomMonster = monsterImages[Math.floor(Math.random()*monsterImages.length)];
+const generateRandomMonster = () =>
+{
+    let randomMonster = monsterImages[ Math.floor( Math.random() * monsterImages.length ) ];
     return randomMonster;
-} 
+}; 
 
 /* RANDOM GROWL GENERATOR */
-const generateRandomGrowl = () => {
-    let randomGrowl = monsterGrowl[Math.floor(Math.random()*monsterGrowl.length)];
+const generateRandomGrowl = () =>
+{
+    let randomGrowl = monsterGrowl[ Math.floor( Math.random() * monsterGrowl.length ) ];
     return randomGrowl; // console.log(generateRandomGrowl(monsterGrowl))
-} 
+};
 
 /*************************************/
 
@@ -491,25 +494,26 @@ const monsterGrowlAudio = new Audio(generateRandomGrowl(monsterGrowl));
 /* GAMEPLAY */
 
 // TODO Load stats on game start
-const startGame = () => {
+const startGame = () =>
+{
     // WELCOME
-    $('.player-classes').replaceWith('<h4>Macon, you must hurry. The monsters are coming.</h4><p>Monsters have been spotted in the countryside. If they make it to the village of Skillet, it will be destroyed.</p><p>All of the village’s warriors are either too old or off fighting in the Pork Wars. Panic sets into Skillet until Macon, a young farmer, volunteers to meet the threat head-on. Equipped with his late father’s weapon, Macon embarks into the wilderness to meet these vile creatures head-on.</p>');
+    $( '.player-classes' ).replaceWith( '<h4>Macon, you must hurry. The monsters are coming.</h4><p>Monsters have been spotted in the countryside. If they make it to the village of Skillet, it will be destroyed.</p><p>All of the village’s warriors are either too old or off fighting in the Pork Wars. Panic sets into Skillet until Macon, a young farmer, volunteers to meet the threat head-on. Equipped with his late father’s weapon, Macon embarks into the wilderness to meet these vile creatures head-on.</p>' );
 
     // RULES
-    $('.rules').append('<h4>Rules:</h4><ol><li>Use left and right arrow to move back and forth on the screen.</li> <li>You must defeat 3 enemies and 1 boss to win.</li> <li>If your health falls to zero you lose.</li></ol>')
+    $( '.rules' ).append( '<h4>Rules:</h4><ol><li>Use left and right arrow to move back and forth on the screen.</li> <li>You must defeat 3 enemies and 1 boss to win.</li> <li>If your health falls to zero you lose.</li></ol>' )
 
     // 
-    $('#start-game, .play-button, .classes').hide(); // hide button
+    $( '#start-game, .play-button, .classes' ).hide(); // hide button
     
     // load stats for selected character
-        // if warrior select load warrior stats
-        // if healer selected load healer stats
-        // if wizard selected load wizard stats
-        // if rogue selected load rogue stats
+    // if warrior select load warrior stats
+    // if healer selected load healer stats
+    // if wizard selected load wizard stats
+    // if rogue selected load rogue stats
 
     // load random stats for monster
-        // create random Damage, Accuracy, Defense, and Health for monsters
-}
+    // create random Damage, Accuracy, Defense, and Health for monsters
+};
 
 /*  Trigger Monster */
 let moveCount = 0;
@@ -531,9 +535,7 @@ $(".trigger-monster").click(function() {
 
 /* BATTLE */
 
-function randomDamage(min, max) {  
-    return Math.random() * (max - min) + min; 
-} 
+// Reload DOM with retreat
 
 let monsterHealth = 50;
 let warriorAttack = playerClasses[0].attack;
@@ -541,14 +543,13 @@ let warriorHealth = playerClasses[0].health;
 let warriorDefense = playerClasses[0].defense;
 let warriorAccuracy = playerClasses[0].accuracy;
 
-
-$('.attack').on('click', function() {
-    console.log(monsterHealth);
-   let monsterDamage = monsterHealth - (monsterHealth - ( warriorAttack / randomDamage(1,warriorAccuracy )));
-    console.log(monsterDamage);
-   $('.modal-body').append(`You did ${Math.floor(monsterDamage)} damage.`);
-});
-
+$( '.attack' ).on( 'click', function ()
+{
+    console.log( monsterHealth );
+    let monsterDamage = monsterHealth - ( warriorAttack * warriorAccuracy );
+    console.log( monsterDamage );
+    $( '.modal-body' ).append( `You did ${ monsterDamage }` );
+}
 
 
 // popup with button options to attack or defend
@@ -561,7 +562,7 @@ $('.attack').on('click', function() {
 // Reset Character position to zero px on screen when monster defeated
 
 // BUTTONS
-$('#warrior').on('click', selectWarrior);
+$( '#warrior' ).on( 'click', selectWarrior);
 $('#wizard').on('click', selectWizard);
 $('#healer').on('click', selectHealer);
 $('#rogue').on('click', selectRogue);

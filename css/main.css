@@ -77,9 +77,13 @@ button#right:hover
     bottom: 20px;
 }
 
-.reverse-direction {
-    transform: rotateY(180deg);
+.fight, .retreat {
+    width: 125px;
+    margin: 20px;
+    z-index: 4;
 }
+
+
 
 /* Class Avatars */
 
@@ -98,6 +102,10 @@ img.character-sprite-2.image-fluid {
     left: -100px;
     position: absolute;
     bottom: -260px;
+}
+
+.reverse-direction {
+    transform: rotateY(180deg);
 }
 
 /* Monsters */

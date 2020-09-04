@@ -544,7 +544,7 @@ let warriorAccuracy = playerClasses[0].accuracy;
 
 $('.attack').on('click', function() {
     console.log(monsterHealth);
-   let monsterDamage = monsterHealth - (monsterHealth - ( warriorAttack / randomDamage(1,warriorAccuracy )));
+   let monsterDamage = monsterHealth - (monsterHealth - ( warriorAttack * randomDamage(1,warriorAccuracy ) ));
     console.log(monsterDamage);
    $('.modal-body').append(`You did ${Math.floor(monsterDamage)} damage.`);
 });

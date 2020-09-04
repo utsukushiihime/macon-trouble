@@ -33,7 +33,7 @@ const playerClasses = [{
         type: 'Warrior',
         attack: 18,
         defense: 10,
-        accuracy: 10,
+        accuracy: 0.8,
         health: 15,
         image: [
             './img/characters/warrior/warrior-1.png', 
@@ -48,7 +48,7 @@ const playerClasses = [{
         type: 'Wizard',
         attack: 18,
         defense: 10,
-        accuracy: 14,
+        accuracy: 0.7,
         health: 8,
         image:
         [
@@ -64,7 +64,7 @@ const playerClasses = [{
         type: 'Healer',
         attack: 10,
         defense: 17,
-        accuracy: 10,
+        accuracy: 0.6,
         health: 13,
         image: [
             './img/characters/healer/healer-1.png', 
@@ -78,7 +78,7 @@ const playerClasses = [{
         type: 'Rogue',
         attack: 10,
         defense: 15,
-        accuracy: 15,
+        accuracy: 0.8,
         health: 10,
         image: [
             './img/characters/rogue/rogue-1.png', 
@@ -531,9 +531,7 @@ $(".trigger-monster").click(function() {
 
 /* BATTLE */
 
-function randomDamage(min, max) {  
-    return Math.random() * (max - min) + min; 
-} 
+// Reload DOM with retreat
 
 let monsterHealth = 50;
 let warriorAttack = playerClasses[0].attack;
@@ -541,14 +539,12 @@ let warriorHealth = playerClasses[0].health;
 let warriorDefense = playerClasses[0].defense;
 let warriorAccuracy = playerClasses[0].accuracy;
 
-
 $('.attack').on('click', function() {
     console.log(monsterHealth);
-   let monsterDamage = monsterHealth - (monsterHealth - ( warriorAttack / randomDamage(1,warriorAccuracy )));
+   let monsterDamage = monsterHealth - ( warriorAttack * warriorAccuracy;
     console.log(monsterDamage);
-   $('.modal-body').append(`You did ${Math.floor(monsterDamage)} damage.`);
-});
-
+   $('.modal-body').append(`You did ${monsterDamage}`);
+})
 
 
 // popup with button options to attack or defend
